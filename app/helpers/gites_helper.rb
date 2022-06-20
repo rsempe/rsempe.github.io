@@ -1,0 +1,2 @@
+module GitesHelper
+end
