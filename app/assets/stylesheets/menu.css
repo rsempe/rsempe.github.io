@@ -62,7 +62,7 @@ a#search_bt span{ display:none;}
 
 @media only screen and (max-width: 991px) {
 
-#header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block; background-color:#333;}
+#header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block;}
 
 .main-menu ul li a:hover,
 a.show-submenu:hover,

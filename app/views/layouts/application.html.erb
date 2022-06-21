@@ -12,6 +12,38 @@
   </head>
 
   <body>
+    <div class="layer"></div>
+    <!-- Mobile menu overlay mask -->
+
+    <!--<div id="preloader">
+    <div data-loader="circle-side"></div>
+    </div>--><!-- End Preload -->
+
+    <%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
+
+    <!-- COMMON SCRIPTS -->
+    <script src="assets/jquery-1.11.2.min.js"></script>
+    <script src="assets/common_scripts_min.js"></script>
+    <script src="assets/validate.js"></script>
+    <script src="assets/functions.js"></script>
+
+    <!-- SPECIFIC SCRIPTS -->
+    <script src="assets/greensock.js"></script>
+    <script src="assets/layerslider.transitions.js"></script>
+    <script src="assets/layerslider.kreaturamedia.jquery.js"></script>
+    <script type="text/javascript">
+      $('#layerslider').layerSlider({
+        autoStart: true,
+        responsive: true,
+        responsiveUnder: 1280,
+        layersContainer: 1170,
+        navButtons:false,
+        showCircleTimer:true,
+        navStartStop:false,
+        skinsPath: 'assets/layerslider/'
+      });
+    </script>
   </body>
 </html>

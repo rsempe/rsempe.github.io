@@ -270,9 +270,8 @@ header.sticky{
 	border-bottom:1px solid #ededed;
 }
 #logo img{
-	height:35px;
-	width:auto;
-	margin:8px 0;
+	height:45px;
+	margin:0;
 }
 ul#lang_top{
 	float:right;
@@ -299,9 +298,8 @@ ul#lang_top li a.active{
 
 /* Footer  */
 footer {
-	background:#2f2f2f url(assets/pattern.png) repeat;
 	padding:30px 0 10px 0;
-	color:#fff;
+	color:#333;
 	width:100%;
 }
 #logo_footer {
@@ -313,7 +311,7 @@ footer h3{
 	font-weight:500;
 }
 footer a{
-	color: #fff;
+	color: #333;
 }
 footer a:hover{
 	color: #ed5434;
@@ -329,7 +327,7 @@ footer ul{
 	margin-top:30px;
 }
 #social_footer p{
-	color:#fff;
+	color:#333;
 }
 #social_footer ul{
 	margin:0;
@@ -341,10 +339,10 @@ footer ul{
 	margin:0 5px 10px 5px;
 }
 #social_footer ul li a{
-	color:#fff;
+	color:#333;
 	text-align:center;
 	opacity:1;
-	border:1px solid #FFF;
+	border:1px solid #333;
 	line-height:34px;
 	display:block;
 	font-size:16px;
@@ -355,7 +353,7 @@ footer ul{
 	border-radius: 50%;
 }
 #social_footer ul li a:hover{
-	background:#fff;
+	background:#333;
 	color:#ed5434;
 }
 ul#contact_details_footer{
