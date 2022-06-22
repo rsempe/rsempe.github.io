@@ -471,7 +471,7 @@ input#email_newsletter_2.form-control{
 }
 .promo_full {
 	height:auto;
-	background: url(assets/promo_bg.jpg) no-repeat center center;
+	background: url(assets/villa/promo_bg.jpg) no-repeat center center;
 	background-attachment:fixed;
 	background-size:cover;
 	-webkit-background-size: cover;
