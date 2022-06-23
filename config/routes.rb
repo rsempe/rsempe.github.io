@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  resources :bnbs, only: [:index]
-
-  get :villa, controller: :villa, action: :index
+  get "villa", controller: :home, action: :villa
+  get "chambres-hotes", controller: :home, action: :bnbs
 end
