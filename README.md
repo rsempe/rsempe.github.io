@@ -15,3 +15,4 @@ http://preview.themeforest.net/item/albert-hotel-and-bedbreakfast/full_screen_pr
 - Contact form
 - Internationalisation
 - Page chambres d'hotes
+- Google Maps
