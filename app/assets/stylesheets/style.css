@@ -471,13 +471,18 @@ input#email_newsletter_2.form-control{
 }
 .promo_full {
 	height:auto;
-	background: url(assets/villa/promo_bg.jpg) no-repeat center center;
 	background-attachment:fixed;
 	background-size:cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	position:relative;
+}
+.promo_full.villa {
+	background: url(assets/villa/promo_bg.jpg) no-repeat center center;
+}
+.promo_full.bnbs {
+	background: url(assets/bnbs/promo_bg.jpg) no-repeat center center;
 }
 .promo_full_wp {
     display: table;
