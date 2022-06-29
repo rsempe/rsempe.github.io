@@ -12,7 +12,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700" %>
@@ -32,15 +32,15 @@
     <%= render "layouts/footer" %>
 
     <!-- COMMON SCRIPTS -->
-    <script src="assets/jquery-1.11.2.min.js"></script>
-    <script src="assets/common_scripts_min.js"></script>
-    <script src="assets/validate.js"></script>
-    <script src="assets/functions.js"></script>
+    <script src="/assets/jquery-1.11.2.min.js"></script>
+    <script src="/assets/common_scripts_min.js"></script>
+    <script src="/assets/validate.js"></script>
+    <script src="/assets/functions.js"></script>
 
     <!-- SPECIFIC SCRIPTS -->
-    <script src="assets/greensock.js"></script>
-    <script src="assets/layerslider.transitions.js"></script>
-    <script src="assets/layerslider.kreaturamedia.jquery.js"></script>
+    <script src="/assets/greensock.js"></script>
+    <script src="/assets/layerslider.transitions.js"></script>
+    <script src="/assets/layerslider.kreaturamedia.jquery.js"></script>
     <script type="text/javascript">
       if ($('#layerslider').length > 0) {
         $('#layerslider').layerSlider({
@@ -51,7 +51,7 @@
           navButtons:false,
           showCircleTimer:true,
           navStartStop:false,
-          skinsPath: 'assets/layerslider/'
+          skinsPath: '/assets/layerslider/'
         });
       }
     </script>

@@ -94,12 +94,13 @@ jQuery(document).ready(function(){
 			.attr('disabled','disabled');
 
 		$.post(action, {
-			name_contact: $('#name_contact').val(),
-			lastname_contact: $('#lastname_contact').val(),
-			email_contact: $('#email_contact').val(),
-			phone_contact: $('#phone_contact').val(),
-			message_contact: $('#message_contact').val(),
-			verify_contact: $('#verify_contact').val()
+			contact: {
+				firstname: $('#firstname_contact').val(),
+				lastname: $('#lastname_contact').val(),
+				email: $('#email_contact').val(),
+				phone: $('#phone_contact').val(),
+				message: $('#message_contact').val()
+			}
 		},
 			function(data){
 				document.getElementById('message-contact').innerHTML = data;
@@ -107,7 +108,6 @@ jQuery(document).ready(function(){
 				$('#contactform .loader').fadeOut('slow',function(){$(this).remove()});
 				$('#submit-contact').removeAttr('disabled');
 				if(data.match('success') != null) $('#contactform').slideUp('slow');
-
 			}
 		);
 

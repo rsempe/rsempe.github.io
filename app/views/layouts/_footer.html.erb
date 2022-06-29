@@ -44,26 +44,44 @@
         </ul>
       </div>
       <div class="col-md-2 col-sm-4">
-        <h3>About</h3>
+        <h3>Liens</h3>
         <ul>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Rooms</a></li>
-          <li><a href="#">Activities</a></li>
-          <li><a href="#">Contact us</a></li>
-          <li><a href="#">Gallery</a></li>
+          <li><%= link_to "Accueil", root_path %></li>
+          <li><%= link_to "La Villa", villa_path %></li>
+          <li><%= link_to "Les Chambres d'Hôtes", chambres_hotes_path %></li>
+          <li><%= link_to "Nous Contacter", root_path %></li>
         </ul>
       </div>
       <div class="col-md-3 col-sm-4" id="newsletter">
-        <h3>Les annonces</h3>
+        <h3>Les Annonces</h3>
         <ul>
-          <li><a href="https://www.airbnb.fr/rooms/47841085" target="_blank">Voir l'annonce sur Airbnb</a></li>
+          <li>
+            <a href="https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html" target="_blank">
+              Chambres d'Hôtes (Booking)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.airbnb.fr/rooms/47331722" target="_blank">
+              Studio Le Cabanon (Airbnb)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.airbnb.fr/rooms/47504292" target="_blank">
+              Studio La Roseraie (Airbnb)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.airbnb.fr/rooms/47841085" target="_blank">
+              La Villa (Airbnb)
+            </a>
+          </li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <div id="social_footer">
-          <p>© Gites Les Célestins <%= Date.today.year %></p>
+          <p>© Gites & Chambres d'Hôtes - Les Célestins <%= Date.today.year %></p>
         </div>
       </div>
     </div>

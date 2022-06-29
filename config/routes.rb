@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get "villa", controller: :home, action: :villa
   get "chambres-hotes", controller: :home, action: :bnbs
+  resources :contacts, only: [:new, :create]
 end

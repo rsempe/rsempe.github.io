@@ -20,39 +20,10 @@
           </div>
           <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
           <ul>
-            <li class="submenu">
-              <%= link_to root_path, class: "show-submenu" do %>
-                Accueil<i class="icon-down-open-mini"></i>
-              <% end %>
-
-              <ul>
-                <li><a href="index.html">Home Booking</a></li>
-                <li><a href="index_5.html">Home Booking date 2</a></li>
-                <li><a href="index_4.html">Home Carousel</a></li>
-                <li><a href="index_2.html">Home Layer Slider</a></li>
-                <li><a href="index_6.html">Home Video bg</a></li>
-                <li><a href="index_3.html">Home Text Rotator</a></li>
-              </ul>
-            </li>
-            <li><a href="room_list.html">Rooms</a></li>
-            <li class="submenu">
-              <a href="javascript:void(0);" class="show-submenu">Pages<i class="icon-down-open-mini"></i></a>
-              <ul>
-                <li><a href="room_detail.html">Room detail</a></li>
-                <li><a href="room_detail_2.html">Room detail date 2</a></li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="faq.html">Faq</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="coming_soon/index.html">Site launch/Coming soon</a></li>
-                <li><a href="shortcodes.html">Shortcodes</a></li>
-                <li><a href="icon_pack_1.html">Icon pack 1</a></li>
-                <li><a href="icon_pack_2.html">Icon pack 2</a></li>
-                <li><a href="icon_pack_3.html">Icon pack 3</a></li>
-              </ul>
-            </li>
-            <li><a href="contacts.html">Contacts</a></li>
-            <li><a href="#0">Purchase this template</a></li>
+            <li><%= link_to "Accueil", root_path %></li>
+            <li><%= link_to "Les Chambres d'Hôtes", chambres_hotes_path %></li>
+            <li><%= link_to "La Villa", villa_path %></li>
+            <li><%= link_to "Nous Contacter", new_contact_path %></li>
           </ul>
         </div>
       </nav>

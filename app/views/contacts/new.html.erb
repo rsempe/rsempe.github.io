@@ -1,0 +1,83 @@
+<div class="container margin_60_35">
+  <h2 class="main_title"><em></em>Gîtes &amp; Chambres d'Hôtes<span>Les Célestins - Carpentras</span></h2>
+  <div class="row add_top_20">
+    <div class="col-md-4">
+      <div class="box_style_1">
+        <div class="box_contact">
+          <i class="icon_set_1_icon-41"></i>
+          <h4>Adresse</h4>
+          <p>
+            26 Chemin Traversier de Lira<br>84200 Carpentras<br>France<br><br>
+            <a href="tel://0033679067407">+33 6 79 06 74 07</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+      <div id="message-contact"></div>
+
+      <%= form_for @contact, html: { id: "contactform" }  do |f| %>
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <%= f.label :firstname, "Prénom" %>
+              <%= f.text_field :firstname, required: true, class: "form-control", id: "firstname_contact" %>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <%= f.label :lastname, "Nom" %>
+              <%= f.text_field :lastname, required: true, class: "form-control", id: "lastname_contact" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <%= f.label :email, "Email" %>
+              <%= f.email_field :email, required: true, class: "form-control", id: "email_contact" %>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-6">
+            <div class="form-group">
+              <%= f.label :phone, "Téléphone" %>
+              <%= f.text_field :phone, class: "form-control", id: "phone_contact" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= f.label :message %>
+              <%= f.text_area :message, required: true, class: "form-control", style: "height:150px;", id: "message_contact" %>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:none;">
+          <%= f.label :nickname %>
+          <%= f.text_field :nickname, hint: 'Leave this field blank!' %>
+        </div>
+
+        <div class="row add_bottom_30">
+          <div class="col-md-6">
+            <%= f.submit 'Envoyer le message', class: 'btn_1', id: "submit-contact" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="map"></div>
+<div id="toTop"></div>
+
+<!-- Specific scripts -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBYRZO2P7Aaw4TCT9JzlVc5s8AxJkgfpQ"></script>
+<script type="text/javascript" src="/assets/mapmarker.jquery.js"></script>
+<script type="text/javascript" src="/assets/mapmarker_func.jquery.js"></script>
