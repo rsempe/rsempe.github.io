@@ -9,3 +9,4 @@ set :deploy_to, '/home/leman/sites/lescelestins'
 set :user, 'leman'
 set :log_level, :info
 set :passenger_restart_with_touch, true
+set :linked_files, %w{config/master.key}
