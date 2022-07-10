@@ -1,5 +1,24 @@
 <div class="container margin_60_35">
-  <%= link_to "La Villa", villa_path %>
-  |
-  <%= link_to "Nos chambres d'hôtes", chambres_hotes_path %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="mosaic_container">
+        <figure class="room_pic">
+          <%= link_to villa_path do %>
+            <%= image_tag("villa/homepage.jpg", class: "img-responsive add_bottom_30") %>
+          <% end %>
+          <span class="caption_1" style="right:0;">La VILLA</span>
+        </figure>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="mosaic_container">
+        <figure class="room_pic">
+          <%= link_to chambres_hotes_path do %>
+            <%= image_tag("bnbs/homepage.jpg", class: "img-responsive add_bottom_30") %>
+          <% end %>
+          <span class="caption_1" style="width:150px; right:0">Les Studios</span>
+        </figure>
+      </div>
+    </div>
+  </div>
 </div>
