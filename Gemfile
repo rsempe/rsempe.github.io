@@ -9,6 +9,7 @@ gem "puma", "~> 5.0"
 gem "jbuilder"
 gem "mail_form"
 gem "pry-rails"
+gem "sass-rails"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"

@@ -479,20 +479,20 @@ input#email_newsletter_2.form-control{
 	position:relative;
 }
 .promo_full.villa {
-	background: url(assets/villa/promo_bg.jpg) no-repeat center center;
+	background-image: url(image-path('villa/promo_bg.jpg')) no-repeat center center;
 }
 .promo_full.bnbs {
-	background: url(assets/bnbs/promo_bg.jpg) no-repeat center center;
+	background-image: url(image-path('bnbs/promo_bg.jpg')) no-repeat center center;
 }
 .promo_full_wp {
-    display: table;
-   width:100%;
+  display: table;
+  width:100%;
   height:auto;
 }
 .promo_full_wp > div{
   display: table-cell;
   padding:8% 0;
-   vertical-align: middle;
+  vertical-align: middle;
 	text-align:center;
 	color:#fff;
 	font-size:16px;
@@ -546,12 +546,12 @@ input#email_newsletter_2.form-control{
 .header-video {
   position: relative;
   overflow: hidden;
-   background: #000;
+  background: #000;
 }
 #hero_video {
 	position: relative;
-    background-size: cover;
-    color:#fff;
+  background-size: cover;
+  color:#fff;
 	width: 100%;
 	font-size:16px;
 	display:table;
@@ -592,7 +592,7 @@ video {
   height: auto;
 }
 .morphext > .animated {
-    display: inline-block;
+  display: inline-block;
 }
 /*-------- 2.2 Room list --------*/
 .room_desc{

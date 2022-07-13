@@ -18,7 +18,7 @@
 .ls-v5 .ls-nav-stop,
 .ls-v5 .ls-fullscreen,
 .ls-v5 .ls-loading-container {
-	background-image: url(assets/layerslider/v5/skin.png);
+	background-image: url(image-path('layerslider/v5/skin.png'));
 }
 
 .ls-v5 .ls-playvideo {
@@ -190,7 +190,7 @@
 	width: 22px;
 	height: 22px;
 	margin-top: 9px;
-	background-image: url(assets/layerslider/v5/loading.gif);
+	background-image: url(image-path('layerslider/v5/loading.gif'));
 }
 
 
