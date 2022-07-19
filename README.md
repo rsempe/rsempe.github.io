@@ -12,9 +12,5 @@ http://preview.themeforest.net/item/albert-hotel-and-bedbreakfast/full_screen_pr
 
 ## TODO
 
-- Menu header
-- Footer
-- Contact form
 - Internationalisation
-- Page chambres d'hotes
 - Google Maps

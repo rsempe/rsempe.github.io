@@ -1,12 +1,18 @@
 //set up markers
-var myMarkers = {"markers": [
-		{"latitude": "51.511732", "longitude":"-0.123270", "icon": "img/map-marker.png"}
+var myMarkers = {
+	"markers": [
+		{
+			"latitude": "44.05729107816163",
+			"longitude": "5.025749021901367",
+			"icon": "/assets/map-marker.png",
+			"baloon_text": "Gîtes & Chambres d'Hôtes - Les Célestins"
+		}
 	]
 };
 
 //set up map options
 $("#map").mapmarker({
-	zoom	: 14,
-	center	: 'Covent Garden London',
-	markers	: myMarkers
+	zoom: 15,
+	center: "26 chemin traversier de lira, 84200 Carpentras",
+	markers: myMarkers
 });
