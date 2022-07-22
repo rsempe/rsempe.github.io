@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="col-md-3 col-sm-4">
-        <h3>A propos de l'hôte</h3>
+        <h3><%= t("footer.about_the_host") %></h3>
         <figure>
           <%= image_tag("emmanuelle2.jpg", class: "img-circle", size: "100x100") %>
         </figure>
@@ -38,41 +38,41 @@
             </div>
           </li>
           <li>
-            Hôte depuis 2016<br>
-            Superhote sur Airbnb
+            <%= t("footer.host_since") %><br>
+            <%= t("footer.superhost_airbnb") %>
           </li>
         </ul>
       </div>
       <div class="col-md-2 col-sm-4">
-        <h3>Liens</h3>
+        <h3><%= t("footer.links") %></h3>
         <ul>
-          <li><%= link_to "Accueil", root_path %></li>
-          <li><%= link_to "La Villa", villa_path %></li>
-          <li><%= link_to "Les Chambres d'Hôtes", chambres_hotes_path %></li>
-          <li><%= link_to "Nous Contacter", root_path %></li>
+          <li><%= link_to t("common.home"), root_path %></li>
+          <li><%= link_to t("common.the_villa"), villa_path %></li>
+          <li><%= link_to t("common.the_bnbs"), chambres_hotes_path %></li>
+          <li><%= link_to t("common.contact_us"), root_path %></li>
         </ul>
       </div>
       <div class="col-md-3 col-sm-4" id="newsletter">
-        <h3>Les Annonces</h3>
+        <h3><%= t("footer.listings") %></h3>
         <ul>
           <li>
             <a href="https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html" target="_blank">
-              Chambres d'Hôtes (Booking)
+              <%= t("common.bnbs") %> (Booking)
             </a>
           </li>
           <li>
             <a href="https://www.airbnb.fr/rooms/47331722" target="_blank">
-              Studio Le Cabanon (Airbnb)
+              <%= t("common.studio_cabanon") %> (Airbnb)
             </a>
           </li>
           <li>
             <a href="https://www.airbnb.fr/rooms/47504292" target="_blank">
-              Studio La Roseraie (Airbnb)
+              <%= t("common.studio_roseraie") %> (Airbnb)
             </a>
           </li>
           <li>
             <a href="https://www.airbnb.fr/rooms/47841085" target="_blank">
-              La Villa (Airbnb)
+              <%= t("common.the_villa") %> (Airbnb)
             </a>
           </li>
         </ul>
@@ -81,7 +81,7 @@
     <div class="row">
       <div class="col-md-12">
         <div id="social_footer">
-          <p>© Gites & Chambres d'Hôtes - Les Célestins <%= Date.today.year %></p>
+          <p>© <%= t("common.gites_and_bnbs_les_celestins") %> <%= Date.today.year %></p>
         </div>
       </div>
     </div>

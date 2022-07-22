@@ -10,6 +10,7 @@ gem "jbuilder"
 gem "mail_form"
 gem "pry-rails"
 gem "sass-rails"
+gem "http_accept_language"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"

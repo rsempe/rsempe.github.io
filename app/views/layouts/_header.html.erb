@@ -8,11 +8,11 @@
       </div>
       <nav class="col--md-9 col-sm-9 col-xs-9">
         <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);">
-          <span>Menu mobile</span>
+          <span><%= t("header.mobile_menu") %>Menu mobile</span>
         </a>
         <ul id="lang_top">
-          <li><a href="#" class="active">FR</a></li>
-          <li><a href="#">EN</a></li>
+          <li><%= link_to 'FR', root_path(locale: 'fr'), class: ('active' if I18n.locale == :fr) %></li>
+          <li><%= link_to 'EN', root_path(locale: 'en'), class: ('active' if I18n.locale == :en) %></li>
         </ul>
         <div class="main-menu">
           <div id="header_menu">
@@ -20,10 +20,10 @@
           </div>
           <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
           <ul>
-            <li><%= link_to "Accueil", root_path %></li>
-            <li><%= link_to "Les Chambres d'Hôtes", chambres_hotes_path %></li>
-            <li><%= link_to "La Villa", villa_path %></li>
-            <li><%= link_to "Nous Contacter", new_contact_path %></li>
+            <li><%= link_to t("common.home"), root_path %></li>
+            <li><%= link_to t("common.the_bnbs"), chambres_hotes_path %></li>
+            <li><%= link_to t("common.the_villa"), villa_path %></li>
+            <li><%= link_to t("common.contact_us"), new_contact_path %></li>
           </ul>
         </div>
       </nav>

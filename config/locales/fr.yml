@@ -1,0 +1,18 @@
+fr:
+  common:
+    home: Accueil
+    bnbs: Chambres d'Hôtes
+    the_bnbs: Les Chambres d'Hôtes
+    the_villa: La Villa
+    contact_us: Nous Contacter
+    studio_cabanon: Studio Le Cabanon
+    studio_roseraie: Studio La Roseraie
+    gites_and_bnbs_les_celestins: Gites & Chambres d'Hôtes - Les Célestins
+  header:
+    mobile_menu: Menu Mobile
+  footer:
+    about_the_host: A propos de l'hôte
+    host_since: Hôte depuis 2016
+    superhost_airbnb: Superhote sur Airbnb
+    links: Liens
+    listings: Les Annonces

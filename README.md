@@ -13,4 +13,3 @@ http://preview.themeforest.net/item/albert-hotel-and-bedbreakfast/full_screen_pr
 ## TODO
 
 - Internationalisation
-- Google Maps
