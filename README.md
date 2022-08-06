@@ -13,3 +13,6 @@ http://preview.themeforest.net/item/albert-hotel-and-bedbreakfast/full_screen_pr
 ## TODO
 
 - Internationalisation
+- Changer logo
+- Ajouter photos chambres
+- Gite chez louisette

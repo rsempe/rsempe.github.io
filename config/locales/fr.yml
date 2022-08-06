@@ -1,5 +1,6 @@
 fr:
   common:
+    address: Adresse
     home: Accueil
     bnbs: Chambres d'Hôtes
     the_bnbs: Les Chambres d'Hôtes
@@ -7,6 +8,7 @@ fr:
     contact_us: Nous Contacter
     studio_cabanon: Studio Le Cabanon
     studio_roseraie: Studio La Roseraie
+    gites_and_bnbs: Gites & Chambres d'Hôtes
     gites_and_bnbs_les_celestins: Gites & Chambres d'Hôtes - Les Célestins
   header:
     mobile_menu: Menu Mobile
@@ -16,3 +18,10 @@ fr:
     superhost_airbnb: Superhote sur Airbnb
     links: Liens
     listings: Les Annonces
+  contacts:
+    first_name: Prénom
+    last_name: Nom
+    email: Email
+    phone: Téléphone
+    message: Message
+    send_message: Envoyer le message

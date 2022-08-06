@@ -1,11 +1,11 @@
 <div class="container margin_60_35">
-  <h2 class="main_title"><em></em>Gîtes &amp; Chambres d'Hôtes<span>Les Célestins - Carpentras</span></h2>
+  <h2 class="main_title"><em></em><%= t("common.gites_and_bnbs") %><span>Les Célestins - Carpentras</span></h2>
   <div class="row add_top_20">
     <div class="col-md-4">
       <div class="box_style_1">
         <div class="box_contact">
           <i class="icon_set_1_icon-41"></i>
-          <h4>Adresse</h4>
+          <h4><%= t("common.address") %></h4>
           <p>
             26 Chemin Traversier de Lira<br>84200 Carpentras<br>France<br><br>
             <a href="mailto:giteslescelestins@gmail.com">giteslescelestins@gmail.com</a><br>
@@ -22,14 +22,14 @@
         <div class="row">
           <div class="col-md-6 col-sm-6">
             <div class="form-group">
-              <%= f.label :firstname, "Prénom" %>
+              <%= f.label :firstname, t("contacts.first_name") %>
               <%= f.text_field :firstname, required: true, class: "form-control", id: "firstname_contact" %>
             </div>
           </div>
 
           <div class="col-md-6 col-sm-6">
             <div class="form-group">
-              <%= f.label :lastname, "Nom" %>
+              <%= f.label :lastname, t("contacts.last_name") %>
               <%= f.text_field :lastname, required: true, class: "form-control", id: "lastname_contact" %>
             </div>
           </div>
@@ -38,14 +38,14 @@
         <div class="row">
           <div class="col-md-6 col-sm-6">
             <div class="form-group">
-              <%= f.label :email, "Email" %>
+              <%= f.label :email, t("contacts.email") %>
               <%= f.email_field :email, required: true, class: "form-control", id: "email_contact" %>
             </div>
           </div>
 
           <div class="col-md-6 col-sm-6">
             <div class="form-group">
-              <%= f.label :phone, "Téléphone" %>
+              <%= f.label :phone, t("contacts.phone") %>
               <%= f.text_field :phone, class: "form-control", id: "phone_contact" %>
             </div>
           </div>
@@ -54,7 +54,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <%= f.label :message %>
+              <%= f.label :message, t("contacts.message") %>
               <%= f.text_area :message, required: true, class: "form-control", style: "height:150px;", id: "message_contact" %>
             </div>
           </div>
@@ -67,7 +67,7 @@
 
         <div class="row add_bottom_30">
           <div class="col-md-6">
-            <%= f.submit 'Envoyer le message', class: 'btn_1', id: "submit-contact" %>
+            <%= f.submit t("contacts.send_message"), class: 'btn_1', id: "submit-contact" %>
           </div>
         </div>
       <% end %>
