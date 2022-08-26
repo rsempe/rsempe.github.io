@@ -479,10 +479,10 @@ input#email_newsletter_2.form-control{
 	position:relative;
 }
 .promo_full.villa {
-	background-image: url(image-path('villa/promo_bg.jpg')) no-repeat center center;
+	background: url(image-path('villa/promo_bg.jpg')) no-repeat center center;
 }
 .promo_full.bnbs {
-	background-image: url(image-path('bnbs/promo_bg.jpg')) no-repeat center center;
+	background: url(image-path('bnbs/promo_bg.jpg')) no-repeat center center;
 }
 .promo_full_wp {
   display: table;
