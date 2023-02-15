@@ -154,7 +154,7 @@
 
 	#hero_video > div{padding:60px 20px 0 20px;}
 	#hero_video #sub_content .mobile_fix {display:none}
-	h1.main_title,h2.main_title {font-size:28px;}
+	h1.main_title,h2.main_title {font-size:24px;}
 	h1.main_title span, h2.main_title span {font-size:18px;}
 
 	p.lead.styled { font-size:16px;}
