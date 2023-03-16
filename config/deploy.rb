@@ -2,7 +2,7 @@
 lock "~> 3.17.0"
 
 set :application, "Ruby42"
-set :repo_url, "git@bitbucket.org:rsempe/gites-les-celestins.git"
+set :repo_url, "git@github.com:rsempe/gites-les-celestins.git"
 set :rbenv_ruby, "3.1.1"
 set :branch, ENV['BRANCH'] || "main"
 set :deploy_to, '/home/leman/sites/lescelestins'
