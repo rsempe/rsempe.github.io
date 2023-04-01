@@ -142,7 +142,7 @@ GEM
       digest
       net-protocol
       timeout
-    net-ssh (7.0.1)
+    net-ssh (7.1.0)
     nio4r (2.5.8)
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
