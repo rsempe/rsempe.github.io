@@ -1,10 +1,10 @@
 <div class="container margin_60_35">
   <div class="row add_top_20">
-    <h1 class="main_title">Gîtes & Chambres d'Hôtes<span>Carpentras - Provence</span></h1>
+    <h1 class="main_title"><%= t("home.title") %><span>Carpentras - Vaucluse - Provence</span></h1>
     <p class="lead styled" style="margin-bottom:0">
-      Deux gîtes de charme, chacun pour 6 personnes: La Villa & La Maison!
+      <%= t("home.lead.villa") %><span><%= t("common.the_villa") %></span>
       <br><br>
-      Deux studios équipés et indépendants en chambres d'hôtes: Le Cabanon & La Roseraie!
+      <%= t("home.lead.bnbs") %><span><%= t("common.the_cabanon_and_the_roseraie") %></span>
     </p>
   </div>
 </div>
@@ -17,7 +17,7 @@
           <%= link_to villa_path do %>
             <%= image_tag("villa/homepage.jpg", class: "img-responsive add_bottom_30") %>
           <% end %>
-          <span class="caption_1" style="right:0;">La VILLA</span>
+          <span class="caption_1" style="right:0;"><%= t("common.the_villa_upcase") %></span>
         </figure>
       </div>
     </div>
@@ -27,7 +27,7 @@
           <%= link_to chambres_hotes_path do %>
             <%= image_tag("bnbs/homepage.jpg", class: "img-responsive add_bottom_30") %>
           <% end %>
-          <span class="caption_1" style="width:150px; right:0">Les Studios</span>
+          <span class="caption_1" style="width:150px; right:0"><%= t("common.the_studios_upcase") %></span>
         </figure>
       </div>
     </div>
@@ -38,9 +38,9 @@
   <div class="container margin_60">
     <div class="row">
       <div class="col-sm-6">
-        <h2 style="margin-top: 0px">Nos Récompenses - Gage De Qualité</h2>
-        <p>Nous essayons de faire le maximum pour que vous passiez un agréable séjour!</p>
-        <p style="margin-bottom: 0px">Et grace à vous, voici les dernières récompenses reçues sur les plateformes Airbnb, Booking et Google.</p>
+        <h2 style="margin-top: 0px"><%= t("home.awards.title") %></h2>
+        <p><%= t("home.awards.first") %></p>
+        <p style="margin-bottom: 0px"><%= t("home.awards.second") %></p>
       </div>
       <div class="col-sm-2">
         <%= link_to "https://www.airbnb.com/users/show/115617715", target: "_blank" do %>

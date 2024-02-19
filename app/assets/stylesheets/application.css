@@ -24,3 +24,7 @@
  *= require owl-theme-default
  *= require_self
  */
+
+ p.lead.styled span {
+	color: #ed5434;
+}

@@ -3,7 +3,7 @@
     <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
       <%= image_tag("villa/villa-1.jpg", class: "ls-bg", alt: "Slide background") %>
       <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;" >
-        <strong>Villa en Provence</strong> (6 pers)
+        <strong><%= t("villa.title") %></strong> (<%= t("villa.six_people") %>)
       </h3>
       <!--<a href="#0" class="btn_slider ls-l" style="top:62%; left:50%;" data-ls="durationin:2000;delayin:1300;easingin:easeOutElastic;" >En savoir plus</a>-->
     </div>
@@ -11,37 +11,39 @@
 </div>
 
 <div class="container margin_60_35">
-  <h1 class="main_title"><em></em>La Villa <span>Gîte à Carpentras pour 6 personnes</span></h1>
+  <h1 class="main_title">
+    <em></em>
+    <%= t("common.the_villa") %> <span><%= t("villa.subtitle") %></span>
+  </h1>
   <p class="lead styled">
-    Villa au calme, entièrement clôturée et sans vis-à-vis.<br>
-    Avec piscine et entièrement climatisée!<br><br>
-
-    La Villa se situe à 5 min du centre ville de Carpentras en voiture ou 2 min à pieds, mais aussi à 10km du parc aquatique Wave Island et du parc Spirou. Vous pourrez également profiter du marché provençal de Carpentras, de visiter nos charmants villages (Le Barroux, Gigondas, Gordes, Roussillon..), d'une ballade dans le Mt Ventoux ou tout simplement de la piscine de la Villa.<br><br>
+    <%= t("villa.description.first") %><br>
+    <%= t("villa.description.second") %><br><br>
+    <%= t("villa.description.third") %><br><br>
   </p>
   <div class="row">
     <div class="col-sm-6">
       <div class="mosaic_container">
         <%= image_tag("villa/mosaic-1.jpg", class: "img-responsive add_bottom_30") %>
-        <span class="caption_2">Espace divertissement</span>
+        <span class="caption_2"><%= t("villa.entertainent_area") %></span>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="col-xs-12">
         <div class="mosaic_container">
           <%= image_tag("villa/mosaic-2.jpg", class: "img-responsive add_bottom_30") %>
-          <span class="caption_2">Piscine</span>
+          <span class="caption_2"><%= t("villa.swimming_pool") %></span>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="mosaic_container">
           <%= image_tag("villa/mosaic-3.jpg", class: "img-responsive add_bottom_30") %>
-          <span class="caption_2">Terrain de Pétanque</span>
+          <span class="caption_2"><%= t("villa.boules_court") %></span>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="mosaic_container">
           <%= image_tag("villa/mosaic-4.jpg", class: "img-responsive add_bottom_30") %>
-          <span class="caption_2">Terrasse</span>
+          <span class="caption_2"><%= t("villa.patio") %></span>
         </div>
       </div>
     </div>
@@ -49,11 +51,9 @@
 </div>
 
 <p class="lead styled">
-  La Villa (105 m²) se compose d'un espace de vie (salon-salle à manger et cuisine) et de 3 chambres avec pour chacune sa douche et wc indépendants. Toutes les pièces sont climatisées.<br><br>
-
-  Vous pourrez profiter en extérieur d'une cour de ~800 m², d'un grand terrain de pétanque et d'une piscine.<br><br>
-
-  Un barbecue, table de ping pong et babyfoot seront aussi présents.
+  <%= t("villa.mosaics.first") %><br><br>
+  <%= t("villa.mosaics.second") %><br><br>
+  <%= t("villa.mosaics.third") %>
 </p>
 
 <%= render "villa/mosaics" %>
@@ -61,27 +61,28 @@
 <div class="container margin_30">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h3>Tarifs</h3>
+      <h3><%= t("common.prices") %></h3>
       <table class="table table-striped">
         <tbody>
           <tr>
-            <td>Semaine (7 nuits)</td>
-            <td>1850€ / semaine</td>
+            <td><%= t("common.week_with_nights") %></td>
+            <td>1850€ / <%= t("common.week") %></td>
           </tr>
           <tr>
-            <td>Week-end (2 nuits)</td>
-            <td>700€ / weekend</td>
+            <td><%= t("common.weekend_with_nights") %></td>
+            <td>700€ / <%= t("common.weekend") %></td>
           </tr>
           <tr>
-            <td>Nuit supplémentaire</td>
-            <td>265€ / nuit</td>
+            <td><%= t("common.additional_night") %></td>
+            <td>265€ / <%= t("common.night") %></td>
           </tr>
         </tbody>
       </table>
       <p class="text-right">
-        *Draps & serviettes de toilette compris<br/>
-        *Ménage de fin de séjour (en sus) : 80€<br/>
-        *<%= link_to "Taxe de séjour", "https://lacove.taxesejour.fr", target: "_blank" %> (en sus)
+        *<%= t("common.included_towels") %><br/>
+        *<%= t("common.excluded_cleaning") %> 80€<br/>
+
+        *<%= link_to t("common.tourist_tax"), "https://lacove.taxesejour.fr", target: "_blank" %> (<%= t("common.extra") %>)
       </p>
     </div>
   </div>

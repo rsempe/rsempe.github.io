@@ -1,18 +1,113 @@
+---
 en:
+  bnbs:
+    bnbs_in_carpentras: Bed & Breakfast in Carpentras
+    cabanon:
+      description:
+        first: This studio (approximately 25m²) consists of a kitchen area, a 160 cm bed, a shower, and a separate toilet.
+        second: Air conditioning is provided, and you will have a shaded terrace with barbecue.
+        third: Linen, towels, and breakfast included.
+      pool_view: pool view
+    description:
+      first: Renovated former farm 'Les Célestins' on the family market gardening operation (strawberries), which consists of a main building, The Farm that we occupy, and 2 studios, The Cabanon and The Roseraie.
+      second: We are located 5 minutes from the center of Carpentras by car and 20 minutes on foot.
+      third: You can enjoy the Provencal market on Fridays, visit our beautiful Vaucluse and its villages, go out with family to Spirou or Wave Island parks (7 kms), discover Mont Ventoux, or simply enjoy the Farm's pool.
+    free_breakfast: Included Breakfast
+    included_towels_and_cleaning: Linen, towels, and end-of-stay cleaning included.
+    independent_studios: Studios Indépendants
+    roseraie:
+      description:
+        first: This studio (approximately 25m²) consists of a kitchen area, a 160 cm bed, a shower, and a separate toilet.
+        second: Air conditioning is provided, and you will have a shaded terrace with barbecue.
+        third: Linen, towels, and breakfast included.
+      garden_view: garden view
+    title: Studios in Provence
+    two_people: 2 people
   common:
-    home: Home
-    bnbs: Chambres d'Hôtes
-    the_bnbs: The Bed & Breakfasts
-    the_villa: The Villa
+    additional_night: Additional night
+    air_conditioning: Air conditioning
+    bnbs: Bed & Breakfast
     contact_us: Contact us
-    studio_cabanon: Studio "Le Cabanon"
-    studio_roseraie: Studio "La Roseraie"
+    excluded_cleaning: 'End-of-stay cleaning (extra):'
+    extra: extra
+    free_wifi: Free WiFi
     gites_and_bnbs_les_celestins: Gites & Chambres d'Hôtes - Les Célestins
-  header:
-    mobile_menu: Mobile Menu
+    home: Home
+    included_towels: Bed linens & towels included
+    independant_bathroom: Independent bathroom and toilet
+    individual_air_conditioning: Individual air conditioning
+    large_double_bed: Large double bed 160 cm
+    min_two_nights: 2 nights minimum
+    night: night
+    prices: Prices
+    rooms: Rooms
+    studio_cabanon: Studio The Cabanon
+    studio_roseraie: Studio The Roseraie
+    television: Television
+    the_bnbs: The Bed & Breakfast
+    the_cabanon_and_the_roseraie: The Cabanon & The Roseraie
+    the_rooms: The Rooms
+    the_studios: The Studios
+    the_studios_upcase: The STUDIOS
+    the_villa: The Villa
+    the_villa_upcase: The VILLA
+    tourist_tax: Tourist tax
+    wardrobe: Wardrobe and hanging space
+    week: week
+    week_with_nights: Week (7 nights)
+    weekend: weekend
+    weekend_with_nights: Weekend (2 nights)
+    wifi: WiFi
   footer:
     about_the_host: About the host
     host_since: Host since 2016
-    superhost_airbnb: Superhost on Airbnb
     links: Links
     listings: Listings
+    superhost_airbnb: Superhost on Airbnb
+  header:
+    mobile_menu: Mobile Menu
+  home:
+    awards:
+      first: We strive to do our utmost to ensure you have an enjoyable stay!
+      second: And thanks to you, here are the latest awards received on the Airbnb, Booking, and Google platforms.
+      title: Our Awards - A Guarantee of Quality
+    lead:
+      bnbs: 'Two equipped and independent studios as bed and breakfast accommodations: '
+      villa: 'A charming holiday cottage, for 6 people: '
+    title: Holiday Cottages and Bed & Breakfast
+  testimonials:
+    subtitle: Latest Airbnb Reviews
+    title: What our customers say
+  villa:
+    boules_court: Boules Court
+    description:
+      first: Villa in a quiet location, fully enclosed and without vis-à-vis.
+      second: With swimming pool and fully air-conditioned!
+      third: The Villa is located 5 minutes from the city center of Carpentras by car (20 minutes on foot), 10 kilometers from the Wave Island water park and the Spirou park. You can also enjoy the Provençal market of Carpentras, visit our charming villages (Le Barroux, Gigondas, Gordes, Roussillon...), take a stroll on Mont Ventoux, or simply relax by the Villa's pool.
+    entertainent_area: Entertainment area
+    kitchen:
+      coffee_machine: Coffee Machine & Kettle
+      description:
+        first: The kitchen is equipped and contains everything necessary for 6 people. Dishes & pans, plates & cutlery, cooking utensils.
+        second: Fridge, oven, microwave, coffee machine, kettle, and dishwasher are also available on site.
+      dishes: Dishes & Kitchen Utensils
+      title: The Kitchen
+    living_room:
+      description:
+        first: The living room contains a sofa and is air-conditioned.
+        second: A TV and children's games are also available.
+      sofa: Convertible sofa (2 persons)
+      title: The Living Room
+    mosaics:
+      first: The Villa (105 m²) consists of a living space (living room, dining room and kitchen) and 3 bedrooms, each with its own shower and separate toilet. All rooms are air-conditioned.
+      second: You can enjoy outdoors with a courtyard of approximately 800 m², a large petanque court, and a swimming pool.
+      third: A barbecue, ping pong table, and foosball table will also be available.
+    patio: Patio
+    rooms:
+      description:
+        first: The cottage has 3 large bedrooms, each with its own separate toilet and bathroom.
+        second: A 160cm bed, a wardrobe with hanging space, and personal air conditioning.
+    six_people: 6 people
+    subtitle: Cottage in Carpentras for 6 people
+    swimming_pool: Swimming Pool
+    title: Villa in Provence

@@ -3,7 +3,7 @@
     <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
       <%= image_tag("bnbs/piscine.jpg", class: "ls-bg", alt: "Slide background") %>
       <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;" >
-        <strong>Studios en Provence</strong> (2 pers)
+        <strong><%= t("bnbs.title") %></strong> (<%= t("bnbs.two_people") %>)
       </h3>
       <!--<a href="#0" class="btn_slider ls-l" style="top:62%; left:50%;" data-ls="durationin:2000;delayin:1300;easingin:easeOutElastic;" >En savoir plus</a>-->
     </div>
@@ -11,13 +11,15 @@
 </div>
 
 <div class="container margin_60_35">
-  <h1 class="main_title"><em></em>Studios Indépendants<span>Chambres d'hôtes à Carpentras</span></h1>
+  <h1 class="main_title">
+    <em></em>
+    <%= t("bnbs.independent_studios") %>
+    <span><%= t("bnbs.bnbs_in_carpentras") %></span>
+  </h1>
   <p class="lead styled">
-    Ancienne ferme rénovée "Les Célestins" sur l'exploitation maraîchère familiale (fraises), qui se compose d'un bâtiment principal, La Ferme que nous occupons et de 2 studios Le Cabanon et La Roseraie.
-    <br><br>
-    Nous sommes situés à 5 min du centre de Carpentras en voiture et 15 min à pieds.
-    <br><br>
-    Vous pourrez profiter du marché provencal du vendredi, visiter notre beau Vaucluse et ses villages, sortir en famille aux parcs Spirou ou Wave Island (7km), découvrir le Mt Ventoux ou profiter tout simplement de la Piscine de la Ferme..
+    <%= t("bnbs.description.first") %><br><br>
+    <%= t("bnbs.description.second") %><br><br>
+    <%= t("bnbs.description.third") %>
   </p>
 </div>
 
@@ -31,28 +33,23 @@
           </a>
           <span class="wow zoomIn">
             <i class="icon_set_1_icon-46"></i><br>
-            <small>Vue Piscine</small>
+            <small><%= t("bnbs.cabanon.pool_view").capitalize %></small>
           </span>
         </figure>
       </div>
       <div class="col-md-4 col-md-offset-1">
         <div class="room_desc_home">
-          <h3>Studio Le Cabanon</h3>
-          <p>
-            Ce studio (d'environ 25m²) se compose d'un coin cuisine, d'un lit en 160cms, d'une douche et d'un wc indépendant.
-          </p>
-          <p>
-            La climatisation est présente et vous disposerez d'une terrasse ombragée avec barbecue.
-          </p>
-          <p>
-            Draps, serviettes de toilettes et petits déjeuners compris.
-          </p>
+          <h3><%= t("common.studio_cabanon") %></h3>
+          <p><%= t("bnbs.cabanon.description.first") %></p>
+          <p><%= t("bnbs.cabanon.description.second") %></p>
+          <p><%= t("bnbs.cabanon.description.third") %></p>
+
           <ul>
             <li>
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon-snow"></i></span>
                 <div class="tooltip-content">
-                  Climatisation individuelle
+                  <%= t("common.individual_air_conditioning") %>
                 </div>
               </div>
             </li>
@@ -60,7 +57,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_2_icon-104"></i></span>
                 <div class="tooltip-content">
-                  Grand lit double 160 cms
+                  <%= t("common.large_double_bed") %>
                 </div>
               </div>
             </li>
@@ -68,7 +65,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_2_icon-118"></i></span>
                 <div class="tooltip-content">
-                  Salle de bain et WC indépendants
+                  <%= t("villa.rooms.independant_bathroom") %>
                 </div>
               </div>
             </li>
@@ -76,7 +73,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_2_icon-103"></i></span>
                 <div class="tooltip-content">
-                  Armoire et penderie
+                  <%= t("villa.rooms.wardrobe") %>
                 </div>
               </div>
             </li>
@@ -84,7 +81,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_1_icon-86"></i></span>
                 <div class="tooltip-content">
-                  Wifi gratuit
+                  <%= t("villa.rooms.free_wifi") %>
                 </div>
               </div>
             </li>
@@ -92,7 +89,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_1_icon-58"></i></span>
                 <div class="tooltip-content">
-                  Petit déjeuner compris
+                  <%= t("bnbs.free_breakfast") %>
                 </div>
               </div>
             </li>
@@ -112,28 +109,23 @@
           </a>
           <span class="wow zoomIn">
             <i class="icon_set_1_icon-46"></i><br>
-            <small>Vue Jardin</small>
+            <small><%= t("bnbs.roseraie.garden_view").capitalize %></small>
           </span>
         </figure>
     </div>
     <div class="col-md-4 col-md-offset-1 col-md-pull-6">
       <div class="room_desc_home">
-        <h3>Studio La Roseraie</h3>
-        <p>
-          Ce studio (d'environ 25m²) se compose d'un coin cuisine, d'un lit en 160cms, d'une douche et d'un wc indépendant.
-        </p>
-        <p>
-          La climatisation est présente et vous disposerez d'une terrasse ombragée avec barbecue.
-        </p>
-        <p>
-          Draps, serviettes et petits déjeuners compris.
-        </p>
+        <h3><%= t("common.studio_roseraie") %></h3>
+        <p><%= t("bnbs.roseraie.description.first") %></p>
+        <p><%= t("bnbs.roseraie.description.second") %></p>
+        <p><%= t("bnbs.roseraie.description.third") %></p>
+
         <ul>
           <li>
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon-snow"></i></span>
               <div class="tooltip-content">
-                Climatisation individuelle
+                <%= t("common.individual_air_conditioning") %>
               </div>
             </div>
           </li>
@@ -141,7 +133,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_2_icon-104"></i></span>
               <div class="tooltip-content">
-                Grand lit double 160 cms
+                <%= t("common.large_double_bed") %>
               </div>
             </div>
           </li>
@@ -149,7 +141,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_2_icon-118"></i></span>
               <div class="tooltip-content">
-                Salle de bain et WC indépendants
+                <%= t("villa.rooms.independant_bathroom") %>
               </div>
             </div>
           </li>
@@ -157,7 +149,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_2_icon-103"></i></span>
               <div class="tooltip-content">
-                Armoire et penderie
+                <%= t("villa.rooms.wardrobe") %>
               </div>
             </div>
           </li>
@@ -165,7 +157,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_1_icon-86"></i></span>
               <div class="tooltip-content">
-                Wifi gratuit
+                <%= t("villa.rooms.free_wifi") %>
               </div>
             </div>
           </li>
@@ -173,7 +165,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_1_icon-58"></i></span>
               <div class="tooltip-content">
-                Petit déjeuner compris
+                <%= t("bnbs.free_breakfast") %>
               </div>
             </div>
           </li>
@@ -186,23 +178,23 @@
 <div class="container_styled_1 margin_30">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h3>Tarifs</h3>
+      <h3><%= t("common.prices") %></h3>
       <table class="table table-striped">
         <tbody>
           <tr>
-            <td>Roseraie (vue jardin)</td>
-            <td>105€ / nuit (2 nuits minimum)</td>
+            <td><%= t("common.studio_roseraie") %> (<%= t("common.bnbs.roseraie.garden_view") %>)</td>
+            <td>105€ / <%= t("common.night") %> (<%= t("common.min_two_nights") %>)</td>
           </tr>
           <tr>
-            <td>Cabanon (vue piscine)</td>
-            <td>115€ / nuit (2 nuits minimum)</td>
+            <td><%= t("common.studio_cabanon") %> (<%= t("common.bnbs.cabanon.pool_view") %>)</td>
+            <td>115€ / <%= t("common.night") %> (<%= t("common.min_two_nights") %>)</td>
           </tr>
         </tbody>
       </table>
 
       <p class="text-right">
-        *Draps, serviettes et ménage de fin de séjour compris<br/>
-        *<%= link_to "Taxe de séjour", "https://lacove.taxesejour.fr", target: "_blank" %> (en sus) : 0.70€ / nuit / pers
+        *<%= t("bnbs.included_towels_and_cleaning") %><br/>
+        *<%= link_to t("common.tourist_tax"), "https://lacove.taxesejour.fr", target: "_blank" %> (<%= t("common.extra") %>) : 0.70€ / <%= t("common.night") %> / pers
       </p>
     </div>
   </div>

@@ -1,27 +1,122 @@
+---
 fr:
+  bnbs:
+    bnbs_in_carpentras: Chambres d'hôtes à Carpentras
+    cabanon:
+      description:
+        first: Ce studio (d'environ 25m²) se compose d'un coin cuisine, d'un lit en 160 cms, d'une douche et d'un WC indépendant.
+        second: La climatisation est présente et vous disposerez d'une terrasse ombragée avec barbecue.
+        third: Draps, serviettes de toilettes et petits déjeuners compris.
+      pool_view: vue piscine
+    description:
+      first: Ancienne ferme rénovée "Les Célestins" sur l'exploitation maraîchère familiale (fraises), qui se compose d'un bâtiment principal, La Ferme que nous occupons et de 2 studios Le Cabanon et La Roseraie.
+      second: Nous sommes situés à 5 min du centre de Carpentras en voiture et 20 min à pieds.
+      third: Vous pourrez profiter du marché provencal du vendredi, visiter notre beau Vaucluse et ses villages, sortir en famille aux parcs Spirou ou Wave Island (7 kms), découvrir le Mont Ventoux ou profiter tout simplement de la Piscine de la Ferme..
+    free_breakfast: Petit déjeuner compris
+    included_towels_and_cleaning: Draps, serviettes et ménage de fin de séjour compris
+    independent_studios: Independent Studios
+    roseraie:
+      description:
+        first: Ce studio (d'environ 25m²) se compose d'un coin cuisine, d'un lit en 160 cms, d'une douche et d'un WC indépendant.
+        second: La climatisation est présente et vous disposerez d'une terrasse ombragée avec barbecue.
+        third: Draps, serviettes de toilettes et petits déjeuners compris.
+      garden_view: vue jardin
+    title: Studios en Provence
+    two_people: 2 pers
   common:
+    additional_night: Nuit supplémentaire
     address: Adresse
-    home: Accueil
+    air_conditioning: Climatisation
     bnbs: Chambres d'Hôtes
-    the_bnbs: Les Chambres d'Hôtes
-    the_villa: La Villa
     contact_us: Nous Contacter
-    studio_cabanon: Studio Le Cabanon
-    studio_roseraie: Studio La Roseraie
+    excluded_cleaning: 'Ménage de fin de séjour (en sus) :'
+    extra: en sus
+    free_wifi: Wifi gratuit
     gites_and_bnbs: Gîtes & Chambres d'Hôtes
     gites_and_bnbs_les_celestins: Gîtes & Chambres d'Hôtes - Les Célestins
-  header:
-    mobile_menu: Menu Mobile
+    home: Accueil
+    included_towels: Draps & serviettes de toilette compris
+    independant_bathroom: Salle de bain et WC indépendants
+    individual_air_conditioning: Climatisation individuelle
+    large_double_bed: Grand lit double 160 cms
+    min_two_nights: 2 nuits min
+    night: nuit
+    prices: Tarifs
+    rooms: Chambres
+    studio_cabanon: Studio Le Cabanon
+    studio_roseraie: Studio La Roseraie
+    television: Télévision
+    the_bnbs: Les Chambres d'Hôtes
+    the_cabanon_and_the_roseraie: Le Cabanon & La Roseraie
+    the_rooms: Les Chambres
+    the_studios: Les Studios
+    the_studios_upcase: Les STUDIOS
+    the_villa: La Villa
+    the_villa_upcase: La VILLA
+    tourist_tax: Taxe de séjour
+    wardrobe: Armoire et penderie
+    week: semaine
+    week_with_nights: Semaine (7 nuits)
+    weekend: week-end
+    weekend_with_nights: Week-end (2 nuits)
+    wifi: Wifi
+  contacts:
+    email: Email
+    first_name: Prénom
+    last_name: Nom
+    message: Message
+    phone: Téléphone
+    send_message: Envoyer le message
   footer:
     about_the_host: A propos de l'hôte
     host_since: Hôte depuis 2016
-    superhost_airbnb: Superhote sur Airbnb
     links: Liens
     listings: Les Annonces
-  contacts:
-    first_name: Prénom
-    last_name: Nom
-    email: Email
-    phone: Téléphone
-    message: Message
-    send_message: Envoyer le message
+    superhost_airbnb: Superhote sur Airbnb
+  header:
+    mobile_menu: Menu Mobile
+  home:
+    awards:
+      first: Nous essayons de faire le maximum pour que vous passiez un agréable séjour !
+      second: Et grace à vous, voici les dernières récompenses reçues sur les plateformes Airbnb, Booking et Google.
+      title: Nos Récompenses - Gage De Qualité
+    lead:
+      bnbs: 'Deux studios équipés et indépendants en chambres d''hôtes : '
+      villa: 'Un gîte de charme, pour 6 personnes : '
+    title: Gîtes & Chambres d'Hôtes
+  testimonials:
+    subtitle: Derniers commentaires d'Airbnb
+    title: Ce que nos clients disent
+  villa:
+    boules_court: Terrain de Pétanque
+    description:
+      first: Villa au calme, entièrement clôturée et sans vis-à-vis.
+      second: Avec piscine et entièrement climatisée!
+      third: La Villa se situe à 5 min du centre ville de Carpentras en voiture (20 min à pieds), à 10 kms du parc aquatique Wave Island et du parc Spirou. Vous pourrez également profiter du marché provençal de Carpentras, de visiter nos charmants villages (Le Barroux, Gigondas, Gordes, Roussillon...), d'une ballade dans le Mont Ventoux ou tout simplement de la piscine de la Villa.
+    entertainent_area: Espace divertissement
+    kitchen:
+      coffee_machine: Machine à Café et Bouilloire
+      description:
+        first: La cuisine est équipée et contient tout le nécessaire pour 6 personnes. Plats & casseroles, assiettes & couverts, ustensiles de cuisine.
+        second: Frigo, four, micro ondes, machine à café, bouilloire ainsi qu'un lave vaisselle sont aussi sur place.
+      dishes: Plats & Ustensiles de cuisine
+      title: La Cuisine
+    living_room:
+      description:
+        first: Le salon contient un canapé et est climatisé.
+        second: Une TV et des jeux enfants sont aussi présents.
+      sofa: Canapé convertible (2 pers)
+      title: Le Salon
+    mosaics:
+      first: La Villa (105 m²) se compose d'un espace de vie (salon, salle à manger et cuisine) et de 3 chambres avec pour chacune sa douche et wc indépendants. Toutes les pièces sont climatisées.
+      second: Vous pourrez profiter en extérieur d'une cour de ~800 m², d'un grand terrain de pétanque et d'une piscine.
+      third: Un barbecue, table de ping pong et babyfoot seront aussi présents.
+    patio: Terrasse
+    rooms:
+      description:
+        first: Le gîte dispose de 3 grandes chambres avec pour chacune WC et salle de bain indépendants.
+        second: Un lit de 160cms, une amoire avec penderie ainsi que la climatisation personnelle.
+    six_people: 6 pers
+    subtitle: Gîte à Carpentras pour 6 personnes
+    swimming_pool: Piscine
+    title: Villa en Provence

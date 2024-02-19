@@ -6,26 +6,24 @@
           <a href="#">
             <%= image_tag("villa/villa-chambre-1.jpg", class: "img-responsive") %>
           </a>
-          <span class="wow zoomIn">3<small>Chambres</small></span>
+          <span class="wow zoomIn">
+            3
+            <small><%= t("common.rooms") %></small>
+          </span>
         </figure>
       </div>
       <div class="col-md-4 col-md-offset-1">
         <div class="room_desc_home">
-          <h3>Les Chambres</h3>
-          <p>
-            Le gîte dispose de 3 grandes chambres avec pour chacune WC et salle de bain indépendants.
-          <p>
-            Un lit de 160cms, une amoire avec penderie ainsi que la climatisation personnelle.
-          </p>
-          <p>
-            Draps et serviettes fournis.
-          </p>
+          <h3><%= t("common.the_rooms") %></h3>
+          <p><%= t("villa.rooms.description.first") %></p>
+          <p><%= t("villa.rooms.description.second") %></p>
+          <p><%= t("common.included_towels") %></p>
           <ul>
             <li>
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon-snow"></i></span>
                 <div class="tooltip-content">
-                  Climatisation individuelle
+                  <%= t("common.individual_air_conditioning") %>
                 </div>
               </div>
             </li>
@@ -33,7 +31,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_2_icon-104"></i></span>
                 <div class="tooltip-content">
-                  Grand lit double 160 cms
+                  <%= t("common.large_double_bed") %>
                 </div>
               </div>
             </li>
@@ -41,7 +39,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_2_icon-118"></i></span>
                 <div class="tooltip-content">
-                  Salle de bain et WC indépendants
+                  <%= t("common.independant_bathroom") %>
                 </div>
               </div>
             </li>
@@ -49,7 +47,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_2_icon-103"></i></span>
                 <div class="tooltip-content">
-                  Armoire et penderie
+                  <%= t("common.wardrobe") %>
                 </div>
               </div>
             </li>
@@ -57,7 +55,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_1_icon-86"></i></span>
                 <div class="tooltip-content">
-                  Wifi gratuit
+                  <%= t("common.free_wifi") %>
                 </div>
               </div>
             </li>
@@ -80,19 +78,15 @@
     </div>
     <div class="col-md-4 col-md-offset-1 col-md-pull-6">
       <div class="room_desc_home">
-        <h3>Le Salon</h3>
-        <p>
-          Le salon contient un canapé et est climatisé.
-        </p>
-        <p>
-          Une TV et des jeux enfants sont aussi présents.
-        </p>
+        <h3><%= t("villa.living_room.title") %></h3>
+        <p><%= t("villa.living_room.description.first") %></p>
+        <p><%= t("villa.living_room.description.second") %></p>
         <ul>
           <li>
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon-snow"></i></span>
               <div class="tooltip-content">
-                Climatisation
+                <%= t("common.air_conditioning") %>
               </div>
             </div>
           </li>
@@ -100,7 +94,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_2_icon-116"></i></span>
               <div class="tooltip-content">
-                Télévision
+                <%= t("common.television") %>
               </div>
             </div>
           </li>
@@ -108,7 +102,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class=" icon_set_2_icon-112"></i></span>
               <div class="tooltip-content">
-                Canapé convertible (2 pers)
+                <%= t("villa.living_room.sofa") %>
               </div>
             </div>
           </li>
@@ -116,7 +110,7 @@
             <div class="tooltip_styled tooltip-effect-4">
               <span class="tooltip-item"><i class="icon_set_1_icon-86"></i></span>
               <div class="tooltip-content">
-                Wifi
+                <%= t("common.wifi") %>
               </div>
             </div>
           </li>
@@ -139,20 +133,15 @@
       </div>
       <div class="col-md-4 col-md-offset-1">
         <div class="room_desc_home">
-          <h3>La Cuisine</h3>
-          <p>
-            La cuisine est équipée et contient tout le nécessaire pour 6 personnes.
-            Plats & casseroles, assiettes & couverts, ustensiles de cuisine.
-          </p>
-          <p>
-            Frigo, four, micro ondes, machine à café, bouilloire ainsi au'un lave vaisselle sont aussi sur place.
-          </p>
+          <h3><%= t("villa.kitchen.title") %></h3>
+          <p><%= t("villa.kitchen.description.first") %></p>
+          <p><%= t("villa.kitchen.description.second") %></p>
           <ul>
             <li>
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon-snow"></i></span>
                 <div class="tooltip-content">
-                  Climatisation
+                  <%= t("common.air_conditioning") %>
                 </div>
               </div>
             </li>
@@ -160,7 +149,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_1_icon-58"></i></span>
                 <div class="tooltip-content">
-                  Plats & Ustensiles de cuisine
+                  <%= t("villa.kitchen.dishes") %>
                 </div>
               </div>
             </li>
@@ -168,7 +157,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_1_icon-59"></i></span>
                 <div class="tooltip-content">
-                  Machine à café & Bouilloire
+                  <%= t("villa.kitchen.coffee_machine") %>
                 </div>
               </div>
             </li>
@@ -176,7 +165,7 @@
               <div class="tooltip_styled tooltip-effect-4">
                 <span class="tooltip-item"><i class="icon_set_1_icon-86"></i></span>
                 <div class="tooltip-content">
-                  Wifi
+                  <%= t("common.wifi") %>
                 </div>
               </div>
             </li>

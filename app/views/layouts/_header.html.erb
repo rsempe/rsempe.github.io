@@ -11,8 +11,8 @@
           <span><%= t("header.mobile_menu") %>Menu mobile</span>
         </a>
         <ul id="lang_top">
-          <li><%= link_to 'FR', root_path(locale: 'fr'), class: ('active' if I18n.locale == :fr) %></li>
-          <li><%= link_to 'EN', root_path(locale: 'en'), class: ('active' if I18n.locale == :en) %></li>
+          <li><%= link_to 'FR', url_for(locale: 'fr'), class: ('active' if I18n.locale == :fr) %></li>
+          <li><%= link_to 'EN', url_for(locale: 'en'), class: ('active' if I18n.locale == :en) %></li>
         </ul>
         <div class="main-menu">
           <div id="header_menu">
