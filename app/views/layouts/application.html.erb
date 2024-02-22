@@ -52,6 +52,7 @@
     <%= javascript_include_tag "/assets/greensock.js" %>
     <%= javascript_include_tag "/assets/layerslider.transitions.js" %>
     <%= javascript_include_tag "/assets/layerslider.kreaturamedia.jquery.js" %>
+    <%= javascript_include_tag "/assets/vegas.js" %>
     <script type="text/javascript">
       if ($('#layerslider').length > 0) {
         $('#layerslider').layerSlider({
@@ -65,6 +66,28 @@
           skinsPath: '/assets/layerslider/'
         });
       }
+    </script>
+    <!-- Kenburns Slider -->
+    <script>
+      $(function() {
+        "use strict";
+        $('.kenburns_slider').vegas({
+          slides: [
+            { src: '/assets/slides/ventoux.jpg' },
+            { src: '/assets/slides/carpentras.jpg' },
+            { src: '/assets/slides/gordes.jpg' },
+            { src: '/assets/slides/ocres.jpg' },
+            { src: '/assets/slides/lavandes.jpg' },
+            { src: '/assets/slides/isle-sur-la-sorgue.jpg' }
+          ],
+          overlay: false,
+          transition: 'fade2',
+          animation: 'kenburns',
+          transitionDuration: 1000,
+          delay: 6000,
+          animationDuration: 30000
+        });
+      });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdD97c8kh_3uzUXIVmWQ5HX3iLgXIfdmw&sensor=false"></script>
     <script type="text/javascript" src="/assets/mapmarker.jquery.js"></script>

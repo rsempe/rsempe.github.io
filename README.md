@@ -1,10 +1,3 @@
-# README
-
-Controller: Properties
-giteslescelestins.com # properties#index
-giteslescelestins.com?type=bnb
-giteslescelestins.com?type=gite
-
 ## Links
 
 Live preview theme Albert:
@@ -17,7 +10,13 @@ cap production deploy
 
 ## TODO
 
-- Internationalisation
 - Changer logo
 - Ajouter photos chambres
-- Gite chez louisette
+
+- ventoux
+- dentelles
+- gordes
+- roussillon
+- isle sur la sorgues
+- marché carpentras
+

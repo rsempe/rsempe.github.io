@@ -22,9 +22,14 @@
  *= require layerslider
  *= require owl.carousel
  *= require owl-theme-default
+ *= require vegas
  *= require_self
  */
 
- p.lead.styled span {
+p.lead.styled span {
 	color: #ed5434;
+}
+
+h3.caption_header {
+	line-height: initial;
 }
