@@ -90,6 +90,26 @@ fr:
   testimonials:
     subtitle: Derniers commentaires d'Airbnb/Booking
     title: Ce que nos clients disent
+    bnbs:
+      first:
+        date: Mai 2025
+        comment: "Un logement parfait pour les randonnées à vélo dans les environs. Les propriétaires sont très sympathiques mais discrets et nous ont apporté chaque matin un délicieux petit déjeuner avec des fruits et des yaourts. La piscine est très bien entretenue et il y a des chaises longues confortables. Nous avions nos vélos avec nous et après quelques mètres, nous étions déjà sur la piste cyclable du chemin de fer et nous pouvions faire différentes excursions à partir de là. Nous recommandons vivement cet hébergement!"
+      second:
+        date: Juin 2025
+        comment: "Nous nous sommes sentis très à l'aise. Studio très calme avec tout ce dont vous avez besoin et une belle piscine. Hôtes sympathiques qui sont restés en retrait."
+      third:
+        date: Septembre 2024
+        comment: "Exceptionnel! Gîte très confortable, propriétaires très sympathiques, petit déjeuner excellent, proximité des villages de vins principaux"
+    villa:
+      first:
+        date: Juin 2025
+        comment: "Tout était génial ! Immense propriété avec 3 chambres, une piscine, une terrasse, un terrain de pétanque. Cuisine tout équipée, chambres tout confort. Un grand merci aux propriétaires, qui se sont d’ailleurs rendus disponibles plusieurs fois lorsque nous avions des questions. Je recommande les yeux fermés !"
+      second:
+        date: Août 2025
+        comment: "Excellent séjour dans cette maison propre et fonctionnelle. Belle piscine et tout ce qu'il faut pour passer un bon séjour, nous avons également apprécié que chaque chambre dispose de sa salle de bains et wc ce qui permet de garder son indépendance. Hôtes accueillants et disponibles. En résumé le top à conseiller!"
+      third:
+        date: Mai 2024
+        comment: "Au calme, sans vis à vis et parfaitement indépendante cette maison est idéale pour passer d’heureux moments en famille ou entre amis, en alternant entre farniente et activités extérieures mises à disposition. Maison simple et fonctionnelle avec salle de bain et climatisation réversible dans chaque chambre. Extérieur joliment aménagé avec grand espace de parking. Emmanuelle et son mari sont vraiment sympathiques, réactifs et très discrets."
   villa:
     boules_court: Terrain de Pétanque
     description:

@@ -81,6 +81,26 @@ en:
   testimonials:
     subtitle: Latest Booking/Airbnb Reviews
     title: What our customers say
+    bnbs:
+      first:
+        date: May 2025
+        comment: "A perfect accommodation for cycling trips in the surrounding area. The landlords are super friendly but unobtrusive and brought us a delicious French breakfast with fruit and yogurt every morning. The pool is very well maintained and there are comfortable loungers. We had our bikes with us and after a few meters we were already on the railway cycle path and could do various tours from there. We can fully recommend this accommodation."
+      second:
+        date: June 2025
+        comment: "We felt very comfortable. Very quiet studio with everything you need and a beautiful pool. Friendly hosts who stayed in the background."
+      third:
+        date: September 2024
+        comment: "Exceptional! Very comportable cottage, very friendly owners, good breakfast, proximity to main wine villages"
+    villa:
+      first:
+        date: June 2025
+        comment: "Everything was great! Immense property with 3 bedrooms, a swimming pool, a terrace, and a boules court. Fully equipped kitchen, comfortable bedrooms. A big thank you to the owners, who were available several times when we had questions. We can fully recommend this accommodation!"
+      second:
+        date: August 2025
+        comment: "Excellent stay in this clean and functional house. Beautiful pool and everything you need for a good stay, we also appreciated that each bedroom has its own bathroom and toilet, which allows you to keep your independence. Hosts are welcoming and available. In summary, the top to recommend!"
+      third:
+        date: May 2024
+        comment: "At peace, without vis-à-vis and perfectly independent, this house is ideal for happy moments with family or friends, alternating between relaxation and outdoor activities made available. Simple and functional house with bathroom and reversible air conditioning in each bedroom. Well-designed outdoor space with large parking space. Emmanuelle and her husband are really nice, reactive and discreet."
   villa:
     boules_court: Boules Court
     description:
