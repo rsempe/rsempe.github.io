@@ -56,17 +56,18 @@
         <p><%= t("home.awards.first") %></p>
         <p style="margin-bottom: 0px"><%= t("home.awards.second") %></p>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <%= link_to "https://www.airbnb.com/users/show/115617715", target: "_blank" do %>
           <%= image_tag("airbnb-superhost.png", class: "img-responsive", style: "margin:auto") %>
         <% end %>
-      </div>
-      <div class="col-sm-2">
         <%= link_to "https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html", target: "_blank" do %>
-          <%= image_tag("booking-award.png", class: "img-responsive", style: "margin:auto") %>
+          <%= image_tag("bnbs/booking-award.png", class: "img-responsive", style: "margin:auto") %>
         <% end %>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
+        <%= link_to "https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html", target: "_blank" do %>
+          <%= image_tag("villa/booking-award.png", class: "img-responsive", style: "margin:auto") %>
+        <% end %>
         <%= link_to "https://www.google.com/travel/hotels/s/EWE6oi1CVT6c7ffr8", target: "_blank" do %>
           <%= image_tag("google-avis-client.png", class: "img-responsive", style: "margin:auto") %>
         <% end %>
