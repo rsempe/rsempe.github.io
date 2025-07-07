@@ -68,11 +68,11 @@ fr:
     phone: Téléphone
     send_message: Envoyer le message
   footer:
-    about_the_host: A propos de l'hôte
-    host_since: Hôte depuis 2016
+    about_the_host: A propos des hôtes
+    host_since: Hôtes depuis 2016
     links: Liens
     listings: Les Annonces
-    superhost_airbnb: Superhote sur Airbnb
+    superhost_airbnb: Superhôtes sur Airbnb
   header:
     mobile_menu: Menu Mobile
   home:
