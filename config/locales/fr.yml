@@ -1,5 +1,7 @@
 ---
 fr:
+  meta:
+    description: Les Célestins - Gîtes et Chambres d'Hôtes. Situés en Provence à Carpentras, au pied du Mt Ventoux. 2 studios équipés et 2 gîtes de caractères (6 pers)
   bnbs:
     bnbs_in_carpentras: Chambres d'hôtes à Carpentras
     cabanon:
@@ -24,6 +26,7 @@ fr:
     title: Studios en Provence
     two_people: 2 pers
   common:
+    title: Gîtes Les Célestins - Chambres d’hôtes & locations en Provence (Carpentras, Ventoux)
     additional_night: Nuit supplémentaire
     address: Adresse
     air_conditioning: Climatisation

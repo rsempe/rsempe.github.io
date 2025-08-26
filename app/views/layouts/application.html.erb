@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gites & Chambres d'Hôtes - Les Celestins</title>
+    <title><%= t('common.gites_and_bnbs_les_celestins') %></title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="hotel, gite, bed and breakfast, accommodations, vaucluse, provence, carpentras">
-    <meta name="description" lang="fr" content="Les Célestins - Gîtes et Chambres d'Hôtes. Situés en Provence à Carpentras, au pied du Mt Ventoux. 2 studios équipés et 2 gîtes de caractères (6 pers)">
-    <meta name="description" lang="en" content="Les Célestins - Gîtes et Chambres d'Hôtes. Located in Provence (Carpentras) next to Mt Ventoux. 2 fully equiped studios and 2 beautiful gites (6 pers)">
+
+    <link rel="alternate" hreflang="fr" href="https://giteslescelestins.com?locale=fr">
+    <link rel="alternate" hreflang="en" href="https://giteslescelestins.com?locale=en">
+    <meta name="description" lang="fr" content="<%= t('meta.description') %>">
+
+    <link rel="canonical" href="https://giteslescelestins.com/">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
