@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title><%= t('common.gites_and_bnbs_les_celestins') %></title>
-
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="hotel, gite, bed and breakfast, accommodations, vaucluse, provence, carpentras">
 
-    <link rel="alternate" hreflang="fr" href="https://giteslescelestins.com?locale=fr">
-    <link rel="alternate" hreflang="en" href="https://giteslescelestins.com?locale=en">
-    <meta name="description" lang="fr" content="<%= t('meta.description') %>">
+    <%= canonical_and_hreflangs %>
 
-    <link rel="canonical" href="https://giteslescelestins.com/">
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+    <meta name="keywords" content="<%= meta_keywords %>">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,7 +17,9 @@
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700" %>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+
     <%= javascript_importmap_tags %>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -49,7 +47,7 @@
 
     <!-- COMMON SCRIPTS -->
     <%= javascript_include_tag "/assets/jquery-1.11.2.min.js" %>
-    <%= javascript_include_tag "/assets/common_scripts_min.js" %>
+    <%= javascript_include_tag "/assets/common_scripts_min.js", defer: true %>
     <%= javascript_include_tag "/assets/validate.js" %>
     <%= javascript_include_tag "/assets/functions.js" %>
 

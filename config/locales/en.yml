@@ -1,7 +1,25 @@
 ---
 en:
   meta:
-    description: Les Célestins - Gîtes et Chambres d'Hôtes. Located in Provence (Carpentras) next to Mt Ventoux. 2 fully equiped studios and 2 beautiful gites (6 pers)
+    home:
+      index:
+        title: "Les Célestins B&B and Cottages - Provence"
+        description: "Stay at Les Célestins B&B and cottages in the heart of Vaucluse, near Mont Ventoux."
+        keywords: "B&B, guesthouse, Provence, Vaucluse, Carpentras, Mont Ventoux, accommodation, vacation, Mont Ventoux"
+      villa:
+        title: "Villa Les Célestins - Provence"
+        description: "Enjoy our villa in Provence for your holidays with family or friends."
+        keywords: "villa Provence, holiday rental, accommodation, guesthouse, Vaucluse, Provence, Mont Ventoux"
+      bnbs:
+        title: "Our Guest Rooms - Les Célestins"
+        description: "Discover our comfortable guest rooms in Carpentras, perfect for exploring Provence."
+        keywords: "guest rooms, bed and breakfast, Provence, Carpentras, stay, accommodation, vacation, Mont Ventoux"
+    contacts:
+      new:
+        title: "Contact - Les Célestins"
+        description: "Get in touch to book your stay in Provence at Les Célestins B&B and cottages."
+        keywords: "contact B&B, book room, accommodation, studio, Provence, Vaucluse, Mont Ventoux"
+
   bnbs:
     bnbs_in_carpentras: Bed & Breakfast in Carpentras
     cabanon:

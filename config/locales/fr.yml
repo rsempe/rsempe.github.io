@@ -1,7 +1,24 @@
 ---
 fr:
   meta:
-    description: Les Célestins - Gîtes et Chambres d'Hôtes. Situés en Provence à Carpentras, au pied du Mt Ventoux. 2 studios équipés et 2 gîtes de caractères (6 pers)
+    home:
+      index:
+        title: "Gîtes et Chambres d'hôtes Les Célestins - Provence"
+        description: "Séjournez aux Gîtes et Chambres d'hôtes Les Célestins, au cœur du Vaucluse, proche du Mont Ventoux."
+        keywords: "gîte, chambres d'hôtes, Provence, Vaucluse, Carpentras, Mont Ventoux, hébergements, vacances, mont ventoux"
+      villa:
+        title: "Villa Les Célestins - Provence"
+        description: "Profitez de notre villa en Provence pour vos vacances en famille ou entre amis."
+        keywords: "villa provence, location vacances, hébergement, gîte, vaucluse, provence, mont ventoux"
+      bnbs:
+        title: "Nos chambres d'hôtes - Les Célestins"
+        description: "Découvrez nos chambres d'hôtes confortables à Carpentras, parfaites pour explorer la Provence."
+        keywords: "chambres d'hôtes, bed and breakfast, Provence, Carpentras, séjour, hébergement, vacances, mont ventoux"
+    contacts:
+      new:
+        title: "Contact - Les Célestins"
+        description: "Contactez-nous pour réserver votre séjour en Provence dans nos gîtes et chambres d'hôtes."
+        keywords: "contact gîte, réserver chambre, hébergement, studio, provence, vaucluse, provence, mont ventoux"
   bnbs:
     bnbs_in_carpentras: Chambres d'hôtes à Carpentras
     cabanon:
