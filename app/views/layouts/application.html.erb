@@ -152,6 +152,29 @@
           });
         });
 
+        // Initialize Studio Swipers (B&B page)
+        document.querySelectorAll('.studio-swiper').forEach(function(el) {
+          new Swiper(el, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            navigation: {
+              nextEl: el.querySelector('.swiper-button-next'),
+              prevEl: el.querySelector('.swiper-button-prev'),
+            }
+          });
+          // Force arrow color
+          el.style.setProperty('--swiper-navigation-color', '#fff');
+          // Force z-index on room_pic span
+          var roomPic = el.closest('.room_pic');
+          if (roomPic) {
+            var span = roomPic.querySelector('span.wow');
+            if (span) {
+              span.style.zIndex = '10';
+            }
+          }
+        });
+
         // Initialize GLightbox
         if (document.querySelector('.glightbox')) {
           GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });

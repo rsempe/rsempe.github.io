@@ -28,9 +28,24 @@
     <div class="row">
       <div class="col-md-5 col-md-offset-1">
         <figure class="room_pic">
-          <a href="#">
-            <%= image_tag("bnbs/cabanon/cabanon-1.jpg", class: "img-responsive", alt: t("seo.alt.cabanon")) %>
-          </a>
+          <div class="swiper studio-swiper" id="cabanon-swiper">
+            <div class="swiper-wrapper">
+              <%
+                cabanon_images = %w[chambre-1 chambre-2 chambre-3 chambre-4 cuisine-1 cuisine-2 cuisine-3 dejeuner terrasse-1 terrasse-2 jardin piscine-1 piscine-2]
+              %>
+              <% cabanon_images.each do |img| %>
+                <div class="swiper-slide">
+                  <a href="<%= asset_path("bnbs/cabanon/gallery/1920x1280/#{img}.jpg") %>"
+                     class="glightbox"
+                     data-gallery="cabanon">
+                    <%= image_tag("bnbs/cabanon/gallery/800x533/#{img}.jpg", class: "img-responsive", alt: t("seo.alt.cabanon")) %>
+                  </a>
+                </div>
+              <% end %>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
           <span class="wow zoomIn">
             <i class="icon_set_1_icon-46"></i><br>
             <small><%= t("bnbs.cabanon.pool_view").capitalize %></small>
@@ -104,14 +119,29 @@
   <div class="row">
     <div class="col-md-5 col-md-offset-1 col-md-push-5">
       <figure class="room_pic left">
-          <a href="#">
-            <%= image_tag("bnbs/roseraie/roseraie-1.jpg", class: "img-responsive", alt: t("seo.alt.roseraie")) %>
-          </a>
-          <span class="wow zoomIn">
-            <i class="icon_set_1_icon-46"></i><br>
-            <small><%= t("bnbs.roseraie.garden_view").capitalize %></small>
-          </span>
-        </figure>
+        <div class="swiper studio-swiper" id="roseraie-swiper">
+          <div class="swiper-wrapper">
+            <%
+              roseraie_images = %w[studio-1 studio-2 piscine-1 piscine-2 cours dejeuner]
+            %>
+            <% roseraie_images.each do |img| %>
+              <div class="swiper-slide">
+                <a href="<%= asset_path("bnbs/roseraie/gallery/1920x1280/#{img}.jpg") %>"
+                   class="glightbox"
+                   data-gallery="roseraie">
+                  <%= image_tag("bnbs/roseraie/gallery/800x533/#{img}.jpg", class: "img-responsive", alt: t("seo.alt.roseraie")) %>
+                </a>
+              </div>
+            <% end %>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <span class="wow zoomIn">
+          <i class="icon_set_1_icon-46"></i><br>
+          <small><%= t("bnbs.roseraie.garden_view").capitalize %></small>
+        </span>
+      </figure>
     </div>
     <div class="col-md-4 col-md-offset-1 col-md-pull-6">
       <div class="room_desc_home">
