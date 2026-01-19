@@ -87,22 +87,22 @@ en:
     bnbs_in_carpentras: Bed & Breakfast in Carpentras
     cabanon:
       description:
-        first: This studio (approximately 25m²) consists of a kitchen area, a 160 cm bed, a shower, and a separate toilet.
-        second: Air conditioning is provided, and you will have a shaded terrace with barbecue.
-        third: Linen, towels, and breakfast included.
+        first: 25 m² studio with equipped kitchenette, comfortable bedding (160 cm), private bathroom and WC.
+        second: Air conditioning, shaded terrace with pool view and barbecue available.
+        third: Breakfast, linen and towels included.
       pool_view: pool view
     description:
-      first: Renovated former farm 'Les Célestins' on the family market gardening operation (strawberries), which consists of a main building, The Farm that we occupy, and 2 studios, The Cabanon and The Roseraie.
-      second: We are located 5 minutes from the center of Carpentras by car and 20 minutes on foot.
-      third: You can enjoy the Provencal market on Fridays, visit our beautiful Vaucluse and its villages, go out with family to Spirou or Wave Island parks (7 kms), discover Mont Ventoux, or simply enjoy the Farm's pool.
+      first: Welcome to Les Célestins, a renovated Provençal farmhouse at the heart of a family market garden. Two independent studios await you.
+      second: 5 min by car from Carpentras town centre (20 min on foot) and 7 km from Wave Island and Spirou theme parks.
+      third: Provençal market, Vaucluse villages, Mont Ventoux... or relax by the pool.
     free_breakfast: Included Breakfast
     included_towels_and_cleaning: Linen, towels, and end-of-stay cleaning included.
-    independent_studios: Studios Indépendants
+    independent_studios: Independent Studios
     roseraie:
       description:
-        first: This studio (approximately 25m²) consists of a kitchen area, a 160 cm bed, a shower, and a separate toilet.
-        second: Air conditioning is provided, and you will have a shaded terrace with barbecue.
-        third: Linen, towels, and breakfast included.
+        first: 25 m² studio with equipped kitchenette, comfortable bedding (160 cm), private bathroom and WC.
+        second: Air conditioning, terrace with garden view and barbecue available.
+        third: Breakfast, linen and towels included.
       garden_view: garden view
     title: Studios in Provence
     two_people: 2 people

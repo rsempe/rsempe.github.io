@@ -86,22 +86,22 @@ fr:
     bnbs_in_carpentras: Chambres d'hôtes à Carpentras
     cabanon:
       description:
-        first: Ce studio (d'environ 25m²) se compose d'un coin cuisine, d'un lit en 160 cms, d'une douche et d'un WC indépendant.
-        second: La climatisation est présente et vous disposerez d'une terrasse ombragée avec barbecue.
-        third: Draps, serviettes de toilettes et petits déjeuners compris.
+        first: Studio de 25 m² avec coin cuisine équipé, literie confortable (160 cm), salle d'eau et WC privatifs.
+        second: Climatisation, terrasse ombragée avec vue piscine et barbecue à disposition.
+        third: Petit-déjeuner, draps et serviettes inclus.
       pool_view: vue piscine
     description:
-      first: Ancienne ferme rénovée "Les Célestins" sur l'exploitation maraîchère familiale (fraises), qui se compose d'un bâtiment principal, La Ferme que nous occupons et de 2 studios Le Cabanon et La Roseraie.
-      second: Nous sommes situés à 5 min du centre de Carpentras en voiture et 20 min à pieds.
-      third: Vous pourrez profiter du marché provencal du vendredi, visiter notre beau Vaucluse et ses villages, sortir en famille aux parcs Spirou ou Wave Island (7 kms), découvrir le Mont Ventoux ou profiter tout simplement de la Piscine de la Ferme..
+      first: Bienvenue aux Célestins, ancienne ferme provençale rénovée au cœur d'une exploitation maraîchère familiale. Deux studios indépendants vous accueillent.
+      second: À 5 min en voiture du centre de Carpentras (20 min à pied) et 7 km des parcs Wave Island et Spirou.
+      third: Marché provençal, villages du Vaucluse, Mont Ventoux... ou détente au bord de la piscine.
     free_breakfast: Petit déjeuner compris
     included_towels_and_cleaning: Draps, serviettes et ménage de fin de séjour compris
     independent_studios: Independent Studios
     roseraie:
       description:
-        first: Ce studio (d'environ 25m²) se compose d'un coin cuisine, d'un lit en 160 cms, d'une douche et d'un WC indépendant.
-        second: La climatisation est présente et vous disposerez d'une terrasse ombragée avec barbecue.
-        third: Draps, serviettes de toilettes et petits déjeuners compris.
+        first: Studio de 25 m² avec coin cuisine équipé, literie confortable (160 cm), salle d'eau et WC privatifs.
+        second: Climatisation, terrasse avec vue jardin et barbecue à disposition.
+        third: Petit-déjeuner, draps et serviettes inclus.
       garden_view: vue jardin
     title: Studios en Provence
     two_people: 2 pers
