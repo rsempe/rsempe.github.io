@@ -126,8 +126,8 @@ module SeoHelper
       "url": "https://giteslescelestins.com/villa",
       "image": [
         asset_url("villa/villa-1.jpg"),
-        asset_url("villa/mosaic-1.jpg"),
-        asset_url("villa/mosaic-2.jpg")
+        asset_url("villa/mosaics/piscine.jpg"),
+        asset_url("villa/mosaics/espace-detente.jpg")
       ],
       "address": {
         "@type": "PostalAddress",
