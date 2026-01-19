@@ -1,5 +1,40 @@
 ---
 fr:
+  seo:
+    site_name: "Gîtes Les Célestins"
+    organization_name: "Gîtes Les Célestins"
+    price_range: "120-1930 EUR"
+    amenities:
+      free_wifi: "Wifi gratuit"
+      swimming_pool: "Piscine"
+      air_conditioning: "Climatisation"
+      free_parking: "Parking gratuit"
+      private_pool: "Piscine privée"
+      boules_court: "Terrain de pétanque"
+      barbecue: "Barbecue"
+      ping_pong: "Ping-pong"
+      foosball: "Babyfoot"
+      breakfast_included: "Petit-déjeuner inclus"
+    villa:
+      offer_description: "Villa de vacances 6 personnes avec piscine"
+    bnbs:
+      cabanon_description: "Studio avec vue piscine, 25m², petit-déjeuner inclus"
+      roseraie_description: "Studio avec vue jardin, 25m², petit-déjeuner inclus"
+    alt:
+      villa_main: "Villa Les Célestins - Gîte de vacances avec piscine à Carpentras"
+      villa_homepage: "Villa Les Célestins - Gîte de vacances 6 personnes avec piscine Carpentras Provence"
+      villa_entertainment: "Espace divertissement avec babyfoot et ping-pong - Villa Les Célestins"
+      villa_pool: "Piscine privée de la Villa Les Célestins à Carpentras"
+      villa_boules: "Terrain de pétanque - Villa Les Célestins Provence"
+      villa_patio: "Terrasse ombragée avec salon de jardin - Villa Carpentras"
+      bnbs_main: "Chambres d'hôtes avec piscine à Carpentras - Les Célestins Provence"
+      bnbs_homepage: "Chambres d'hôtes Les Célestins - Studios avec piscine Carpentras Provence"
+      cabanon: "Studio Le Cabanon - Chambre d'hôtes vue piscine Carpentras"
+      roseraie: "Studio La Roseraie - Chambre d'hôtes vue jardin Carpentras"
+      airbnb_superhost: "Badge Superhôte Airbnb - Les Célestins"
+      booking_award_bnbs: "Traveller Review Award Booking.com - Chambres d'hôtes Les Célestins"
+      booking_award_villa: "Traveller Review Award Booking.com - Villa Les Célestins"
+      google_reviews: "Avis clients Google - Gîtes Les Célestins Carpentras"
   meta:
     home:
       index:

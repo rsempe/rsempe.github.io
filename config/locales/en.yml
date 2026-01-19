@@ -1,5 +1,40 @@
 ---
 en:
+  seo:
+    site_name: "Les Célestins Cottages"
+    organization_name: "Les Célestins Cottages"
+    price_range: "120-1930 EUR"
+    amenities:
+      free_wifi: "Free WiFi"
+      swimming_pool: "Swimming Pool"
+      air_conditioning: "Air Conditioning"
+      free_parking: "Free Parking"
+      private_pool: "Private Pool"
+      boules_court: "Boules Court"
+      barbecue: "Barbecue"
+      ping_pong: "Ping Pong"
+      foosball: "Foosball"
+      breakfast_included: "Breakfast Included"
+    villa:
+      offer_description: "Holiday villa for 6 people with swimming pool"
+    bnbs:
+      cabanon_description: "Studio with pool view, 25m², breakfast included"
+      roseraie_description: "Studio with garden view, 25m², breakfast included"
+    alt:
+      villa_main: "Villa Les Célestins - Holiday cottage with pool in Carpentras"
+      villa_homepage: "Villa Les Célestins - 6-person holiday cottage with pool Carpentras Provence"
+      villa_entertainment: "Entertainment area with foosball and ping pong - Villa Les Célestins"
+      villa_pool: "Private pool at Villa Les Célestins in Carpentras"
+      villa_boules: "Boules court - Villa Les Célestins Provence"
+      villa_patio: "Shaded terrace with garden furniture - Villa Carpentras"
+      bnbs_main: "Bed and breakfast with pool in Carpentras - Les Célestins Provence"
+      bnbs_homepage: "Les Célestins B&B - Studios with pool Carpentras Provence"
+      cabanon: "Studio Le Cabanon - B&B with pool view Carpentras"
+      roseraie: "Studio La Roseraie - B&B with garden view Carpentras"
+      airbnb_superhost: "Airbnb Superhost Badge - Les Célestins"
+      booking_award_bnbs: "Traveller Review Award Booking.com - Les Célestins B&B"
+      booking_award_villa: "Traveller Review Award Booking.com - Villa Les Célestins"
+      google_reviews: "Google Customer Reviews - Les Célestins Cottages Carpentras"
   meta:
     home:
       index:

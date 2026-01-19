@@ -1,7 +1,7 @@
 <div id="full-slider-wrapper">
   <div id="layerslider" style="width:100%;height:600px;">
     <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
-      <%= image_tag("villa/villa-1.jpg", class: "ls-bg", alt: "Slide background") %>
+      <%= image_tag("villa/villa-1.jpg", class: "ls-bg", alt: t("seo.alt.villa_main")) %>
       <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;" >
         <strong><%= t("villa.title") %></strong> (<%= t("villa.six_people") %>)
       </h3>
@@ -23,26 +23,26 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="mosaic_container">
-        <%= image_tag("villa/mosaic-1.jpg", class: "img-responsive add_bottom_30") %>
+        <%= image_tag("villa/mosaic-1.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_entertainment")) %>
         <span class="caption_2"><%= t("villa.entertainent_area") %></span>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="col-xs-12">
         <div class="mosaic_container">
-          <%= image_tag("villa/mosaic-2.jpg", class: "img-responsive add_bottom_30") %>
+          <%= image_tag("villa/mosaic-2.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_pool")) %>
           <span class="caption_2"><%= t("villa.swimming_pool") %></span>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="mosaic_container">
-          <%= image_tag("villa/mosaic-3.jpg", class: "img-responsive add_bottom_30") %>
+          <%= image_tag("villa/mosaic-3.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_boules")) %>
           <span class="caption_2"><%= t("villa.boules_court") %></span>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="mosaic_container">
-          <%= image_tag("villa/mosaic-4.jpg", class: "img-responsive add_bottom_30") %>
+          <%= image_tag("villa/mosaic-4.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_patio")) %>
           <span class="caption_2"><%= t("villa.patio") %></span>
         </div>
       </div>
