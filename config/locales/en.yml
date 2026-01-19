@@ -87,7 +87,7 @@ en:
     bnbs_in_carpentras: Bed & Breakfast in Carpentras
     cabanon:
       description:
-        first: 25 m² studio with equipped kitchenette, comfortable bedding (160 cm), private bathroom and WC.
+        first: 25 m² studio with equipped kitchenette, double bed (160 cm), private bathroom and WC.
         second: Air conditioning, shaded terrace with pool view and barbecue available.
         third: Breakfast, linen and towels included.
       pool_view: pool view
@@ -100,7 +100,7 @@ en:
     independent_studios: Independent Studios
     roseraie:
       description:
-        first: 25 m² studio with equipped kitchenette, comfortable bedding (160 cm), private bathroom and WC.
+        first: 25 m² studio with equipped kitchenette, double bed (160 cm), private bathroom and WC.
         second: Air conditioning, terrace with garden view and barbecue available.
         third: Breakfast, linen and towels included.
       garden_view: garden view
@@ -202,7 +202,7 @@ en:
       title: The Kitchen
     living_room:
       description:
-        first: Air-conditioned living room with comfortable sofa.
+        first: Air-conditioned living room with sofa.
         second: TV and children's games available.
       sofa: Sofa
       title: The Living Room
@@ -214,7 +214,7 @@ en:
     rooms:
       description:
         first: 3 spacious bedrooms, each with private en-suite bathroom.
-        second: Quality bedding (160 cm) and individual air conditioning in each room.
+        second: Double bed (160 cm) and individual air conditioning in each room.
     six_people: 6 people
     subtitle: Cottage in Carpentras for 6 people
     swimming_pool: Swimming Pool

@@ -86,7 +86,7 @@ fr:
     bnbs_in_carpentras: Chambres d'hôtes à Carpentras
     cabanon:
       description:
-        first: Studio de 25 m² avec coin cuisine équipé, literie confortable (160 cm), salle d'eau et WC privatifs.
+        first: Studio de 25 m² avec coin cuisine équipé, lit double (160 cm), salle d'eau et WC privatifs.
         second: Climatisation, terrasse ombragée avec vue piscine et barbecue à disposition.
         third: Petit-déjeuner, draps et serviettes inclus.
       pool_view: vue piscine
@@ -99,7 +99,7 @@ fr:
     independent_studios: Independent Studios
     roseraie:
       description:
-        first: Studio de 25 m² avec coin cuisine équipé, literie confortable (160 cm), salle d'eau et WC privatifs.
+        first: Studio de 25 m² avec coin cuisine équipé, lit double (160 cm), salle d'eau et WC privatifs.
         second: Climatisation, terrasse avec vue jardin et barbecue à disposition.
         third: Petit-déjeuner, draps et serviettes inclus.
       garden_view: vue jardin
@@ -210,7 +210,7 @@ fr:
       title: La Cuisine
     living_room:
       description:
-        first: Salon climatisé avec canapé confortable.
+        first: Salon climatisé avec canapé.
         second: Télévision et jeux pour enfants à disposition.
       sofa: Canapé
       title: Le Salon
@@ -222,7 +222,7 @@ fr:
     rooms:
       description:
         first: 3 chambres spacieuses, chacune avec sa salle d'eau et WC privatifs.
-        second: Literie de qualité (160 cm) et climatisation individuelle dans chaque chambre.
+        second: Lit double (160 cm) et climatisation individuelle dans chaque chambre.
     six_people: 6 pers
     subtitle: Gîte à Carpentras pour 6 personnes
     swimming_pool: Piscine
