@@ -191,6 +191,20 @@
           }
         });
 
+        // Initialize Testimonials Swipers
+        document.querySelectorAll('.testimonials-swiper').forEach(function(el) {
+          new Swiper(el, {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: { delay: 5000 },
+            pagination: {
+              el: el.querySelector('.swiper-pagination'),
+              clickable: true,
+            }
+          });
+        });
+
         // Initialize GLightbox
         if (document.querySelector('.glightbox')) {
           GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });

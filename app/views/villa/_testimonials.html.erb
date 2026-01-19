@@ -8,48 +8,51 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            <div class="carousel_testimonials">
-              <div>
-                <div class="box_overlay">
-                  <div class="pic">
-                    <figure>
-                      <%= image_tag("villa/testimonial_3.jpg", class: "img-circle") %>
-                    </figure>
-                    <h4>Raoul<small><%= t("testimonials.villa.first.date") %></small></h4>
-                  </div>
-                  <div class="comment">
-                    <%= t("testimonials.villa.first.comment") %>
+            <div class="swiper testimonials-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="box_overlay">
+                    <div class="pic">
+                      <figure>
+                        <%= image_tag("villa/testimonial_3.jpg", class: "img-circle") %>
+                      </figure>
+                      <h4>Raoul<small><%= t("testimonials.villa.first.date") %></small></h4>
+                    </div>
+                    <div class="comment">
+                      <%= t("testimonials.villa.first.comment") %>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <div class="box_overlay">
-                  <div class="pic">
-                    <figure>
-                      <%= image_tag("villa/testimonial_2.jpg", class: "img-circle") %>
-                    </figure>
-                    <h4>Sarah<small><%= t("testimonials.villa.second.date") %></small></h4>
-                  </div>
-                  <div class="comment">
-                    <%= t("testimonials.villa.second.comment") %>
+                <div class="swiper-slide">
+                  <div class="box_overlay">
+                    <div class="pic">
+                      <figure>
+                        <%= image_tag("villa/testimonial_2.jpg", class: "img-circle") %>
+                      </figure>
+                      <h4>Sarah<small><%= t("testimonials.villa.second.date") %></small></h4>
+                    </div>
+                    <div class="comment">
+                      <%= t("testimonials.villa.second.comment") %>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <div class="box_overlay">
-                  <div class="pic">
-                    <figure>
-                      <%= image_tag("villa/testimonial_1.jpg", class: "img-circle") %>
-                    </figure>
-                    <h4>Fabrice<small><%= t("testimonials.villa.third.date") %></small></h4>
-                  </div>
-                  <div class="comment">
-                    <%= t("testimonials.villa.third.comment") %>
+                <div class="swiper-slide">
+                  <div class="box_overlay">
+                    <div class="pic">
+                      <figure>
+                        <%= image_tag("villa/testimonial_1.jpg", class: "img-circle") %>
+                      </figure>
+                      <h4>Fabrice<small><%= t("testimonials.villa.third.date") %></small></h4>
+                    </div>
+                    <div class="comment">
+                      <%= t("testimonials.villa.third.comment") %>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
         </div>

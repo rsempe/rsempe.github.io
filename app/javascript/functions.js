@@ -140,27 +140,3 @@ $('ul#cat_nav li a').on('click', function(){
     $(this).addClass('active');
 });
 
-/* ==============================================
-Carousel
-=============================================== */
-if (typeof $.fn.owlCarousel === 'function') {
-  $('.carousel_testimonials').owlCarousel({
-    items:1,
-    loop:true,
-	 autoplay:false,
-    animateIn: 'flipInX',
-	 margin:30,
-    stagePadding:30,
-    smartSpeed:450,
-	responsiveClass:true,
-    responsive:{
-        600:{
-            items:1
-        },
-		 1000:{
-            items:1,
-			nav:false
-        }
-    }
-  });
-}
