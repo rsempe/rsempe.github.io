@@ -58,16 +58,16 @@
     <%= render "layouts/footer" %>
 
     <!-- COMMON SCRIPTS -->
-    <%= javascript_include_tag "/assets/jquery-1.11.2.min.js" %>
-    <%= javascript_include_tag "/assets/common_scripts_min.js", defer: true %>
-    <%= javascript_include_tag "/assets/validate.js" %>
-    <%= javascript_include_tag "/assets/functions.js" %>
+    <%= javascript_include_tag "jquery-1.11.2.min" %>
+    <%= javascript_include_tag "common_scripts_min", defer: true %>
+    <%= javascript_include_tag "validate" %>
+    <%= javascript_include_tag "functions" %>
 
     <!-- SPECIFIC SCRIPTS -->
-    <%= javascript_include_tag "/assets/greensock.js" %>
-    <%= javascript_include_tag "/assets/layerslider.transitions.js" %>
-    <%= javascript_include_tag "/assets/layerslider.kreaturamedia.jquery.js" %>
-    <%= javascript_include_tag "/assets/vegas.js" %>
+    <%= javascript_include_tag "greensock" %>
+    <%= javascript_include_tag "layerslider.transitions" %>
+    <%= javascript_include_tag "layerslider.kreaturamedia.jquery" %>
+    <%= javascript_include_tag "vegas" %>
     <script type="text/javascript">
       if ($('#layerslider').length > 0) {
         $('#layerslider').layerSlider({
