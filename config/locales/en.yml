@@ -188,32 +188,33 @@ en:
   villa:
     boules_court: Boules Court
     description:
-      first: Villa in a quiet location, fully enclosed and without vis-à-vis.
-      second: With swimming pool and fully air-conditioned!
-      third: The Villa is located 5 minutes from the city center of Carpentras by car (20 minutes on foot), 10 kilometers from the Wave Island water park and the Spirou park. You can also enjoy the Provençal market of Carpentras, visit our charming villages (Le Barroux, Gigondas, L'Isle-sur-la-Sorgue, Bédoin, Gordes, Roussillon...), take a stroll on Mont Ventoux, or simply relax by the Villa's pool.
+      first: Peaceful villa, fully enclosed and private, ideal for a relaxing holiday.
+      second: Private swimming pool and air conditioning in every room.
+      third: Just 5 min by car from Carpentras town centre and 10 km from Wave Island and Spirou theme parks.
+      fourth: Enjoy the Provençal market, explore the Vaucluse villages (Gordes, Roussillon, L'Isle-sur-la-Sorgue...), climb Mont Ventoux or relax by the pool.
     entertainent_area: Entertainment area
     kitchen:
       coffee_machine: Coffee Machine & Kettle
       description:
-        first: The kitchen is equipped and contains everything necessary for 6 people. Dishes & pans, plates & cutlery, cooking utensils.
-        second: Fridge, oven, microwave, coffee machine, kettle, and dishwasher are also available on site.
+        first: "Fully equipped kitchen for 6 people: dishes, pots, utensils."
+        second: "Refrigerator, oven, microwave, dishwasher, coffee machine and kettle provided."
       dishes: Dishes & Kitchen Utensils
       title: The Kitchen
     living_room:
       description:
-        first: The living room contains a sofa and is air-conditioned.
-        second: A TV and children's games are also available.
-      sofa: Convertible sofa (2 persons)
+        first: Air-conditioned living room with comfortable sofa.
+        second: TV and children's games available.
+      sofa: Sofa
       title: The Living Room
     mosaics:
-      first: The Villa (105 m²) consists of a living space (living room, dining room and kitchen) and 3 bedrooms, each with its own shower and separate toilet. All rooms are air-conditioned.
-      second: You can enjoy outdoors with a courtyard of approximately 800 m², a large petanque court, and a swimming pool.
-      third: A barbecue, ping pong table, and foosball table will also be available.
+      first: This 105 m² villa features a bright living space with lounge, dining area and open kitchen, plus 3 bedrooms, each with its own en-suite bathroom. Fully air-conditioned throughout for your comfort.
+      second: Outside, enjoy an enclosed 800 m² garden, a pétanque court and a private swimming pool.
+      third: Barbecue, ping-pong table and foosball complete the amenities for quality time with family or friends.
     patio: Patio
     rooms:
       description:
-        first: The cottage has 3 large bedrooms, each with its own separate toilet and bathroom.
-        second: A 160cm bed, a wardrobe with hanging space, and personal air conditioning.
+        first: 3 spacious bedrooms, each with private en-suite bathroom.
+        second: Quality bedding (160 cm) and individual air conditioning in each room.
     six_people: 6 people
     subtitle: Cottage in Carpentras for 6 people
     swimming_pool: Swimming Pool

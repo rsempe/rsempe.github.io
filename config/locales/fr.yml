@@ -196,32 +196,33 @@ fr:
   villa:
     boules_court: Terrain de Pétanque
     description:
-      first: Villa au calme, entièrement clôturée et sans vis-à-vis.
-      second: Avec piscine et entièrement climatisée!
-      third: La Villa se situe à 5 min du centre ville de Carpentras en voiture (20 min à pieds), à 10 kms du parc aquatique Wave Island et du parc Spirou. Vous pourrez également profiter du marché provençal de Carpentras, de visiter nos charmants villages (Le Barroux, Gigondas, L'Isle-sur-la-Sorgue, Bédoin, Gordes, Roussillon...), d'une ballade dans le Mont Ventoux ou tout simplement de la piscine de la Villa.
+      first: Villa paisible, entièrement clôturée et sans vis-à-vis, idéale pour des vacances en toute tranquillité.
+      second: Piscine privée et climatisation dans toutes les pièces.
+      third: À seulement 5 min en voiture du centre de Carpentras et 10 km des parcs Wave Island et Spirou.
+      fourth: Profitez du marché provençal, explorez les villages du Vaucluse (Gordes, Roussillon, L'Isle-sur-la-Sorgue...), gravissez le Mont Ventoux ou détendez-vous au bord de la piscine.
     entertainent_area: Espace divertissement
     kitchen:
       coffee_machine: Machine à Café et Bouilloire
       description:
-        first: La cuisine est équipée et contient tout le nécessaire pour 6 personnes. Plats & casseroles, assiettes & couverts, ustensiles de cuisine.
-        second: Frigo, four, micro ondes, machine à café, bouilloire ainsi qu'un lave vaisselle sont aussi sur place.
+        first: "Cuisine entièrement équipée pour 6 personnes : vaisselle, casseroles, ustensiles."
+        second: "Réfrigérateur, four, micro-ondes, lave-vaisselle, machine à café et bouilloire à disposition."
       dishes: Plats & Ustensiles de cuisine
       title: La Cuisine
     living_room:
       description:
-        first: Le salon contient un canapé et est climatisé.
-        second: Une TV et des jeux enfants sont aussi présents.
-      sofa: Canapé convertible (2 pers)
+        first: Salon climatisé avec canapé confortable.
+        second: Télévision et jeux pour enfants à disposition.
+      sofa: Canapé
       title: Le Salon
     mosaics:
-      first: La Villa (105 m²) se compose d'un espace de vie (salon, salle à manger et cuisine) et de 3 chambres avec pour chacune sa douche et wc indépendants. Toutes les pièces sont climatisées.
-      second: Vous pourrez profiter en extérieur d'une cour de ~800 m², d'un grand terrain de pétanque et d'une piscine.
-      third: Un barbecue, table de ping pong et babyfoot seront aussi présents.
+      first: Cette villa de 105 m² offre un espace de vie lumineux avec salon, salle à manger et cuisine ouverte, ainsi que 3 chambres, chacune disposant de sa propre salle d'eau avec WC. L'ensemble est entièrement climatisé pour votre confort.
+      second: À l'extérieur, profitez d'un jardin clos de 800 m², d'un terrain de pétanque et d'une piscine privée.
+      third: Barbecue, table de ping-pong et baby-foot complètent les équipements pour des moments conviviaux en famille ou entre amis.
     patio: Terrasse
     rooms:
       description:
-        first: Le gîte dispose de 3 grandes chambres avec pour chacune WC et salle de bain indépendants.
-        second: Un lit de 160cms, une amoire avec penderie ainsi que la climatisation personnelle.
+        first: 3 chambres spacieuses, chacune avec sa salle d'eau et WC privatifs.
+        second: Literie de qualité (160 cm) et climatisation individuelle dans chaque chambre.
     six_people: 6 pers
     subtitle: Gîte à Carpentras pour 6 personnes
     swimming_pool: Piscine
