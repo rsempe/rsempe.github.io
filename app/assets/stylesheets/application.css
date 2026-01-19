@@ -190,4 +190,10 @@ div.studio-swiper .swiper-button-next {
 	right: 10px !important;
 }
 
+/* Fix mobile horizontal overflow */
+@media (max-width: 767px) {
+	html, body {
+		overflow-x: hidden;
+	}
 
+}

@@ -56,19 +56,19 @@
         <p><%= t("home.awards.first") %></p>
         <p style="margin-bottom: 0px"><%= t("home.awards.second") %></p>
       </div>
-      <div class="col-sm-3">
-        <%= link_to "https://www.airbnb.com/users/show/115617715", target: "_blank" do %>
+      <div class="col-sm-3" style="margin-bottom: 25px;">
+        <%= link_to "https://www.airbnb.com/users/show/115617715", target: "_blank", style: "display:block; margin-bottom:20px" do %>
           <%= image_tag("airbnb-superhost.png", class: "img-responsive", style: "margin:auto", alt: t("seo.alt.airbnb_superhost")) %>
         <% end %>
-        <%= link_to "https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html", target: "_blank" do %>
+        <%= link_to "https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html", target: "_blank", style: "display:block" do %>
           <%= image_tag("bnbs/booking-award.png", class: "img-responsive", style: "margin:auto", alt: t("seo.alt.booking_award_bnbs")) %>
         <% end %>
       </div>
       <div class="col-sm-3">
-        <%= link_to "https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html", target: "_blank" do %>
+        <%= link_to "https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.fr.html", target: "_blank", style: "display:block; margin-bottom:20px" do %>
           <%= image_tag("villa/booking-award.png", class: "img-responsive", style: "margin:auto", alt: t("seo.alt.booking_award_villa")) %>
         <% end %>
-        <%= link_to "https://www.google.com/travel/hotels/s/EWE6oi1CVT6c7ffr8", target: "_blank" do %>
+        <%= link_to "https://www.google.com/travel/hotels/s/EWE6oi1CVT6c7ffr8", target: "_blank", style: "display:block" do %>
           <%= image_tag("google-avis-client.png", class: "img-responsive", style: "margin:auto", alt: t("seo.alt.google_reviews")) %>
         <% end %>
       </div>
