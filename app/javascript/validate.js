@@ -86,14 +86,22 @@ jQuery(document).ready(function(){
 	'use strict';
 		var action = $(this).attr('action');
 
+		// Prevent double submission
+		if ($('#submit-contact').attr('disabled')) {
+			return false;
+		}
+
 		$("#message-contact").slideUp(750,function() {
 		$('#message-contact').hide();
 
+		// Remove any existing loader and add new one
+		$('#contactform .loader').remove();
  		$('#submit-contact')
 			.after('<i class="icon-spin4 animate-spin loader"></i>')
 			.attr('disabled','disabled');
 
 		$.post(action, {
+			authenticity_token: $('meta[name="csrf-token"]').attr('content'),
 			contact: {
 				firstname: $('#firstname_contact').val(),
 				lastname: $('#lastname_contact').val(),
@@ -104,10 +112,16 @@ jQuery(document).ready(function(){
 		},
 			function(data){
 				document.getElementById('message-contact').innerHTML = data;
+				// Green for success, red for error
+				if(data.match('succès') != null) {
+					$('#message-contact').css('color', '#5cb85c');
+				} else {
+					$('#message-contact').css('color', '#ed5434');
+				}
 				$('#message-contact').slideDown('slow');
 				$('#contactform .loader').fadeOut('slow',function(){$(this).remove()});
 				$('#submit-contact').removeAttr('disabled');
-				if(data.match('success') != null) $('#contactform').slideUp('slow');
+				if(data.match('succès') != null) $('#contactform').slideUp('slow');
 			}
 		);
 
