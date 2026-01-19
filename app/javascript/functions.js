@@ -49,7 +49,9 @@ if($(window).width() <= 480){
 Common
 =============================================== */
 /* Tooltip*/
-$('.tooltip-1').tooltip({html:true});
+if (typeof $.fn.tooltip === 'function') {
+	$('.tooltip-1').tooltip({html:true});
+}
 
 /* Accordion*/
 function toggleChevron(e) {
@@ -152,6 +154,7 @@ $('ul#cat_nav li a').on('click', function(){
 /* ==============================================
 Carousel
 =============================================== */
+if (typeof $.fn.owlCarousel === 'function') {
   $('.carousel_testimonials').owlCarousel({
     items:1,
     loop:true,
@@ -170,4 +173,5 @@ Carousel
 			nav:false
         }
     }
-});
+  });
+}

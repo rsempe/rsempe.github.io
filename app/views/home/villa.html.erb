@@ -23,26 +23,26 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="mosaic_container">
-        <%= image_tag("villa/mosaic-1.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_entertainment")) %>
+        <%= image_tag("villa/mosaics/espace-detente.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_entertainment")) %>
         <span class="caption_2"><%= t("villa.entertainent_area") %></span>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="col-xs-12">
         <div class="mosaic_container">
-          <%= image_tag("villa/mosaic-2.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_pool")) %>
+          <%= image_tag("villa/mosaics/piscine.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_pool")) %>
           <span class="caption_2"><%= t("villa.swimming_pool") %></span>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="mosaic_container">
-          <%= image_tag("villa/mosaic-3.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_boules")) %>
+          <%= image_tag("villa/mosaics/petanque.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_boules")) %>
           <span class="caption_2"><%= t("villa.boules_court") %></span>
         </div>
       </div>
       <div class="col-xs-6">
         <div class="mosaic_container">
-          <%= image_tag("villa/mosaic-4.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_patio")) %>
+          <%= image_tag("villa/mosaics/maison.jpg", class: "img-responsive add_bottom_30", alt: t("seo.alt.villa_patio")) %>
           <span class="caption_2"><%= t("villa.patio") %></span>
         </div>
       </div>
@@ -89,3 +89,28 @@
 </div>
 
 <%= render "villa/testimonials" %>
+
+<div class="container margin_60">
+  <%
+    villa_images = [
+      { src: "villa/gallery/800x533/piscine-2.jpg", large_src: "villa/gallery/1920x1280/piscine-2.jpg", alt: t("seo.gallery.villa.pool") },
+      { src: "villa/gallery/800x533/piscine-1.jpg", large_src: "villa/gallery/1920x1280/piscine-1.jpg", alt: t("seo.gallery.villa.pool") },
+      { src: "villa/gallery/800x533/maison-exterieur-1.jpg", large_src: "villa/gallery/1920x1280/maison-exterieur-1.jpg", alt: t("seo.gallery.villa.exterior") },
+      { src: "villa/gallery/800x533/maison-exterieur-2.jpg", large_src: "villa/gallery/1920x1280/maison-exterieur-2.jpg", alt: t("seo.gallery.villa.exterior") },
+      { src: "villa/gallery/800x533/terrasse-1.jpg", large_src: "villa/gallery/1920x1280/terrasse-1.jpg", alt: t("seo.gallery.villa.terrace") },
+      { src: "villa/gallery/800x533/terrasse-2.jpg", large_src: "villa/gallery/1920x1280/terrasse-2.jpg", alt: t("seo.gallery.villa.terrace") },
+      { src: "villa/gallery/800x533/salon.jpg", large_src: "villa/gallery/1920x1280/salon.jpg", alt: t("seo.gallery.villa.living_room") },
+      { src: "villa/gallery/800x533/cuisine.jpg", large_src: "villa/gallery/1920x1280/cuisine.jpg", alt: t("seo.gallery.villa.kitchen") },
+      { src: "villa/gallery/800x533/premiere-chambre-1.jpg", large_src: "villa/gallery/1920x1280/premiere-chambre-1.jpg", alt: t("seo.gallery.villa.bedroom_1") },
+      { src: "villa/gallery/800x533/premiere-chambre-2.jpg", large_src: "villa/gallery/1920x1280/premiere-chambre-2.jpg", alt: t("seo.gallery.villa.bedroom_1") },
+      { src: "villa/gallery/800x533/deuxieme-chambre-1.jpg", large_src: "villa/gallery/1920x1280/deuxieme-chambre-1.jpg", alt: t("seo.gallery.villa.bedroom_2") },
+      { src: "villa/gallery/800x533/deuxieme-chambre-2.jpg", large_src: "villa/gallery/1920x1280/deuxieme-chambre-2.jpg", alt: t("seo.gallery.villa.bedroom_2") },
+      { src: "villa/gallery/800x533/troisieme-chambre.jpg", large_src: "villa/gallery/1920x1280/troisieme-chambre.jpg", alt: t("seo.gallery.villa.bedroom_3") },
+      { src: "villa/gallery/800x533/espace-divertissement-1.jpg", large_src: "villa/gallery/1920x1280/espace-divertissement-1.jpg", alt: t("seo.gallery.villa.entertainment") },
+      { src: "villa/gallery/800x533/espace-divertissement-2.jpg", large_src: "villa/gallery/1920x1280/espace-divertissement-2.jpg", alt: t("seo.gallery.villa.entertainment") },
+      { src: "villa/gallery/800x533/table-pingpong.jpg", large_src: "villa/gallery/1920x1280/table-pingpong.jpg", alt: t("seo.gallery.villa.entertainment") },
+      { src: "villa/gallery/800x533/terrain-petanque.jpg", large_src: "villa/gallery/1920x1280/terrain-petanque.jpg", alt: t("seo.gallery.villa.boules") }
+    ]
+  %>
+  <%= render "shared/gallery", images: villa_images, gallery_id: "villa-gallery", title: t("seo.gallery.villa.title") %>
+</div>

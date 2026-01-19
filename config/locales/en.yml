@@ -35,6 +35,34 @@ en:
       booking_award_bnbs: "Traveller Review Award Booking.com - Les Célestins B&B"
       booking_award_villa: "Traveller Review Award Booking.com - Villa Les Célestins"
       google_reviews: "Google Customer Reviews - Les Célestins Cottages Carpentras"
+    gallery:
+      villa:
+        title: "Photo Gallery - The Villa"
+        exterior: "Exterior view of Villa Les Célestins"
+        pool: "Private swimming pool"
+        terrace: "Shaded terrace"
+        living_room: "Air-conditioned living room"
+        kitchen: "Fully equipped kitchen"
+        bedroom_1: "Bedroom 1 with private bathroom"
+        bedroom_2: "Bedroom 2 with private bathroom"
+        bedroom_3: "Bedroom 3 with private bathroom"
+        entertainment: "Entertainment area"
+        boules: "Boules court"
+      bnbs:
+        title: "Photo Gallery - The Studios"
+      cabanon:
+        title: "Photo Gallery - Studio Le Cabanon"
+        exterior: "Studio Le Cabanon - Exterior view"
+        interior: "Studio Le Cabanon - Interior"
+        bedroom: "Studio Le Cabanon - Sleeping area"
+        kitchen: "Studio Le Cabanon - Kitchen corner"
+        bathroom: "Studio Le Cabanon - Bathroom"
+        terrace: "Studio Le Cabanon - Terrace with pool view"
+      roseraie:
+        title: "Photo Gallery - Studio La Roseraie"
+        exterior: "Studio La Roseraie - Exterior view"
+        interior: "Studio La Roseraie - Interior"
+        garden: "Studio La Roseraie - Garden view"
   meta:
     home:
       index:

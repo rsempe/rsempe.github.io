@@ -20,9 +20,15 @@
 
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
     <%= javascript_importmap_tags %>
 
@@ -99,5 +105,58 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdD97c8kh_3uzUXIVmWQ5HX3iLgXIfdmw&sensor=false"></script>
     <script type="text/javascript" src="/assets/mapmarker.jquery.js"></script>
     <script type="text/javascript" src="/assets/mapmarker_func.jquery.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- GLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+      $(function() {
+        // Initialize Swiper galleries
+        document.querySelectorAll('.gallery-swiper').forEach(function(el) {
+          var swiper = new Swiper(el, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoHeight: true,
+            pagination: {
+              el: el.querySelector('.swiper-pagination'),
+              clickable: true,
+            },
+            navigation: {
+              nextEl: el.querySelector('.swiper-button-next'),
+              prevEl: el.querySelector('.swiper-button-prev'),
+            },
+            on: {
+              init: function() {
+                // Force width constraints after Swiper sets its inline styles
+                el.style.maxWidth = '800px';
+                el.style.width = '100%';
+                var wrapper = el.querySelector('.swiper-wrapper');
+                if (wrapper) {
+                  wrapper.style.maxWidth = '800px';
+                  wrapper.style.width = '100%';
+                }
+              },
+              resize: function() {
+                // Re-apply on resize
+                el.style.maxWidth = '800px';
+                el.style.width = '100%';
+                var wrapper = el.querySelector('.swiper-wrapper');
+                if (wrapper) {
+                  wrapper.style.maxWidth = '800px';
+                  wrapper.style.width = '100%';
+                }
+              }
+            }
+          });
+        });
+
+        // Initialize GLightbox
+        if (document.querySelector('.glightbox')) {
+          GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
+        }
+      });
+    </script>
   </body>
 </html>
