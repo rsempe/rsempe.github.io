@@ -1,14 +1,8 @@
-<div id="full-slider-wrapper">
-  <div id="layerslider" style="width:100%;height:600px;">
-    <div class="ls-slide" data-ls="slidedelay: 5000; transition2d:5;">
-      <%= image_tag("villa/villa-1.jpg", class: "ls-bg", alt: t("seo.alt.villa_main")) %>
-      <h3 class="ls-l slide_typo" style="top: 45%; left: 50%;" data-ls="offsetxin:0;durationin:2000;delayin:1000;easingin:easeOutElastic;rotatexin:90;transformoriginin:50% bottom 0;offsetxout:0;rotatexout:90;transformoriginout:50% bottom 0;" >
-        <strong><%= t("villa.title") %></strong> (<%= t("villa.six_people") %>)
-      </h3>
-      <!--<a href="#0" class="btn_slider ls-l" style="top:62%; left:50%;" data-ls="durationin:2000;delayin:1300;easingin:easeOutElastic;" >En savoir plus</a>-->
-    </div>
+<section class="hero" style="background-image: url('<%= asset_path('villa/villa-1.jpg') %>');">
+  <div class="hero-content">
+    <h3><strong><%= t("villa.title") %></strong> (<%= t("villa.six_people") %>)</h3>
   </div>
-</div>
+</section>
 
 <div class="container margin_60_35">
   <h1 class="main_title">

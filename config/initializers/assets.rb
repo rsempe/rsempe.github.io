@@ -12,8 +12,5 @@ Rails.application.config.assets.precompile += %w[
   common_scripts_min.js
   validate.js
   functions.js
-  greensock.js
-  layerslider.transitions.js
-  layerslider.kreaturamedia.jquery.js
   vegas.js
 ]
