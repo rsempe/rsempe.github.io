@@ -18,7 +18,7 @@
 
     <%= structured_data %>
 
-    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -71,12 +71,12 @@
         "use strict";
         $('.kenburns_slider').vegas({
           slides: [
-            { src: '/assets/slides/ventoux.jpg' },
-            { src: '/assets/slides/carpentras.jpg' },
-            { src: '/assets/slides/gordes.jpg' },
-            { src: '/assets/slides/ocres.jpg' },
-            { src: '/assets/slides/lavandes.jpg' },
-            { src: '/assets/slides/isle-sur-la-sorgue.jpg' }
+            { src: '<%= asset_path("slides/ventoux.jpg") %>' },
+            { src: '<%= asset_path("slides/carpentras.jpg") %>' },
+            { src: '<%= asset_path("slides/gordes.jpg") %>' },
+            { src: '<%= asset_path("slides/ocres.jpg") %>' },
+            { src: '<%= asset_path("slides/lavandes.jpg") %>' },
+            { src: '<%= asset_path("slides/isle-sur-la-sorgue.jpg") %>' }
           ],
           overlay: false,
           transition: 'fade2',
