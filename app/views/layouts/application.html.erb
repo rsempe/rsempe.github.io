@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- GLightbox CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
@@ -102,9 +104,23 @@
         });
       });
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdD97c8kh_3uzUXIVmWQ5HX3iLgXIfdmw&sensor=false"></script>
-    <script type="text/javascript" src="/assets/mapmarker.jquery.js"></script>
-    <script type="text/javascript" src="/assets/mapmarker_func.jquery.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      $(function() {
+        if (document.getElementById('map')) {
+          var lat = 44.05729107816163;
+          var lng = 5.025749021901367;
+          var map = L.map('map').setView([lat, lng], 15);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+          L.marker([lat, lng]).addTo(map)
+            .bindPopup('<div style="text-align:center;"><strong>Gîtes & Chambres d\'Hôtes Les Célestins</strong><br>26 Chemin Traversier de Lira<br>84200 Carpentras<br><a href="https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng + '" target="_blank" style="display:inline-block;margin-top:8px;padding:5px 10px;background:#ed5434;color:#fff;text-decoration:none;border-radius:3px;font-size:12px;">Itinéraire</a></div>')
+            .openPopup();
+        }
+      });
+    </script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
