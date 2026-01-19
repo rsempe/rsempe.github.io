@@ -68,18 +68,7 @@ Video modal dialog + Parallax + Scroll to top + Incrementer
 =============================================== */
 $(function () {
 'use strict';
-$('.video').magnificPopup({type:'iframe'});	/* video modal*/
-$('.parallax-window').parallax({}); /* Parallax modal*/
-
-// Image popups
-$('.magnific-gallery').each(function() {
-	'use strict';
-    $(this).magnificPopup({
-        delegate: 'a',
-        type: 'image',
-        gallery:{enabled:true}
-    });
-});
+$('.parallax-window').parallax({}); /* Parallax */
 
 /* Hamburger icon*/
 var toggles = document.querySelectorAll(".cmn-toggle-switch");
