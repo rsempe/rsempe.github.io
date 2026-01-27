@@ -21,42 +21,12 @@
 
 #close_in,#header_menu, .cmn-toggle-switch{display:none;}
 
-a.dropdown-toggle.icon-search{display: inline-block;}
-
-/* IE9 fix that affect the pages with parallax header (ex.single_hotel.html); Issue: submenu disappear when move the cursor to the submenu (only if you did not scroll the page) */
-.ie9 a.show-submenu, .ie9 a.show-submenu-mega{ background:image-url('fix_ie_9_menu.png');}
-
 /* All styles for screen size over 992px
 ================================================== */
 @media only screen and (min-width: 992px) {
-
-.main-menu {width: auto;}
-.main-menu a {white-space: nowrap;}
-.main-menu ul li {display: inline-block;}
-
-.main-menu ul li.submenu:hover > a:before,
-.main-menu ul li.submenu:hover > a:after {bottom: -20px;opacity: 0;}
-
-/* Submenu */
-.main-menu ul ul,
-.main-menu ul .menu-wrapper {position: absolute;display: none;z-index: 1;height: auto;left: 0;top: 100%;margin: 0;padding: 0;background: #fff;min-width:190px;-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);box-shadow: 0 6px 12px rgba(0, 0, 0, .175);}
-
-.main-menu ul .menu-wrapper ul {-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border-top: none; margin:0; padding:0;}
-.main-menu ul .menu-wrapper ul:before{border:0;}
-
-.main-menu ul li:hover > ul,
-.main-menu ul li:hover > .menu-wrapper {display:block;padding: 0;}
-.main-menu ul ul li {display: block;height: auto;padding: 0;}
-.main-menu ul ul li a {font-size: 13px;color: #666;border-bottom:1px solid #ededed;display: block;}
-.main-menu ul ul li:last-child a {border-bottom:none;}
-
-.main-menu ul ul li:hover > a {background-color:#f9f9f9;color:#ed5434; padding-left:15px;}
-
-.main-menu ul .menu-wrapper ul {position: relative;display:block;}
-.main-menu ul .menu-wrapper ul {margin-bottom:15px;left: 0;}
-
-a#search_bt span{ display:none;}
-
+	.main-menu {width: auto;}
+	.main-menu a {white-space: nowrap;}
+	.main-menu ul li {display: inline-block;}
 }
 
 
@@ -64,19 +34,12 @@ a#search_bt span{ display:none;}
 
 #header_menu{text-align:center;padding:25px 15px 25px 15px;position:relative;display:block;}
 
-.main-menu ul li a:hover,
-a.show-submenu:hover,
-a.show-submenu:focus,
-a.show-submenu-mega:hover,
-a.show-submenu-mega:focus{color:#ed5434 !important;background-color:#f9f9f9;}
+.main-menu ul li a:hover{color:#ed5434 !important;background-color:#f9f9f9;}
 
-.main-menu ul li  {border-top: none;border-bottom: 1px solid #ededed;color: #fff;}
+.main-menu ul li {border-top: none;border-bottom: 1px solid #ededed;color: #fff;}
 
 /* Menu mobile first level */
-.main-menu ul li a  {padding:10px 15px !important;}
-
-.main-menu h3 {font-size: 12px; line-height:14px;margin: 10px 0 0 0;padding: 0 0 15px 15px;color: #333;text-transform:uppercase;}
-.megamenu .menu-wrapper > div {padding:0;}
+.main-menu ul li a {padding:10px 15px !important;}
 
 .main-menu li,
 .main-menu a {display: block;color:#555 !important;}
@@ -85,12 +48,6 @@ a.show-submenu-mega:focus{color:#ed5434 !important;background-color:#f9f9f9;}
 .main-menu a:hover {color:#ed5434 !important;}
 
 .main-menu ul > li {padding-bottom: 0;}
-.main-menu ul > li i{float:right;}
-
-/* Menu mobile second level */
-.main-menu ul li.submenu ul{font-size: 13px;border-left:1px solid #ededed;margin:0 0 15px 25px;}
-.main-menu ul li.submenu ul li{font-size: 13px;border:0;}
-
 
 /* Menu mobile left panel */
 .main-menu {overflow: auto;left: -100%;bottom: 0;width: 45%;height: 100%;opacity: 0;position:fixed;background-color:#fff;
@@ -102,10 +59,6 @@ transition:left 0.8s, opacity 0.5s; z-index:9999;
 box-shadow:         1px 0px 5px 0px rgba(50, 50, 50, 0.55);}
 
 .main-menu.show {visibility: visible;left: 0;opacity: 1;}
-.main-menu .show-submenu + ul,
-a.show-submenu-mega + .menu-wrapper{display: none;visibility: hidden;}
-a.show-submenu-mega + .menu-wrapper.show_mega,
-.main-menu a.show-submenu + ul.show_normal  {display: block;visibility: visible;}
 
 /* Hamburger menu button*/
 .cmn-toggle-switch {
@@ -149,9 +102,6 @@ a.show-submenu-mega + .menu-wrapper.show_mega,
 .cmn-toggle-switch__htx.active span::after {bottom: 0;-webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg);transform: rotate(-45deg);}
 .cmn-toggle-switch__htx.active span::before,
 .cmn-toggle-switch__htx.active span::after {-webkit-transition-delay: 0, 0.3s;transition-delay: 0, 0.3s;}
-
-}
-@media only screen and (max-width: 767px) {
 
 }
 @media only screen and (max-width: 600px) {

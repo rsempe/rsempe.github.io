@@ -1,5 +1,5 @@
 /*============================================================================================*/
-/* Repsonsive  */
+/* Responsive */
 /*============================================================================================*/
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -10,31 +10,19 @@
 		background-attachment:scroll;
 	}
 }
-@media (min-width: 768px) and (max-width: 1200px) {
-	#group_3{
-		display:block;
-	}
-}
 @media (max-width: 991px) {
 	ul#lang_top{ margin-right:45px;}
 	#sub_content{padding:0 60px;}
 	#sub_content h1{font-size:42px;}
-	#single_room_feat ul{margin-bottom:10px;}
 	.room_pic span, .room_pic.left span{
-	position:absolute;
-	bottom:0;
-	left:0;
-	}
-	.grid ul li{width:50%;}
-
-	hr.more_margin {
-		margin:25px 0 30px 0;
+		position:absolute;
+		bottom:0;
+		left:0;
 	}
 }
 /* Tablet*/
 @media (max-width: 768px) {
-	 #sub_content h1{ font-size:42px;}
-	 #single_room_feat ul li i{font-size:28px;}
+	#sub_content h1{ font-size:42px;}
 	.room_desc_home.left h3{
 		margin-top:0;
 		padding-top:0;
@@ -43,8 +31,6 @@
 		padding-bottom:60px;
 	}
 	.mosaic_container .caption_2{font-size:14px;}
-
-	#hero_video {background: #333 image-url('sub_header_home.jpg'); background-size:cover; background-position: center center;}
 }
 
 /* Mobile Landscape */
@@ -60,34 +46,7 @@
 	.promo_full_wp div h3{font-size:28px;}
 	.promo_full_wp div h3 span{font-size:16px;}
 
-	#hero_video > div{padding:60px 20px 0 20px;}
-
-	#hero_video #sub_content .mobile_fix {background-color:rgba(0, 0, 0, 0.8);display:inline-block; padding:15px 20px; font-size:14px; }
-	#hero_video #sub_content .mobile_fix h1{margin:0; font-size:28px;}
-
-	.about .img-responsive.styled {margin-bottom:20px;}
-
-	#container_1, #container_2, #container_5, #container_6{width:100%;}
-
-	/* Parallax bg */
-	.parallax-window#short, .parallax-window{height: 240px;min-height:240px;}
-	.parallax-content {font-size:12px !important;}
-	.parallax-content h3{font-size:30px !important;}
-	.parallax-window#home {height: 240px;min-height:240px;}
-	#home #subheader{height: 240px;}
 	#sub_content{padding:0 10px;}
-
-	#home #subheader #sub_content p {display:none}
-	.parallax-window#short #subheader h1{font-size:24px;}
-
-	.parallax-window#home #subheader_home{height: 240px;min-height:240px; line-height:1.1; padding:40px 15px 0 15px;}
-	.parallax-window#home #subheader_home #sub_content p {font-size:16px;}
-
-	 .parallax-window#booking {min-height: 580px;}
-
-	 #booking #sub_content{padding:30px 20px 0 20px;}
-	#container_3, #container_4{width:47%;}
-	#group_1, #group_2, #group_3{display:block;}
 
 	/* Margin tools */
 	.margin_60 {padding-top:30px; padding-bottom:30px;}
@@ -101,20 +60,11 @@
 
 	#logo img{height:30px;}
 
-	#single_room_feat ul{
-		display:block;
-		margin-bottom:10px;
-	}
-	#single_room_feat ul li{
-		display: inline-block;
-		width:auto;
-		font-size:11px;
-	}
 	#map {
 		width:100%;
 		height:300px;
 	}
-	.promo_full_wp,  .promo_full_wp > div{
+	.promo_full_wp, .promo_full_wp > div{
 		display: block;
 	}
 	.box_overlay{
@@ -138,27 +88,13 @@
 		padding-left:0;
 		padding-top:30px;
 	}
-	ul#policies{
-		margin:20px 0 30px 0;
-	}
-
-	/* Awards spacing on mobile */
-	.awards-col {
-		margin-bottom: 25px;
-	}
-
 }
 
-/* Mobile Landscape */
+/* Mobile Portrait */
 @media (max-width: 480px) {
 	h3.caption_header{letter-spacing:0; font-size: 20px; margin-bottom:10px; padding:8px 15px;}
 	a.btn_slider{ font-size:13px;}
 
-	#single_room_feat ul li i{font-size:21px;}
-	.grid ul li{width:100%;min-height:100%;float:none;}
-
-	#hero_video > div{padding:60px 20px 0 20px;}
-	#hero_video #sub_content .mobile_fix {display:none}
 	h1.main_title,h2.main_title {font-size:24px;}
 	h1.main_title span, h2.main_title span {font-size:18px;}
 
