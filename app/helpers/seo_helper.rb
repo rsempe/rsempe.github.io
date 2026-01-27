@@ -108,12 +108,7 @@ module SeoHelper
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": t("seo.site_name"),
-      "url": "https://giteslescelestins.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://giteslescelestins.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "url": "https://giteslescelestins.com"
     }
   end
 

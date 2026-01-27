@@ -1,12 +1,16 @@
 module ApplicationHelper
   def canonical_and_hreflangs
-    base_url = request.base_url
+    base_url = "https://giteslescelestins.com"
     path = request.path
 
-    tag(:link, rel: "canonical", href: "#{base_url}#{path}") +
-    tag(:link, rel: "alternate", hreflang: "fr", href: "#{base_url}#{path}?locale=fr") +
-    tag(:link, rel: "alternate", hreflang: "en", href: "#{base_url}#{path}?locale=en") +
-    tag(:link, rel: "alternate", hreflang: "x-default", href: "#{base_url}#{path}")
+    # Use canonical URL without query params for all hreflang variants
+    # The same URL serves content in the user's preferred language
+    canonical_url = "#{base_url}#{path}"
+
+    tag(:link, rel: "canonical", href: canonical_url) +
+    tag(:link, rel: "alternate", hreflang: "fr", href: canonical_url) +
+    tag(:link, rel: "alternate", hreflang: "en", href: canonical_url) +
+    tag(:link, rel: "alternate", hreflang: "x-default", href: canonical_url)
   end
 
   def meta_title(default_key = "home.index")

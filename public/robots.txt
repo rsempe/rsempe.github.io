@@ -3,4 +3,8 @@
 User-agent: *
 Allow: /
 
+# Block URLs with query parameters (locale switching handled internally)
+Disallow: /*?locale=
+Disallow: /*?q=
+
 Sitemap: https://giteslescelestins.com/sitemap.xml
