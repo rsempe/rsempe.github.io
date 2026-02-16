@@ -1,0 +1,235 @@
+
+/* Hero section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h3 {
+  font-size: 42px;
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-content h3 strong {
+  font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: 400px;
+  }
+  .hero-content h3 {
+    font-size: 28px;
+    padding: 0 20px;
+  }
+}
+
+p.lead.styled span {
+	color: #ed5434;
+}
+
+h3.caption_header {
+	line-height: initial;
+}
+
+/* Gallery Slideshow Styles */
+.gallery-section {
+	width: 100%;
+	max-width: 800px;
+	margin-top: 20px;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.gallery-title {
+	text-align: center;
+	margin-bottom: 25px;
+	font-size: 24px;
+	color: #333;
+}
+
+.gallery-swiper {
+	position: relative !important;
+	width: 100% !important;
+	max-width: 800px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.gallery-swiper .swiper-wrapper {
+	align-items: center;
+	width: 100% !important;
+	max-width: 800px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.gallery-swiper .swiper-slide {
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	height: auto !important;
+	width: 100% !important;
+}
+
+.gallery-swiper .swiper-slide a {
+	display: block;
+	width: 100%;
+}
+
+.gallery-swiper .gallery-image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+/* Hide zoom overlay icon */
+.gallery-overlay {
+	display: none !important;
+}
+
+/* Navigation arrows */
+.gallery-swiper .swiper-button-next,
+.gallery-swiper .swiper-button-prev {
+	color: #ed5434 !important;
+	background: rgba(255, 255, 255, 0.9) !important;
+	width: 50px !important;
+	height: 50px !important;
+	border-radius: 50% !important;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	margin-top: -20px !important;
+}
+
+.gallery-swiper .swiper-button-prev {
+	left: 15px !important;
+}
+
+.gallery-swiper .swiper-button-next {
+	right: 15px !important;
+}
+
+.gallery-swiper .swiper-button-next:after,
+.gallery-swiper .swiper-button-prev:after {
+	font-size: 20px !important;
+	font-weight: bold !important;
+}
+
+/* Pagination dots */
+.gallery-swiper .swiper-pagination {
+	position: relative;
+	bottom: auto;
+	margin-top: 25px;
+}
+
+.gallery-swiper .swiper-pagination-bullet {
+	background: #ed5434;
+	opacity: 0.5;
+}
+
+.gallery-swiper .swiper-pagination-bullet-active {
+	opacity: 1;
+}
+
+@media (max-width: 768px) {
+	.gallery-swiper .swiper-button-next,
+	.gallery-swiper .swiper-button-prev {
+		width: 40px !important;
+		height: 40px !important;
+	}
+
+	.gallery-swiper .swiper-button-next:after,
+	.gallery-swiper .swiper-button-prev:after {
+		font-size: 16px !important;
+	}
+}
+
+/* Studio Carousel Styles (B&B page) */
+.studio-swiper {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.studio-swiper .swiper-slide {
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.studio-swiper .swiper-slide img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+div.studio-swiper .swiper-button-next,
+div.studio-swiper .swiper-button-prev {
+	color: #fff !important;
+	background: rgba(0, 0, 0, 0.5) !important;
+	width: 40px !important;
+	height: 40px !important;
+	border-radius: 50% !important;
+	--swiper-navigation-color: #fff !important;
+}
+
+div.studio-swiper .swiper-button-next:after,
+div.studio-swiper .swiper-button-prev:after {
+	font-size: 18px !important;
+	color: #fff !important;
+}
+
+div.studio-swiper .swiper-button-prev {
+	left: 10px !important;
+}
+
+div.studio-swiper .swiper-button-next {
+	right: 10px !important;
+}
+
+/* Fix mobile horizontal overflow */
+@media (max-width: 767px) {
+	html, body {
+		overflow-x: hidden;
+	}
+
+}
