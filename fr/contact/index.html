@@ -91,6 +91,9 @@
 
     <div class="container margin_60_35">
       <h2 class="main_title"><em></em>Gîtes &amp; Chambres d'Hôtes<span>Les Célestins - Carpentras</span></h2>
+      <div id="confirmation-message" class="alert alert-success" style="display:none; text-align:center; font-size:16px;">
+        <strong>Merci !</strong> Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.
+      </div>
       <div class="row add_top_20">
         <div class="col-md-4">
           <div class="box_style_1">
@@ -107,13 +110,27 @@
         </div>
 
         <div class="col-md-7 col-md-offset-1">
-          <!-- Nicetouch form placeholder -->
-          <div id="nicetouch-form">
-            <p style="text-align:center; padding: 40px 0; color: #999;">
-              <!-- Replace with your Nicetouch embed code -->
-              <em>Formulaire de contact (Nicetouch)</em>
-            </p>
-          </div>
+          <form accept-charset="UTF-8" method="post" id="nicetouch-form">
+            <script src="https://nicetou.ch/forms/0zaf.js"></script>
+
+            <div class="form-group">
+              <label for="sender">Votre Email</label>
+              <input type="email" id="sender" name="sender" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Objet</label>
+              <input type="text" id="subject" name="subject" class="form-control" minlength="6" required />
+            </div>
+
+            <div class="form-group">
+              <label for="body">Message</label>
+              <textarea id="body" name="body" class="form-control" rows="6" required></textarea>
+            </div>
+
+            <input type="hidden" name="return_url" value="https://giteslescelestins.com/fr/contact/?sent=1" />
+            <input type="submit" name="commit" value="Envoyer" class="btn_1" />
+          </form>
         </div>
       </div>
     </div>
@@ -215,6 +232,12 @@
           animationDuration: 30000
         });
       });
+    </script>
+    <script>
+      if (new URLSearchParams(window.location.search).has('sent')) {
+        document.getElementById('confirmation-message').style.display = 'block';
+        window.history.replaceState({}, '', window.location.pathname);
+      }
     </script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
