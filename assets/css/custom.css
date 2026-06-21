@@ -308,3 +308,22 @@ details#lang_top > ul li a.active { color: #ed5434; font-weight: 600; }
 @media (max-width: 991px) {
 	details#lang_top { margin-right: 50px; }
 }
+
+/* Uniform paired region photos (Découvrir page) */
+.region-duo-img {
+	width: 100%;
+	height: 340px;
+	object-fit: cover;
+	border-radius: 5px;
+	display: block;
+}
+@media (max-width: 767px) {
+	.region-duo-img { height: 230px; }
+}
+
+/* Vertically center image + text in two-column Découvrir sections */
+.row.vcenter {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
