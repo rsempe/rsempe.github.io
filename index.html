@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <script>
       var lang = (navigator.language || '').substring(0, 2);
-      window.location.replace(lang === 'en' ? '/en/' : '/fr/');
+      var supported = { en: '/en/', de: '/de/', nl: '/nl/', fr: '/fr/' };
+      window.location.replace(supported[lang] || '/fr/');
     </script>
     <meta http-equiv="refresh" content="0;url=/fr/">
     <title>Gîtes Les Célestins</title>
