@@ -298,4 +298,78 @@
     <changefreq>monthly</changefreq>
   </url>
 
+  <!-- ============ DECOUVRIR ============ -->
+  <url>
+    <loc>https://giteslescelestins.com/fr/decouvrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/en/decouvrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <priority>0.4</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/de/decouvrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <priority>0.4</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/nl/decouvrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <priority>0.4</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/it/decouvrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <priority>0.4</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/es/decouvrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/decouvrir/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/decouvrir/"/>
+    <priority>0.4</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
 </urlset>
