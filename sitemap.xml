@@ -3,196 +3,296 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <!-- ============ HOME ============ -->
-  <!-- Home FR -->
   <url>
     <loc>https://giteslescelestins.com/fr/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/"/>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Home EN -->
   <url>
     <loc>https://giteslescelestins.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/"/>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Home DE -->
   <url>
     <loc>https://giteslescelestins.com/de/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/"/>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Home NL -->
   <url>
     <loc>https://giteslescelestins.com/nl/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/"/>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/it/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/"/>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/"/>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- ============ VILLA ============ -->
-  <!-- Villa FR -->
   <url>
     <loc>https://giteslescelestins.com/fr/villa/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/villa/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/villa/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/villa/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/villa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/villa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/villa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/villa/"/>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Villa EN -->
   <url>
     <loc>https://giteslescelestins.com/en/villa/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/villa/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/villa/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/villa/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/villa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/villa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/villa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/villa/"/>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Villa DE -->
   <url>
     <loc>https://giteslescelestins.com/de/villa/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/villa/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/villa/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/villa/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/villa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/villa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/villa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/villa/"/>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Villa NL -->
   <url>
     <loc>https://giteslescelestins.com/nl/villa/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/villa/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/villa/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/villa/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/villa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/villa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/villa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/villa/"/>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/it/villa/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/villa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/villa/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/villa/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/villa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/villa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/villa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/villa/"/>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/es/villa/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/villa/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/villa/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/villa/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/villa/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/villa/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/villa/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/villa/"/>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- ============ CHAMBRES D'HOTES ============ -->
-  <!-- Chambres d'hotes FR -->
   <url>
     <loc>https://giteslescelestins.com/fr/chambres-hotes/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Chambres d'hotes EN -->
   <url>
     <loc>https://giteslescelestins.com/en/chambres-hotes/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Chambres d'hotes DE -->
   <url>
     <loc>https://giteslescelestins.com/de/chambres-hotes/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
-
-  <!-- Chambres d'hotes NL -->
   <url>
     <loc>https://giteslescelestins.com/nl/chambres-hotes/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/it/chambres-hotes/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/es/chambres-hotes/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/chambres-hotes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/chambres-hotes/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/chambres-hotes/"/>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
 
   <!-- ============ CONTACT ============ -->
-  <!-- Contact FR -->
   <url>
     <loc>https://giteslescelestins.com/fr/contact/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/contact/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/contact/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/contact/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/contact/"/>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
-
-  <!-- Contact EN -->
   <url>
     <loc>https://giteslescelestins.com/en/contact/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/contact/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/contact/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/contact/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/contact/"/>
     <priority>0.4</priority>
     <changefreq>monthly</changefreq>
   </url>
-
-  <!-- Contact DE -->
   <url>
     <loc>https://giteslescelestins.com/de/contact/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/contact/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/contact/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/contact/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/contact/"/>
     <priority>0.4</priority>
     <changefreq>monthly</changefreq>
   </url>
-
-  <!-- Contact NL -->
   <url>
     <loc>https://giteslescelestins.com/nl/contact/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/contact/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/contact/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/contact/"/>
     <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/contact/"/>
+    <priority>0.4</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/it/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/contact/"/>
+    <priority>0.4</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://giteslescelestins.com/es/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://giteslescelestins.com/fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://giteslescelestins.com/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://giteslescelestins.com/de/contact/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://giteslescelestins.com/nl/contact/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://giteslescelestins.com/it/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://giteslescelestins.com/es/contact/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://giteslescelestins.com/fr/contact/"/>
     <priority>0.4</priority>
     <changefreq>monthly</changefreq>
