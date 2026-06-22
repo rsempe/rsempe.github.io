@@ -327,3 +327,69 @@ details#lang_top > ul li a.active { color: #ed5434; font-weight: 600; }
 	flex-wrap: wrap;
 	align-items: center;
 }
+
+/* Review / awards cards (home page) */
+.review-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	justify-content: center;
+	margin-top: 15px;
+}
+.review-card {
+	flex: 1 1 200px;
+	max-width: 250px;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0,0,0,.06);
+	padding: 26px 18px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	transition: transform .2s ease, box-shadow .2s ease;
+}
+.review-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 9px 28px rgba(0,0,0,.12);
+}
+.review-card .platform {
+	font-weight: 600;
+	color: #444;
+	font-size: 15px;
+	margin-bottom: 6px;
+}
+.review-card .rating {
+	min-height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 4px 0;
+}
+.review-card .score {
+	font-size: 32px;
+	font-weight: 700;
+	color: #ed5434;
+	line-height: 1;
+}
+.review-card .score span {
+	font-size: 15px;
+	color: #999;
+	font-weight: 500;
+}
+.review-card .stars {
+	color: #ffb400;
+	font-size: 20px;
+	letter-spacing: 3px;
+	line-height: 1;
+}
+.review-card .label {
+	color: #555;
+	font-size: 14px;
+	font-weight: 500;
+	margin-top: 8px;
+}
+.review-card .sub {
+	color: #999;
+	font-size: 11px;
+	margin-top: 3px;
+}
