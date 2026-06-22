@@ -36,8 +36,6 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="/assets/css/animate.min.css">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -47,7 +45,6 @@
     <link rel="stylesheet" href="/assets/css/fontello/css/icon_set_1.css">
     <link rel="stylesheet" href="/assets/css/fontello/css/icon_set_2.css">
     <link rel="stylesheet" href="/assets/css/fontello/css/fontello.css">
-    <link rel="stylesheet" href="/assets/css/vegas.css">
     <link rel="stylesheet" href="/assets/css/custom.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-33NHN4SLS8"></script>
@@ -228,28 +225,6 @@
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
     <script src="/assets/js/common_scripts_min.js" defer></script>
     <script src="/assets/js/functions.js"></script>
-    <script src="/assets/js/vegas.js"></script>
-    <script>
-      $(function() {
-        "use strict";
-        $('.kenburns_slider').vegas({
-          slides: [
-            { src: '/assets/images/slides/ventoux.jpg' },
-            { src: '/assets/images/slides/carpentras.jpg' },
-            { src: '/assets/images/slides/gordes.jpg' },
-            { src: '/assets/images/slides/ocres.jpg' },
-            { src: '/assets/images/slides/lavandes.jpg' },
-            { src: '/assets/images/slides/isle-sur-la-sorgue.jpg' }
-          ],
-          overlay: false,
-          transition: 'fade2',
-          animation: 'kenburns',
-          transitionDuration: 1000,
-          delay: 6000,
-          animationDuration: 30000
-        });
-      });
-    </script>
     <script>
       if (new URLSearchParams(window.location.search).has('sent')) {
         document.getElementById('confirmation-message').style.display = 'block';
@@ -269,41 +244,6 @@
           L.marker([lat, lng]).addTo(map)
             .bindPopup('<div style="text-align:center;"><strong>Gîtes &amp; Chambres d\'Hôtes Les Célestins</strong><br>26 Chemin Traversier de Lira<br>84200 Carpentras<br><a href="https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng + '" target="_blank" style="display:inline-block;margin-top:8px;padding:5px 10px;background:#ed5434;color:#fff;text-decoration:none;border-radius:3px;font-size:12px;">Route</a></div>')
             .openPopup();
-        }
-      });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script>
-      $(function() {
-        document.querySelectorAll('.gallery-swiper').forEach(function(el) {
-          var swiper = new Swiper(el, {
-            slidesPerView: 1, spaceBetween: 0, loop: true, autoHeight: true,
-            pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-            navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
-            on: {
-              init: function() { el.style.maxWidth='800px'; el.style.width='100%'; var w=el.querySelector('.swiper-wrapper'); if(w){w.style.maxWidth='800px';w.style.width='100%';} },
-              resize: function() { el.style.maxWidth='800px'; el.style.width='100%'; var w=el.querySelector('.swiper-wrapper'); if(w){w.style.maxWidth='800px';w.style.width='100%';} }
-            }
-          });
-        });
-        document.querySelectorAll('.studio-swiper').forEach(function(el) {
-          new Swiper(el, {
-            slidesPerView: 1, spaceBetween: 0, loop: true,
-            navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') }
-          });
-          el.style.setProperty('--swiper-navigation-color', '#fff');
-          var roomPic = el.closest('.room_pic');
-          if (roomPic) { var span = roomPic.querySelector('span.wow'); if (span) { span.style.zIndex = '10'; } }
-        });
-        document.querySelectorAll('.testimonials-swiper').forEach(function(el) {
-          new Swiper(el, {
-            slidesPerView: 1, spaceBetween: 30, loop: true, autoplay: { delay: 5000 },
-            pagination: { el: el.querySelector('.swiper-pagination'), clickable: true }
-          });
-        });
-        if (document.querySelector('.glightbox')) {
-          GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
         }
       });
     </script>
