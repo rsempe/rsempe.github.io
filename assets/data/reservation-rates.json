@@ -21,7 +21,17 @@
         "rateWithAdditionalTax": 0.044,
         "capWithAdditionalTax": 2.53,
         "appliesTo": "adults"
-      }
+      },
+      "seasons": [
+        {
+          "start": "2026-01-01",
+          "end": "2026-09-30"
+        },
+        {
+          "start": "2027-04-16",
+          "end": "2027-10-17"
+        }
+      ]
     },
     "cabanon": {
       "label": "Studio Le Cabanon",
@@ -36,7 +46,17 @@
         "model": "fixed",
         "perAdultNight": 0.7,
         "appliesTo": "adults"
-      }
+      },
+      "seasons": [
+        {
+          "start": "2026-01-01",
+          "end": "2026-10-18"
+        },
+        {
+          "start": "2027-04-30",
+          "end": "2027-10-03"
+        }
+      ]
     },
     "roseraie": {
       "label": "Studio La Roseraie",
@@ -51,7 +71,17 @@
         "model": "fixed",
         "perAdultNight": 0.7,
         "appliesTo": "adults"
-      }
+      },
+      "seasons": [
+        {
+          "start": "2026-01-01",
+          "end": "2026-10-18"
+        },
+        {
+          "start": "2027-04-30",
+          "end": "2027-10-03"
+        }
+      ]
     }
   }
 }

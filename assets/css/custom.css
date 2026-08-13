@@ -801,6 +801,12 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	color: #aaa;
 }
 
+.availability-day.is-closed {
+	background: #f4f4f4;
+	color: #bbb;
+	text-decoration: line-through;
+}
+
 .availability-meta {
 	display: flex;
 	flex-wrap: wrap;

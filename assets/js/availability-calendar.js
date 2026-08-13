@@ -107,7 +107,40 @@
     return dateOnlyToDay(end) - dateOnlyToDay(start);
   }
 
-  function renderMonth(year, month, busySet, currentTodayDay) {
+  // Booking seasons: start = first possible arrival, end = last departure.
+  // A night "day" is open when season.start <= day < season.end.
+  function getSeasons(key) {
+    var rate = getRate(key);
+    return rate && Array.isArray(rate.seasons) && rate.seasons.length ? rate.seasons : null;
+  }
+
+  function buildOpenSet(seasons) {
+    var open = new Set();
+    seasons.forEach(function (season) {
+      var start = dateOnlyToDay(season.start);
+      var end = dateOnlyToDay(season.end);
+      for (var day = start; day < end; day += 1) {
+        open.add(day);
+      }
+    });
+    return open;
+  }
+
+  function formatSeasonsPhrase(seasons, currentTodayDay) {
+    var parts = seasons
+      .filter(function (season) {
+        return dateOnlyToDay(season.end) > currentTodayDay;
+      })
+      .map(function (season) {
+        if (dateOnlyToDay(season.start) <= currentTodayDay) {
+          return "jusqu'au " + formatDate(season.end);
+        }
+        return "du " + formatDate(season.start) + " au " + formatDate(season.end);
+      });
+    return "Séjours possibles " + parts.join(", puis ") + " (date de départ incluse).";
+  }
+
+  function renderMonth(year, month, busySet, currentTodayDay, openSet) {
     var first = new Date(Date.UTC(year, month, 1));
     var daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
     var offset = (first.getUTCDay() + 6) % 7;
@@ -134,6 +167,9 @@
       if (currentDay < currentTodayDay) {
         classes.push("is-past");
         label += " passé";
+      } else if (openSet && !openSet.has(currentDay)) {
+        classes.push("is-closed");
+        label += " hors période d'ouverture";
       } else if (busySet.has(currentDay)) {
         classes.push("is-busy");
         label += " indisponible";
@@ -150,16 +186,47 @@
   }
 
   function renderCalendars(widget, item) {
-    var months = Number(widget.getAttribute("data-availability-months") || 4);
     var calendars = widget.querySelector("[data-availability-calendars]");
     var currentTodayDay = todayDay();
     var busySet = buildBusySet(item);
     var today = new Date();
     var html = "";
+    var seasons = getSeasons(widget.getAttribute("data-availability-widget"));
 
-    for (var offset = 0; offset < months; offset += 1) {
-      var monthDate = new Date(Date.UTC(today.getFullYear(), today.getMonth() + offset, 1));
-      html += renderMonth(monthDate.getUTCFullYear(), monthDate.getUTCMonth(), busySet, currentTodayDay);
+    if (seasons) {
+      // Only render the months of the booking seasons, from today onwards.
+      var openSet = buildOpenSet(seasons);
+      var lastOpenDay = Math.max.apply(null, seasons.map(function (season) {
+        return dateOnlyToDay(season.end);
+      })) - 1;
+      var cursor = new Date(Date.UTC(today.getFullYear(), today.getMonth(), 1));
+
+      while (Math.floor(cursor.getTime() / DAY_MS) <= lastOpenDay) {
+        var year = cursor.getUTCFullYear();
+        var month = cursor.getUTCMonth();
+        var daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+        var monthHasOpenDay = false;
+
+        for (var date = 1; date <= daysInMonth; date += 1) {
+          var day = Math.floor(Date.UTC(year, month, date) / DAY_MS);
+          if (day >= currentTodayDay && openSet.has(day)) {
+            monthHasOpenDay = true;
+            break;
+          }
+        }
+
+        if (monthHasOpenDay) {
+          html += renderMonth(year, month, busySet, currentTodayDay, openSet);
+        }
+
+        cursor = new Date(Date.UTC(year, month + 1, 1));
+      }
+    } else {
+      var months = Number(widget.getAttribute("data-availability-months") || 4);
+      for (var offset = 0; offset < months; offset += 1) {
+        var monthDate = new Date(Date.UTC(today.getFullYear(), today.getMonth() + offset, 1));
+        html += renderMonth(monthDate.getUTCFullYear(), monthDate.getUTCMonth(), busySet, currentTodayDay);
+      }
     }
 
     calendars.innerHTML = html;
@@ -174,10 +241,22 @@
     var heading = target.querySelector("strong");
     var headingHtml = "<strong>" + escapeHtml(heading ? heading.textContent : "Prochaines périodes indisponibles") + "</strong>";
     var currentTodayDay = todayDay();
+    var seasons = getSeasons(widget.getAttribute("data-availability-widget"));
+    var openSet = seasons ? buildOpenSet(seasons) : null;
     var ranges = (item.busy || [])
       .filter(function (range) {
         var endDay = range.allDay ? dateOnlyToDay(range.end) : timedToExclusiveDay(range.end);
-        return endDay >= currentTodayDay;
+        if (endDay < currentTodayDay) {
+          return false;
+        }
+        // Skip busy ranges entirely outside the booking seasons: the
+        // calendar does not display those periods at all.
+        if (openSet) {
+          return rangeToDays(range).some(function (day) {
+            return day >= currentTodayDay && openSet.has(day);
+          });
+        }
+        return true;
       })
       .slice(0, 4);
 
@@ -371,6 +450,16 @@
     }
     if (nights < rate.minNights) {
       return "Le séjour minimum est de " + rate.minNights + " nuits.";
+    }
+    if (rate.seasons && rate.seasons.length) {
+      var arrivalDay = dateOnlyToDay(values.start);
+      var departureDay = dateOnlyToDay(values.end);
+      var withinSeason = rate.seasons.some(function (season) {
+        return arrivalDay >= dateOnlyToDay(season.start) && departureDay <= dateOnlyToDay(season.end);
+      });
+      if (!withinSeason) {
+        return "Dates hors période d'ouverture. " + formatSeasonsPhrase(rate.seasons, todayDay());
+      }
     }
     return "";
   }
