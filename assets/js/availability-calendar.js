@@ -202,14 +202,14 @@
     }
 
     if (!item.sourceConfigured) {
-      status.innerHTML = "Synchronisation Booking en cours de configuration. Envoyez-nous vos dates pour confirmation.";
+      status.innerHTML = "Calendrier en cours de synchronisation. Envoyez-nous vos dates pour confirmation.";
       status.className = "availability-status is-warning";
       return false;
     }
 
     if (updatedAt) {
       var date = new Date(updatedAt);
-      status.innerHTML = "Mis à jour depuis Booking le " + date.toLocaleDateString("fr-FR") + ".";
+      status.innerHTML = "Calendrier mis à jour le " + date.toLocaleDateString("fr-FR") + ".";
       status.className = "availability-status is-ready";
     }
 
@@ -275,7 +275,7 @@
     if (!item || state.availabilityError || item.error || !item.sourceConfigured) {
       return {
         status: "unknown",
-        message: "Disponibilité à confirmer : le calendrier Booking n'est pas encore synchronisé."
+        message: "Disponibilité à confirmer : le calendrier n'est pas encore synchronisé."
       };
     }
 
@@ -284,14 +284,14 @@
       if (busySet.has(day)) {
         return {
           status: "busy",
-          message: "Déjà réservé selon le calendrier Booking pour au moins une nuit sélectionnée. Vous pouvez tout de même envoyer la demande, nous regarderons les alternatives possibles."
+          message: "Déjà réservé pour au moins une nuit sélectionnée. Vous pouvez tout de même envoyer la demande, nous regarderons les alternatives possibles."
         };
       }
     }
 
     return {
       status: "free",
-      message: "Disponible selon le calendrier Booking synchronisé."
+      message: "Disponible selon notre calendrier."
     };
   }
 
