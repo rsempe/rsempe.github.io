@@ -99,7 +99,9 @@ async function readSource(source) {
   return fetchText(source.value);
 }
 
-function fetchText(url) {
+const MAX_REDIRECTS = 5;
+
+function fetchText(url, redirectsLeft = MAX_REDIRECTS) {
   return new Promise((resolve, reject) => {
     let parsed;
     try {
@@ -118,8 +120,12 @@ function fetchText(url) {
     const request = client.get(parsed, { headers: { "User-Agent": "gites-les-celestins-availability/1.0" } }, (response) => {
       if ([301, 302, 303, 307, 308].includes(response.statusCode) && response.headers.location) {
         response.resume();
+        if (redirectsLeft <= 0) {
+          reject(new Error("Calendar request exceeded redirect limit"));
+          return;
+        }
         const redirectedUrl = new URL(response.headers.location, parsed).toString();
-        fetchText(redirectedUrl).then(resolve, reject);
+        fetchText(redirectedUrl, redirectsLeft - 1).then(resolve, reject);
         return;
       }
 
@@ -292,11 +298,11 @@ async function main() {
   }
 
   const timestamp = new Date().toISOString();
+  const previous = await readExistingOutput(args.out);
   const output = {
     generatedAt: timestamp,
     accommodations: {},
   };
-  let hasErrors = false;
 
   for (const accommodation of ACCOMMODATIONS) {
     const source = resolveSource(accommodation, args);
@@ -310,19 +316,23 @@ async function main() {
       const events = parseIcs(content);
       output.accommodations[accommodation.key] = toPublicAvailability(accommodation, source, events, null, timestamp);
     } catch (error) {
-      hasErrors = true;
-      output.accommodations[accommodation.key] = toPublicAvailability(accommodation, source, [], error, timestamp);
+      // Keep the last known busy ranges instead of wiping them, so a
+      // transient calendar failure never publishes an empty calendar.
+      const kept = previous && previous.accommodations && previous.accommodations[accommodation.key];
+      const keptBusy = kept && Array.isArray(kept.busy) ? kept.busy : [];
+      // Publish a generic error only: network error messages can contain
+      // the private calendar host. Details go to the CI logs instead.
+      const item = toPublicAvailability(accommodation, source, [], new Error("Calendar temporarily unavailable"), timestamp);
+      item.busy = keptBusy;
+      item.updatedAt = kept && kept.updatedAt ? kept.updatedAt : null;
+      output.accommodations[accommodation.key] = item;
+      console.error(`${accommodation.label}: ${error.message}`);
     }
   }
 
-  const previous = await readExistingOutput(args.out);
   if (hasAvailabilityChanged(previous, output)) {
     await fs.promises.mkdir(path.dirname(args.out), { recursive: true });
     await fs.promises.writeFile(args.out, `${JSON.stringify(output, null, 2)}\n`, "utf8");
-  }
-
-  if (hasErrors) {
-    process.exitCode = 1;
   }
 }
 
