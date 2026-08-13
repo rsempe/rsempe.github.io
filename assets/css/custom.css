@@ -1,5 +1,9 @@
 
 /* Hero section */
+.room_pic picture {
+	display: block;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -68,10 +72,6 @@ p.lead.styled span {
 
 h3.caption_header {
 	line-height: initial;
-}
-
-.room_pic picture {
-	display: block;
 }
 
 /* Gallery Slideshow Styles */
