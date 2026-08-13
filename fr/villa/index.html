@@ -254,6 +254,76 @@
       </div>
     </div>
 
+    <!-- Availability -->
+    <section class="availability-section" id="disponibilites-villa" aria-labelledby="villa-availability-title">
+      <div class="container">
+        <div class="availability-intro">
+          <p class="availability-eyebrow">Disponibilités Booking</p>
+          <h3 id="villa-availability-title">Calendrier indicatif de la Villa</h3>
+          <p>Les dates indisponibles proviennent du calendrier Booking synchronisé. Choisissez vos dates pour vérifier la disponibilité et envoyer une demande de réservation en direct.</p>
+        </div>
+        <div class="availability-layout is-single">
+          <div class="availability-widget" data-availability-widget="villa" data-availability-months="4">
+            <h4>Villa Les Célestins</h4>
+            <div class="availability-status" data-availability-status>Chargement du calendrier...</div>
+            <div class="availability-calendars" data-availability-calendars></div>
+            <div class="availability-upcoming" data-availability-upcoming>
+              <strong>Prochaines périodes indisponibles</strong>
+            </div>
+            <div class="availability-meta">
+              <div class="availability-legend" aria-label="Légende du calendrier">
+                <span><i class="is-free"></i>Disponible</span>
+                <span><i class="is-busy"></i>Indisponible</span>
+              </div>
+            </div>
+            <form accept-charset="UTF-8" method="post" class="reservation-form" id="reservation-villa" data-reservation-form="villa">
+              <script src="https://nicetou.ch/forms/0zaf.js"></script>
+              <input type="hidden" name="subject" value="Demande de réservation - Villa Les Célestins" />
+              <input type="hidden" name="body" value="" />
+              <input type="hidden" name="return_url" value="https://giteslescelestins.com/fr/contact/?sent=1" />
+              <h5>Demande de réservation directe</h5>
+              <div class="reservation-grid">
+                <div class="form-group">
+                  <label for="villa-arrival">Arrivée</label>
+                  <input type="date" id="villa-arrival" name="arrival_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-departure">Départ</label>
+                  <input type="date" id="villa-departure" name="departure_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-adults">Adultes</label>
+                  <input type="number" id="villa-adults" name="adults" class="form-control" min="1" max="6" value="2" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-children">Enfants</label>
+                  <input type="number" id="villa-children" name="children" class="form-control" min="0" max="5" value="0" />
+                </div>
+                <div class="form-group">
+                  <label for="villa-name">Nom</label>
+                  <input type="text" id="villa-name" name="guest_name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-email">Email</label>
+                  <input type="email" id="villa-email" name="sender" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-phone">Téléphone</label>
+                  <input type="tel" id="villa-phone" name="phone" class="form-control" />
+                </div>
+                <div class="form-group reservation-message">
+                  <label for="villa-message">Message</label>
+                  <textarea id="villa-message" name="guest_message" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="reservation-result is-muted" data-reservation-result>Sélectionnez vos dates pour afficher l'estimation.</div>
+              <input type="submit" name="commit" value="Envoyer la demande" class="btn_1 reservation-submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Testimonials -->
     <section class="promo_full villa">
       <div class="promo_full_wp">
@@ -387,13 +457,12 @@
             </ul>
           </div>
           <div class="col-md-3 col-sm-4" id="newsletter">
-            <h3>Les Annonces</h3>
+            <h3>Réserver en direct</h3>
             <ul>
-              <li><a href="https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.html" target="_blank" rel="noopener">Chambres d'Hôtes (Booking)</a></li>
-              <li><a href="https://www.airbnb.fr/rooms/47331722" target="_blank" rel="noopener">Studio Le Cabanon (Airbnb)</a></li>
-              <li><a href="https://www.airbnb.fr/rooms/47504292" target="_blank" rel="noopener">Studio La Roseraie (Airbnb)</a></li>
-              <li><a href="https://www.airbnb.fr/rooms/47841085" target="_blank" rel="noopener">La Villa (Airbnb)</a></li>
-              <li><a href="https://www.booking.com/hotel/fr/villa-en-provence-6-pers.html" target="_blank" rel="noopener">La Villa (Booking)</a></li>
+              <li><a href="#reservation-villa">Demande Villa Les Célestins</a></li>
+              <li><a href="/fr/chambres-hotes/#reservation-cabanon">Demande Studio Le Cabanon</a></li>
+              <li><a href="/fr/chambres-hotes/#reservation-roseraie">Demande Studio La Roseraie</a></li>
+              <li><a href="/fr/contact/">Une question ? Nous contacter</a></li>
             </ul>
           </div>
         </div>
@@ -411,6 +480,7 @@
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
     <script src="/assets/js/common_scripts_min.js" defer></script>
     <script src="/assets/js/functions.js"></script>
+    <script src="/assets/js/availability-calendar.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>

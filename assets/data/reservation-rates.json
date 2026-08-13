@@ -1,0 +1,57 @@
+{
+  "updatedAt": "2026-08-13",
+  "currency": "EUR",
+  "taxReferenceUrl": "https://lacove.taxesejour.fr/",
+  "accommodations": {
+    "villa": {
+      "label": "Villa Les Célestins",
+      "maxGuests": 6,
+      "minNights": 2,
+      "pricing": {
+        "model": "villa_bundle",
+        "weekendNights": 2,
+        "weekendPrice": 750,
+        "weekNights": 7,
+        "weekPrice": 1930,
+        "extraNightPrice": 290,
+        "cleaningFee": 80
+      },
+      "touristTax": {
+        "model": "proportional",
+        "rateWithAdditionalTax": 0.044,
+        "capWithAdditionalTax": 2.53,
+        "appliesTo": "adults"
+      }
+    },
+    "cabanon": {
+      "label": "Studio Le Cabanon",
+      "maxGuests": 2,
+      "minNights": 2,
+      "pricing": {
+        "model": "nightly",
+        "nightlyRate": 130,
+        "cleaningFee": 0
+      },
+      "touristTax": {
+        "model": "fixed",
+        "perAdultNight": 0.7,
+        "appliesTo": "adults"
+      }
+    },
+    "roseraie": {
+      "label": "Studio La Roseraie",
+      "maxGuests": 2,
+      "minNights": 2,
+      "pricing": {
+        "model": "nightly",
+        "nightlyRate": 120,
+        "cleaningFee": 0
+      },
+      "touristTax": {
+        "model": "fixed",
+        "perAdultNight": 0.7,
+        "appliesTo": "adults"
+      }
+    }
+  }
+}
