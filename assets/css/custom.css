@@ -751,6 +751,39 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	min-width: 0;
 }
 
+/* Season groups inside the calendars */
+.availability-season {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+.availability-season + .availability-season {
+	margin-top: 14px;
+}
+
+.availability-season-title {
+	margin: 0 0 12px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ececec;
+	font-size: 15px;
+	font-weight: 600;
+	color: #ed5434;
+	text-transform: uppercase;
+	letter-spacing: .4px;
+}
+
+.availability-season-months {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+@media (max-width: 990px) {
+	.availability-season-months {
+		grid-template-columns: 1fr;
+	}
+}
+
 .availability-month h4 {
 	margin: 0 0 8px;
 	font-size: 15px;

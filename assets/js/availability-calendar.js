@@ -91,6 +91,14 @@
     }).format(date);
   }
 
+  function formatDayMonth(value) {
+    var date = new Date(String(value).slice(0, 10) + "T00:00:00Z");
+    return new Intl.DateTimeFormat("fr-FR", {
+      day: "numeric",
+      month: "long"
+    }).format(date);
+  }
+
   function formatRange(range) {
     var start = new Date(range.start.slice(0, 10) + "T00:00:00Z");
     var endDay = range.allDay ? dateOnlyToDay(range.end) - 1 : timedToExclusiveDay(range.end) - 1;
@@ -194,33 +202,37 @@
     var seasons = getSeasons(widget.getAttribute("data-availability-widget"));
 
     if (seasons) {
-      // Only render the months of the booking seasons, from today onwards.
+      // One block per booking season: a title followed by its months.
       var openSet = buildOpenSet(seasons);
-      var lastOpenDay = Math.max.apply(null, seasons.map(function (season) {
-        return dateOnlyToDay(season.end);
-      })) - 1;
-      var cursor = new Date(Date.UTC(today.getFullYear(), today.getMonth(), 1));
 
-      while (Math.floor(cursor.getTime() / DAY_MS) <= lastOpenDay) {
-        var year = cursor.getUTCFullYear();
-        var month = cursor.getUTCMonth();
-        var daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
-        var monthHasOpenDay = false;
-
-        for (var date = 1; date <= daysInMonth; date += 1) {
-          var day = Math.floor(Date.UTC(year, month, date) / DAY_MS);
-          if (day >= currentTodayDay && openSet.has(day)) {
-            monthHasOpenDay = true;
-            break;
-          }
+      seasons.forEach(function (season) {
+        var seasonStart = dateOnlyToDay(season.start);
+        var seasonLastNight = dateOnlyToDay(season.end) - 1;
+        if (seasonLastNight < currentTodayDay) {
+          return;
         }
 
-        if (monthHasOpenDay) {
-          html += renderMonth(year, month, busySet, currentTodayDay, openSet);
+        var endDate = new Date(dateOnlyToDay(season.end) * DAY_MS);
+        var title = "Saison " + endDate.getUTCFullYear() + " · " +
+          (seasonStart <= currentTodayDay
+            ? "jusqu'au " + formatDayMonth(season.end)
+            : "du " + formatDayMonth(season.start) + " au " + formatDayMonth(season.end));
+
+        html += '<div class="availability-season">';
+        html += '<p class="availability-season-title">' + escapeHtml(title) + "</p>";
+        html += '<div class="availability-season-months">';
+
+        var firstDay = Math.max(seasonStart, currentTodayDay);
+        var cursor = new Date(firstDay * DAY_MS);
+        cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth(), 1));
+
+        while (Math.floor(cursor.getTime() / DAY_MS) <= seasonLastNight) {
+          html += renderMonth(cursor.getUTCFullYear(), cursor.getUTCMonth(), busySet, currentTodayDay, openSet);
+          cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1));
         }
 
-        cursor = new Date(Date.UTC(year, month + 1, 1));
-      }
+        html += "</div></div>";
+      });
     } else {
       var months = Number(widget.getAttribute("data-availability-months") || 4);
       for (var offset = 0; offset < months; offset += 1) {
