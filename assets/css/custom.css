@@ -751,7 +751,7 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	min-width: 0;
 }
 
-/* Season groups inside the calendars */
+/* Season groups inside the calendars (collapsible) */
 .availability-season {
 	grid-column: 1 / -1;
 	min-width: 0;
@@ -770,6 +770,41 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	color: #ed5434;
 	text-transform: uppercase;
 	letter-spacing: .4px;
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.availability-season-title::-webkit-details-marker {
+	display: none;
+}
+
+.availability-season-title::before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 6px solid #ed5434;
+	transition: transform .2s ease;
+	flex: 0 0 auto;
+}
+
+.availability-season[open] > .availability-season-title::before {
+	transform: rotate(90deg);
+}
+
+.availability-season:not([open]) > .availability-season-title {
+	margin-bottom: 0;
+	opacity: .75;
+}
+
+.availability-season:not([open]) > .availability-season-title:hover {
+	opacity: 1;
 }
 
 .availability-season-months {

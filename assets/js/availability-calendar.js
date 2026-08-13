@@ -202,8 +202,10 @@
     var seasons = getSeasons(widget.getAttribute("data-availability-widget"));
 
     if (seasons) {
-      // One block per booking season: a title followed by its months.
+      // One collapsible block per booking season; the current (or next)
+      // season is expanded by default.
       var openSet = buildOpenSet(seasons);
+      var firstRendered = true;
 
       seasons.forEach(function (season) {
         var seasonStart = dateOnlyToDay(season.start);
@@ -218,9 +220,10 @@
             ? "jusqu'au " + formatDayMonth(season.end)
             : "du " + formatDayMonth(season.start) + " au " + formatDayMonth(season.end));
 
-        html += '<div class="availability-season">';
-        html += '<p class="availability-season-title">' + escapeHtml(title) + "</p>";
+        html += '<details class="availability-season"' + (firstRendered ? " open" : "") + ">";
+        html += '<summary class="availability-season-title">' + escapeHtml(title) + "</summary>";
         html += '<div class="availability-season-months">';
+        firstRendered = false;
 
         var firstDay = Math.max(seasonStart, currentTodayDay);
         var cursor = new Date(firstDay * DAY_MS);
@@ -231,7 +234,7 @@
           cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1));
         }
 
-        html += "</div></div>";
+        html += "</div></details>";
       });
     } else {
       var months = Number(widget.getAttribute("data-availability-months") || 4);
