@@ -20,6 +20,19 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Check secrets are configured
+        env:
+          BOOKING_ICAL_VILLA_URL: ${{ secrets.BOOKING_ICAL_VILLA_URL }}
+          BOOKING_ICAL_CABANON_URL: ${{ secrets.BOOKING_ICAL_CABANON_URL }}
+          BOOKING_ICAL_ROSERAIE_URL: ${{ secrets.BOOKING_ICAL_ROSERAIE_URL }}
+        run: |
+          # Fail fast if the iCal secrets are missing: running without them
+          # would publish empty calendars over the real availability data.
+          if [ -z "$BOOKING_ICAL_VILLA_URL" ] || [ -z "$BOOKING_ICAL_CABANON_URL" ] || [ -z "$BOOKING_ICAL_ROSERAIE_URL" ]; then
+            echo "::error::Missing BOOKING_ICAL_*_URL repository secrets — aborting to avoid wiping availability data."
+            exit 1
+          fi
+
       - name: Generate public availability
         env:
           BOOKING_ICAL_VILLA_URL: ${{ secrets.BOOKING_ICAL_VILLA_URL }}
