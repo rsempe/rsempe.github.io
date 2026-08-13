@@ -70,6 +70,10 @@ h3.caption_header {
 	line-height: initial;
 }
 
+.room_pic picture {
+	display: block;
+}
+
 /* Gallery Slideshow Styles */
 .gallery-section {
 	width: 100%;
