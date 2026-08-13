@@ -547,3 +547,269 @@ footer .img-circle { border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,.
 footer figure img { display: block; margin-left: auto; margin-right: auto; }
 .host-col { text-align: center; }
 .host-col h3::after { left: 50%; transform: translateX(-50%); }
+
+/* Availability calendar */
+.availability-section {
+	padding: 55px 0;
+	background: #f7f5f2;
+}
+
+.availability-section .container {
+	max-width: 1120px;
+}
+
+.availability-intro {
+	margin-bottom: 26px;
+	text-align: center;
+}
+
+.availability-eyebrow {
+	margin-bottom: 8px;
+	color: #ed5434;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.availability-intro h3 {
+	margin: 0 0 10px;
+	color: #333;
+	font-size: 28px;
+	font-weight: 500;
+}
+
+.availability-intro p {
+	max-width: 760px;
+	margin: 0 auto;
+	color: #666;
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.availability-layout {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 22px;
+}
+
+.availability-layout.is-single {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.availability-widget {
+	padding: 22px;
+	background: #fff;
+	border: 1px solid #e6e0d9;
+	border-radius: 6px;
+}
+
+.availability-widget h4 {
+	margin: 0 0 12px;
+	color: #333;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.availability-status {
+	margin-bottom: 18px;
+	padding: 11px 13px;
+	border-radius: 4px;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.availability-status.is-ready {
+	background: #edf7ef;
+	color: #2f6b3b;
+}
+
+.availability-status.is-warning {
+	background: #fff4e2;
+	color: #8a5a16;
+}
+
+.availability-calendars {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.availability-month {
+	min-width: 0;
+}
+
+.availability-month h4 {
+	margin: 0 0 8px;
+	font-size: 15px;
+	text-align: center;
+}
+
+.availability-days {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 4px;
+}
+
+.availability-weekdays {
+	margin-bottom: 5px;
+	color: #777;
+	font-size: 11px;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.availability-day {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 1;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.availability-day.is-empty {
+	background: transparent;
+}
+
+.availability-day.is-free {
+	background: #f1f8f2;
+	color: #2f6b3b;
+}
+
+.availability-day.is-busy {
+	background: #f7d9d1;
+	color: #9a2f1f;
+}
+
+.availability-day.is-past {
+	background: #eee;
+	color: #aaa;
+}
+
+.availability-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 18px;
+	padding-top: 16px;
+	border-top: 1px solid #eee;
+}
+
+.availability-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	color: #666;
+	font-size: 12px;
+}
+
+.availability-legend span {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.availability-legend i {
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	border-radius: 3px;
+}
+
+.availability-legend .is-free {
+	background: #b7dfbd;
+}
+
+.availability-legend .is-busy {
+	background: #e8a394;
+}
+
+.availability-upcoming {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 14px;
+	color: #666;
+	font-size: 12px;
+}
+
+.availability-upcoming strong {
+	width: 100%;
+	color: #333;
+}
+
+.availability-upcoming span {
+	padding: 5px 8px;
+	background: #f3f1ef;
+	border-radius: 4px;
+}
+
+.availability-upcoming .availability-empty {
+	padding: 0;
+	background: transparent;
+}
+
+.availability-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.availability-actions a {
+	display: inline-block;
+	padding: 9px 12px;
+	border-radius: 4px;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.availability-actions .availability-booking-link {
+	background: #ed5434;
+	color: #fff;
+}
+
+.availability-actions .availability-contact-link {
+	border: 1px solid #ed5434;
+	color: #ed5434;
+}
+
+.availability-actions a:hover,
+.availability-actions a:focus {
+	text-decoration: none;
+	opacity: 0.88;
+}
+
+@media (max-width: 991px) {
+	.availability-layout,
+	.availability-layout.is-single,
+	.availability-calendars {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 767px) {
+	.availability-section {
+		padding: 38px 0;
+	}
+
+	.availability-widget {
+		padding: 16px;
+	}
+
+	.availability-meta,
+	.availability-actions {
+		display: block;
+	}
+
+	.availability-actions a {
+		display: block;
+		margin-top: 10px;
+		text-align: center;
+	}
+}

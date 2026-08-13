@@ -254,6 +254,37 @@
       </div>
     </div>
 
+    <!-- Availability -->
+    <section class="availability-section" id="disponibilites-villa" aria-labelledby="villa-availability-title">
+      <div class="container">
+        <div class="availability-intro">
+          <p class="availability-eyebrow">Disponibilités Booking</p>
+          <h3 id="villa-availability-title">Calendrier indicatif de la Villa</h3>
+          <p>Les dates indisponibles proviennent du calendrier Booking synchronisé. Pour finaliser une réservation, utilisez Booking ou envoyez-nous vos dates pour confirmation.</p>
+        </div>
+        <div class="availability-layout is-single">
+          <div class="availability-widget" data-availability-widget="villa" data-availability-months="4">
+            <h4>Villa Les Célestins</h4>
+            <div class="availability-status" data-availability-status>Chargement du calendrier...</div>
+            <div class="availability-calendars" data-availability-calendars></div>
+            <div class="availability-upcoming" data-availability-upcoming>
+              <strong>Prochaines périodes indisponibles</strong>
+            </div>
+            <div class="availability-meta">
+              <div class="availability-legend" aria-label="Légende du calendrier">
+                <span><i class="is-free"></i>Disponible</span>
+                <span><i class="is-busy"></i>Indisponible</span>
+              </div>
+              <div class="availability-actions">
+                <a class="availability-booking-link" href="https://www.booking.com/hotel/fr/villa-en-provence-6-pers.html" target="_blank" rel="noopener">Réserver sur Booking</a>
+                <a class="availability-contact-link" href="/fr/contact/">Nous contacter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Testimonials -->
     <section class="promo_full villa">
       <div class="promo_full_wp">
@@ -411,6 +442,7 @@
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
     <script src="/assets/js/common_scripts_min.js" defer></script>
     <script src="/assets/js/functions.js"></script>
+    <script src="/assets/js/availability-calendar.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>

@@ -44,3 +44,15 @@ Equivalent environment variables are also supported:
 - `BOOKING_ICAL_ROSERAIE_FILE`
 
 Use `--out /path/to/availability.json` or `AVAILABILITY_OUTPUT` to write somewhere other than `assets/data/availability.json`.
+
+## Public display
+
+`assets/js/availability-calendar.js` renders the public busy ranges on the French Villa and Studios pages. It reads `assets/data/availability.json` in the browser and never reads the private iCal URLs.
+
+The widget uses these public keys:
+
+- `villa`
+- `cabanon`
+- `roseraie`
+
+After creating the GitHub Actions secrets, run the workflow manually once and verify that each widget shows a green "Mis à jour depuis Booking" status.
