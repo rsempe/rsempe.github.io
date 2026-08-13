@@ -284,7 +284,7 @@
       if (busySet.has(day)) {
         return {
           status: "busy",
-          message: "Indisponible selon le calendrier Booking pour au moins une nuit sélectionnée."
+          message: "Déjà réservé selon le calendrier Booking pour au moins une nuit sélectionnée. Vous pouvez tout de même envoyer la demande, nous regarderons les alternatives possibles."
         };
       }
     }
@@ -437,7 +437,7 @@
 
     return {
       ready: true,
-      canSubmit: availability.status !== "busy",
+      canSubmit: true,
       values: values,
       rate: rate,
       nights: nights,

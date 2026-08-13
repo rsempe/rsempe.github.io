@@ -77,6 +77,8 @@ The estimate includes:
 
 The site does not take payment and does not create a Booking reservation. The submitted NiceTouch message explicitly says that the amount and reservation must be confirmed manually.
 
+If selected dates overlap a busy Booking range, the visitor still sees the estimate and can still send the request. The message clearly marks the stay as already reserved according to Booking so the hosts can reply with alternatives.
+
 Tourist tax notes:
 
 - Studios currently use the fixed public rate shown on the site: `0.70 EUR / adult / night`.
