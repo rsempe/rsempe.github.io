@@ -231,7 +231,7 @@
         <div class="availability-intro">
           <p class="availability-eyebrow">Disponibilités Booking</p>
           <h3 id="studios-availability-title">Calendriers indicatifs des studios</h3>
-          <p>Les dates indisponibles proviennent des calendriers Booking synchronisés. Pour finaliser une réservation, utilisez Booking ou envoyez-nous vos dates pour confirmation.</p>
+          <p>Les dates indisponibles proviennent des calendriers Booking synchronisés. Choisissez vos dates pour vérifier la disponibilité et envoyer une demande de réservation en direct.</p>
         </div>
         <div class="availability-layout">
           <div class="availability-widget" data-availability-widget="cabanon" data-availability-months="3">
@@ -246,11 +246,50 @@
                 <span><i class="is-free"></i>Disponible</span>
                 <span><i class="is-busy"></i>Indisponible</span>
               </div>
-              <div class="availability-actions">
-                <a class="availability-booking-link" href="https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.html" target="_blank" rel="noopener">Réserver sur Booking</a>
-                <a class="availability-contact-link" href="/fr/contact/">Nous contacter</a>
-              </div>
             </div>
+            <form accept-charset="UTF-8" method="post" class="reservation-form" id="reservation-cabanon" data-reservation-form="cabanon">
+              <script src="https://nicetou.ch/forms/0zaf.js"></script>
+              <input type="hidden" name="subject" value="Demande de réservation - Studio Le Cabanon" />
+              <input type="hidden" name="body" value="" />
+              <input type="hidden" name="return_url" value="https://giteslescelestins.com/fr/contact/?sent=1" />
+              <h5>Demande de réservation directe</h5>
+              <div class="reservation-grid">
+                <div class="form-group">
+                  <label for="cabanon-arrival">Arrivée</label>
+                  <input type="date" id="cabanon-arrival" name="arrival_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-departure">Départ</label>
+                  <input type="date" id="cabanon-departure" name="departure_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-adults">Adultes</label>
+                  <input type="number" id="cabanon-adults" name="adults" class="form-control" min="1" max="2" value="2" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-children">Enfants</label>
+                  <input type="number" id="cabanon-children" name="children" class="form-control" min="0" max="1" value="0" />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-name">Nom</label>
+                  <input type="text" id="cabanon-name" name="guest_name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-email">Email</label>
+                  <input type="email" id="cabanon-email" name="sender" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-phone">Téléphone</label>
+                  <input type="tel" id="cabanon-phone" name="phone" class="form-control" />
+                </div>
+                <div class="form-group reservation-message">
+                  <label for="cabanon-message">Message</label>
+                  <textarea id="cabanon-message" name="guest_message" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="reservation-result is-muted" data-reservation-result>Sélectionnez vos dates pour afficher l'estimation.</div>
+              <input type="submit" name="commit" value="Envoyer la demande" class="btn_1 reservation-submit" />
+            </form>
           </div>
           <div class="availability-widget" data-availability-widget="roseraie" data-availability-months="3">
             <h4>Studio La Roseraie</h4>
@@ -264,11 +303,50 @@
                 <span><i class="is-free"></i>Disponible</span>
                 <span><i class="is-busy"></i>Indisponible</span>
               </div>
-              <div class="availability-actions">
-                <a class="availability-booking-link" href="https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.html" target="_blank" rel="noopener">Réserver sur Booking</a>
-                <a class="availability-contact-link" href="/fr/contact/">Nous contacter</a>
-              </div>
             </div>
+            <form accept-charset="UTF-8" method="post" class="reservation-form" id="reservation-roseraie" data-reservation-form="roseraie">
+              <script src="https://nicetou.ch/forms/0zaf.js"></script>
+              <input type="hidden" name="subject" value="Demande de réservation - Studio La Roseraie" />
+              <input type="hidden" name="body" value="" />
+              <input type="hidden" name="return_url" value="https://giteslescelestins.com/fr/contact/?sent=1" />
+              <h5>Demande de réservation directe</h5>
+              <div class="reservation-grid">
+                <div class="form-group">
+                  <label for="roseraie-arrival">Arrivée</label>
+                  <input type="date" id="roseraie-arrival" name="arrival_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-departure">Départ</label>
+                  <input type="date" id="roseraie-departure" name="departure_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-adults">Adultes</label>
+                  <input type="number" id="roseraie-adults" name="adults" class="form-control" min="1" max="2" value="2" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-children">Enfants</label>
+                  <input type="number" id="roseraie-children" name="children" class="form-control" min="0" max="1" value="0" />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-name">Nom</label>
+                  <input type="text" id="roseraie-name" name="guest_name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-email">Email</label>
+                  <input type="email" id="roseraie-email" name="sender" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-phone">Téléphone</label>
+                  <input type="tel" id="roseraie-phone" name="phone" class="form-control" />
+                </div>
+                <div class="form-group reservation-message">
+                  <label for="roseraie-message">Message</label>
+                  <textarea id="roseraie-message" name="guest_message" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="reservation-result is-muted" data-reservation-result>Sélectionnez vos dates pour afficher l'estimation.</div>
+              <input type="submit" name="commit" value="Envoyer la demande" class="btn_1 reservation-submit" />
+            </form>
           </div>
         </div>
       </div>
@@ -376,13 +454,12 @@
             </ul>
           </div>
           <div class="col-md-3 col-sm-4" id="newsletter">
-            <h3>Les Annonces</h3>
+            <h3>Réserver en direct</h3>
             <ul>
-              <li><a href="https://www.booking.com/hotel/fr/les-celestins-chambres-d-hotes.html" target="_blank">Chambres d'Hôtes (Booking)</a></li>
-              <li><a href="https://www.airbnb.fr/rooms/47331722" target="_blank">Studio Le Cabanon (Airbnb)</a></li>
-              <li><a href="https://www.airbnb.fr/rooms/47504292" target="_blank">Studio La Roseraie (Airbnb)</a></li>
-              <li><a href="https://www.airbnb.fr/rooms/47841085" target="_blank">La Villa (Airbnb)</a></li>
-              <li><a href="https://www.booking.com/hotel/fr/villa-en-provence-6-pers.html" target="_blank">La Villa (Booking)</a></li>
+              <li><a href="#reservation-cabanon">Demande Studio Le Cabanon</a></li>
+              <li><a href="#reservation-roseraie">Demande Studio La Roseraie</a></li>
+              <li><a href="/fr/villa/#reservation-villa">Demande Villa Les Célestins</a></li>
+              <li><a href="/fr/contact/">Une question ? Nous contacter</a></li>
             </ul>
           </div>
         </div>
