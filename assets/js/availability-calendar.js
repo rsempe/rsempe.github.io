@@ -186,7 +186,7 @@
         label += " disponible";
       }
 
-      html += '<span class="' + classes.join(" ") + '" aria-label="' + label + '">' + date + "</span>";
+      html += '<span class="' + classes.join(" ") + '" data-day="' + currentDay + '" aria-label="' + label + '">' + date + "</span>";
     }
 
     html += "</div></div>";
@@ -324,6 +324,88 @@
 
     renderCalendars(widget, item);
     renderUpcoming(widget, item);
+    initCalendarSelection(widget);
+  }
+
+  // Click-to-select: first click picks the arrival date, second click the
+  // departure date; the matching request form is pre-filled and scrolled to.
+  function initCalendarSelection(widget) {
+    var key = widget.getAttribute("data-availability-widget");
+    var form = document.querySelector('[data-reservation-form="' + key + '"]');
+    var calendars = widget.querySelector("[data-availability-calendars]");
+
+    if (!form || !calendars || calendars._selectionBound) {
+      return;
+    }
+    calendars._selectionBound = true;
+
+    var selection = { start: null, end: null };
+
+    function paint() {
+      var cells = calendars.querySelectorAll(".availability-day[data-day]");
+      Array.prototype.forEach.call(cells, function (cell) {
+        var day = Number(cell.getAttribute("data-day"));
+        cell.classList.remove("is-selected", "is-in-range");
+        if ((selection.start !== null && day === selection.start) ||
+            (selection.end !== null && day === selection.end)) {
+          cell.classList.add("is-selected");
+        } else if (selection.start !== null && selection.end !== null &&
+            day > selection.start && day < selection.end &&
+            !cell.classList.contains("is-busy")) {
+          cell.classList.add("is-in-range");
+        }
+      });
+    }
+
+    function apply() {
+      var arrival = getField(form, "arrival_date");
+      var departure = getField(form, "departure_date");
+      if (arrival) {
+        arrival.value = selection.start !== null ? dayToIso(selection.start) : "";
+      }
+      if (departure) {
+        departure.value = selection.end !== null ? dayToIso(selection.end) : "";
+      }
+      updateReservationForm(form);
+      if (selection.start !== null && selection.end !== null) {
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    calendars.addEventListener("click", function (event) {
+      var cell = event.target.closest ? event.target.closest(".availability-day[data-day]") : null;
+      if (!cell || !calendars.contains(cell)) {
+        return;
+      }
+
+      var day = Number(cell.getAttribute("data-day"));
+      if (day < todayDay()) {
+        return;
+      }
+      var isFree = cell.classList.contains("is-free");
+
+      if (selection.start === null || selection.end !== null) {
+        // Start a new selection: the arrival night must be free.
+        if (!isFree) {
+          return;
+        }
+        selection.start = day;
+        selection.end = null;
+      } else if (day > selection.start) {
+        // Any later date can be the departure (checkout on a busy or
+        // season-end day is legitimate; the form validates the details).
+        selection.end = day;
+      } else if (isFree) {
+        // Clicked on/before the arrival: restart from there.
+        selection.start = day;
+        selection.end = null;
+      } else {
+        return;
+      }
+
+      paint();
+      apply();
+    });
   }
 
   function getRate(key) {

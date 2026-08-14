@@ -845,6 +845,25 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	text-decoration: line-through;
 }
 
+/* Click-to-select dates in the calendar */
+.availability-day.is-free {
+	cursor: pointer;
+}
+
+.availability-day.is-free:hover {
+	box-shadow: inset 0 0 0 2px #ed5434;
+}
+
+.availability-day.is-in-range {
+	background: #fdece7;
+	color: #c2482e;
+}
+
+.availability-day.is-selected {
+	background: #ed5434;
+	color: #fff;
+}
+
 .availability-meta {
 	display: flex;
 	flex-wrap: wrap;
