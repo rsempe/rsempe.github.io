@@ -203,9 +203,10 @@
 
     if (seasons) {
       // One collapsible block per booking season; the current (or next)
-      // season is expanded by default.
+      // season is expanded by default. Months are paged two at a time.
       var openSet = buildOpenSet(seasons);
       var firstRendered = true;
+      calendars.innerHTML = "";
 
       seasons.forEach(function (season) {
         var seasonStart = dateOnlyToDay(season.start);
@@ -220,28 +221,76 @@
             ? "jusqu'au " + formatDayMonth(season.end)
             : "du " + formatDayMonth(season.start) + " au " + formatDayMonth(season.end));
 
-        html += '<details class="availability-season"' + (firstRendered ? " open" : "") + ">";
-        html += '<summary class="availability-season-title">' + escapeHtml(title) + "</summary>";
-        html += '<div class="availability-season-months">';
-        firstRendered = false;
-
+        var months = [];
         var firstDay = Math.max(seasonStart, currentTodayDay);
         var cursor = new Date(firstDay * DAY_MS);
         cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth(), 1));
-
         while (Math.floor(cursor.getTime() / DAY_MS) <= seasonLastNight) {
-          html += renderMonth(cursor.getUTCFullYear(), cursor.getUTCMonth(), busySet, currentTodayDay, openSet);
+          months.push({ year: cursor.getUTCFullYear(), month: cursor.getUTCMonth() });
           cursor = new Date(Date.UTC(cursor.getUTCFullYear(), cursor.getUTCMonth() + 1, 1));
         }
 
-        html += "</div></details>";
+        var details = document.createElement("details");
+        details.className = "availability-season";
+        if (firstRendered) {
+          details.open = true;
+        }
+        firstRendered = false;
+        details.innerHTML =
+          '<summary class="availability-season-title">' + escapeHtml(title) + "</summary>" +
+          '<div class="availability-pager">' +
+          '<button type="button" class="availability-nav" data-nav="prev" aria-label="Mois précédents">&#8249;</button>' +
+          '<span class="availability-pager-label"></span>' +
+          '<button type="button" class="availability-nav" data-nav="next" aria-label="Mois suivants">&#8250;</button>' +
+          "</div>" +
+          '<div class="availability-season-months"></div>';
+        calendars.appendChild(details);
+
+        var monthsEl = details.querySelector(".availability-season-months");
+        var labelEl = details.querySelector(".availability-pager-label");
+        var prevBtn = details.querySelector('[data-nav="prev"]');
+        var nextBtn = details.querySelector('[data-nav="next"]');
+        var PER_PAGE = 2;
+        var pageCount = Math.max(1, Math.ceil(months.length / PER_PAGE));
+        var page = 0;
+
+        function paintPage() {
+          var slice = months.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+          monthsEl.innerHTML = slice.map(function (m) {
+            return renderMonth(m.year, m.month, busySet, currentTodayDay, openSet);
+          }).join("");
+          labelEl.textContent = slice.map(function (m) {
+            return MONTHS[m.month];
+          }).join(" – ") + " " + slice[0].year;
+          prevBtn.disabled = page === 0;
+          nextBtn.disabled = page >= pageCount - 1;
+          if (typeof calendars._paintSelection === "function") {
+            calendars._paintSelection();
+          }
+        }
+
+        prevBtn.addEventListener("click", function () {
+          if (page > 0) {
+            page -= 1;
+            paintPage();
+          }
+        });
+        nextBtn.addEventListener("click", function () {
+          if (page < pageCount - 1) {
+            page += 1;
+            paintPage();
+          }
+        });
+
+        paintPage();
       });
-    } else {
-      var months = Number(widget.getAttribute("data-availability-months") || 4);
-      for (var offset = 0; offset < months; offset += 1) {
-        var monthDate = new Date(Date.UTC(today.getFullYear(), today.getMonth() + offset, 1));
-        html += renderMonth(monthDate.getUTCFullYear(), monthDate.getUTCMonth(), busySet, currentTodayDay);
-      }
+      return;
+    }
+
+    var monthsCount = Number(widget.getAttribute("data-availability-months") || 4);
+    for (var offset = 0; offset < monthsCount; offset += 1) {
+      var monthDate = new Date(Date.UTC(today.getFullYear(), today.getMonth() + offset, 1));
+      html += renderMonth(monthDate.getUTCFullYear(), monthDate.getUTCMonth(), busySet, currentTodayDay);
     }
 
     calendars.innerHTML = html;
@@ -287,7 +336,6 @@
 
   function renderStatus(widget, item, generatedAt) {
     var status = widget.querySelector("[data-availability-status]");
-    var updatedAt = item.updatedAt || generatedAt;
 
     if (item.error) {
       status.innerHTML = "Mise à jour momentanément indisponible. Envoyez-nous vos dates pour confirmation.";
@@ -301,12 +349,9 @@
       return false;
     }
 
-    if (updatedAt) {
-      var date = new Date(updatedAt);
-      status.innerHTML = "Calendrier mis à jour le " + date.toLocaleDateString("fr-FR") + ".";
-      status.className = "availability-status is-ready";
-    }
-
+    // Calendar in sync: no status line needed.
+    status.innerHTML = "";
+    status.className = "availability-status";
     return true;
   }
 
@@ -356,6 +401,8 @@
         }
       });
     }
+
+    calendars._paintSelection = paint;
 
     function apply() {
       var arrival = getField(form, "arrival_date");

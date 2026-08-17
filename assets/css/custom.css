@@ -783,6 +783,47 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	gap: 16px;
 }
 
+/* Two-months pager inside a season */
+.availability-pager {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin: 0 0 12px;
+}
+
+.availability-pager-label {
+	font-size: 14px;
+	font-weight: 600;
+	color: #333;
+}
+
+.availability-nav {
+	width: 34px;
+	height: 34px;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	background: #fff;
+	color: #ed5434;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+}
+
+.availability-nav:hover:not(:disabled) {
+	border-color: #ed5434;
+}
+
+.availability-nav:disabled {
+	opacity: .3;
+	cursor: default;
+}
+
+.availability-status:empty {
+	display: none;
+}
+
 @media (max-width: 990px) {
 	.availability-season-months {
 		grid-template-columns: 1fr;
