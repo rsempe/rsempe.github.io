@@ -99,17 +99,6 @@
     }).format(date);
   }
 
-  function formatRange(range) {
-    var start = new Date(range.start.slice(0, 10) + "T00:00:00Z");
-    var endDay = range.allDay ? dateOnlyToDay(range.end) - 1 : timedToExclusiveDay(range.end) - 1;
-    var end = new Date(endDay * DAY_MS);
-    var formatter = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "short" });
-
-    if (dayToIso(Math.floor(start.getTime() / DAY_MS)) === dayToIso(Math.floor(end.getTime() / DAY_MS))) {
-      return formatter.format(start);
-    }
-    return formatter.format(start) + " - " + formatter.format(end);
-  }
 
   function nightsBetween(start, end) {
     return dateOnlyToDay(end) - dateOnlyToDay(start);
@@ -240,14 +229,12 @@
           '<summary class="availability-season-title">' + escapeHtml(title) + "</summary>" +
           '<div class="availability-pager">' +
           '<button type="button" class="availability-nav" data-nav="prev" aria-label="Mois précédents">&#8249;</button>' +
-          '<span class="availability-pager-label"></span>' +
           '<button type="button" class="availability-nav" data-nav="next" aria-label="Mois suivants">&#8250;</button>' +
           "</div>" +
           '<div class="availability-season-months"></div>';
         calendars.appendChild(details);
 
         var monthsEl = details.querySelector(".availability-season-months");
-        var labelEl = details.querySelector(".availability-pager-label");
         var prevBtn = details.querySelector('[data-nav="prev"]');
         var nextBtn = details.querySelector('[data-nav="next"]');
         var PER_PAGE = 2;
@@ -259,9 +246,6 @@
           monthsEl.innerHTML = slice.map(function (m) {
             return renderMonth(m.year, m.month, busySet, currentTodayDay, openSet);
           }).join("");
-          labelEl.textContent = slice.map(function (m) {
-            return MONTHS[m.month];
-          }).join(" – ") + " " + slice[0].year;
           prevBtn.disabled = page === 0;
           nextBtn.disabled = page >= pageCount - 1;
           if (typeof calendars._paintSelection === "function") {
@@ -296,43 +280,6 @@
     calendars.innerHTML = html;
   }
 
-  function renderUpcoming(widget, item) {
-    var target = widget.querySelector("[data-availability-upcoming]");
-    if (!target) {
-      return;
-    }
-
-    var heading = target.querySelector("strong");
-    var headingHtml = "<strong>" + escapeHtml(heading ? heading.textContent : "Prochaines périodes indisponibles") + "</strong>";
-    var currentTodayDay = todayDay();
-    var seasons = getSeasons(widget.getAttribute("data-availability-widget"));
-    var openSet = seasons ? buildOpenSet(seasons) : null;
-    var ranges = (item.busy || [])
-      .filter(function (range) {
-        var endDay = range.allDay ? dateOnlyToDay(range.end) : timedToExclusiveDay(range.end);
-        if (endDay < currentTodayDay) {
-          return false;
-        }
-        // Skip busy ranges entirely outside the booking seasons: the
-        // calendar does not display those periods at all.
-        if (openSet) {
-          return rangeToDays(range).some(function (day) {
-            return day >= currentTodayDay && openSet.has(day);
-          });
-        }
-        return true;
-      })
-      .slice(0, 4);
-
-    if (!ranges.length) {
-      target.innerHTML = headingHtml + ' <span class="availability-empty">Aucune période indisponible à venir dans le calendrier public.</span>';
-      return;
-    }
-
-    target.innerHTML = headingHtml + " " + ranges.map(function (range) {
-      return "<span>" + escapeHtml(formatRange(range)) + "</span>";
-    }).join("");
-  }
 
   function renderStatus(widget, item, generatedAt) {
     var status = widget.querySelector("[data-availability-status]");
@@ -368,7 +315,6 @@
     }
 
     renderCalendars(widget, item);
-    renderUpcoming(widget, item);
     initCalendarSelection(widget);
   }
 
