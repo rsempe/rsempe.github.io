@@ -429,6 +429,7 @@
       adults: adults,
       children: children,
       guests: adults + children,
+      hasChildrenField: Boolean(getField(form, "children")),
       name: getFieldValue(form, "guest_name"),
       email: getFieldValue(form, "sender"),
       phone: getFieldValue(form, "phone"),
@@ -533,7 +534,7 @@
       return "La date d'arrivée ne peut pas être dans le passé.";
     }
     if (!values.adults || values.adults < 1) {
-      return "Indiquez au moins un adulte.";
+      return values.hasChildrenField ? "Indiquez au moins un adulte." : "Indiquez au moins une personne.";
     }
     if (values.guests > rate.maxGuests) {
       return "La capacité maximale est de " + rate.maxGuests + " personne" + (rate.maxGuests > 1 ? "s" : "") + ".";
@@ -636,8 +637,8 @@
       "Arrivée : " + formatDate(values.start),
       "Départ : " + formatDate(values.end),
       "Nombre de nuits : " + result.nights,
-      "Adultes : " + values.adults,
-      "Enfants mineurs : " + values.children,
+      values.hasChildrenField ? "Adultes : " + values.adults : "Personnes : " + values.adults,
+      values.hasChildrenField ? "Enfants mineurs : " + values.children : null,
       "",
       "Disponibilité : " + result.availability.message,
       "Hébergement estimé : " + formatCurrency(result.lodging.amount) + " (" + result.lodging.detail + ")",
@@ -656,7 +657,9 @@
     }
 
     lines.push("", "Le paiement n'a pas été effectué sur le site. Le montant et la réservation restent à confirmer manuellement.");
-    return lines.join("\n");
+    return lines.filter(function (line) {
+      return line !== null;
+    }).join("\n");
   }
 
   function updateSubmitState(form, result) {
