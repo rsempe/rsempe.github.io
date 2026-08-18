@@ -122,16 +122,6 @@ h3.caption_header {
 }
 
 
-.contact-booking-panel {
-	margin-top: 22px;
-	padding: 18px;
-	background: #f7f7f7;
-	border-left: 3px solid #ed5434;
-}
-
-.contact-booking-panel p {
-	margin-bottom: 0;
-}
 
 @media (max-width: 767px) {
 	.booking-actions {
