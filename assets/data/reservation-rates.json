@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13",
+  "updatedAt": "2026-08-19",
   "currency": "EUR",
   "taxReferenceUrl": "https://lacove.taxesejour.fr/",
   "accommodations": {
@@ -69,6 +69,20 @@
           "start": "2027-04-30",
           "end": "2027-10-03"
         }
+      ],
+      "restrictions": [
+        {
+          "label": "en juillet et août",
+          "start": "2026-07-01",
+          "end": "2026-09-01",
+          "minNights": 4
+        },
+        {
+          "label": "en juillet et août",
+          "start": "2027-07-01",
+          "end": "2027-09-01",
+          "minNights": 4
+        }
       ]
     },
     "roseraie": {
@@ -93,6 +107,20 @@
         {
           "start": "2027-04-30",
           "end": "2027-10-03"
+        }
+      ],
+      "restrictions": [
+        {
+          "label": "en juillet et août",
+          "start": "2026-07-01",
+          "end": "2026-09-01",
+          "minNights": 4
+        },
+        {
+          "label": "en juillet et août",
+          "start": "2027-07-01",
+          "end": "2027-09-01",
+          "minNights": 4
         }
       ]
     }

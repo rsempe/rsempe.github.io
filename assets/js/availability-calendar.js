@@ -160,6 +160,10 @@
     return restriction.arrivalWeekdays.indexOf(weekdayOfDay(day)) !== -1;
   }
 
+  function capitalize(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  }
+
   // Returns "" when the stay complies, otherwise the reason to display.
   function restrictionIssue(key, startDay, endDay) {
     var restriction = findRestriction(key, startDay, endDay);
@@ -168,7 +172,7 @@
     }
 
     var nights = endDay - startDay;
-    var label = restriction.label ? "Du " + restriction.label.replace(/^du /i, "") : "Sur cette période";
+    var label = restriction.label ? capitalize(restriction.label) : "Sur cette période";
 
     if (Array.isArray(restriction.arrivalWeekdays) &&
         restriction.arrivalWeekdays.indexOf(weekdayOfDay(startDay)) === -1) {
