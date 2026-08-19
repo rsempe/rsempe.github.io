@@ -117,6 +117,10 @@
         5 min by car from the centre of Carpentras (20 min walk) and 7 km from Wave Island and Spirou parks.<br><br>
         Provençal market, Vaucluse villages, Mont Ventoux... or relaxation by the pool.
       </p>
+      <div class="booking-actions">
+        <a class="btn-booking-primary" href="#reservation-cabanon">Request The Cabanon</a>
+        <a class="btn-booking-primary" href="#reservation-roseraie">Request The Roseraie</a>
+      </div>
     </div>
 
     <!-- Le Cabanon -->
@@ -206,22 +210,22 @@
       </div>
     </div>
 
-    <!-- Pricing -->
-    <div class="container_styled_1 margin_30">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h3>Prices</h3>
+    <!-- Rates & availability -->
+    <section class="availability-section" id="availability-studios" aria-labelledby="studios-availability-title">
+      <div class="container">
+        <div class="availability-intro">
+          <h3 id="studios-availability-title">Studio rates and availability</h3>
           <div class="rate-cards">
-            <div class="rate-card">
-              <span class="rate-name">Studio The Roseraie</span>
-              <span class="rate-sub">garden view</span>
-              <span class="rate-price">€120</span>
-              <span class="rate-unit">/ night</span>
-            </div>
             <div class="rate-card">
               <span class="rate-name">Studio The Cabanon</span>
               <span class="rate-sub">pool view</span>
               <span class="rate-price">€130</span>
+              <span class="rate-unit">/ night</span>
+            </div>
+            <div class="rate-card">
+              <span class="rate-name">Studio The Roseraie</span>
+              <span class="rate-sub">garden view</span>
+              <span class="rate-price">€120</span>
               <span class="rate-unit">/ night</span>
             </div>
           </div>
@@ -230,9 +234,100 @@
             <li>Linen, towels, and end-of-stay cleaning included.</li>
             <li><a href="https://lacove.taxesejour.fr" target="_blank" rel="noopener">Tourist tax</a> (extra): 0.70&nbsp;&euro; / night / pers</li>
           </ul>
+          <p>Click your arrival date, then your departure date.</p>
+        </div>
+        <div class="availability-layout">
+          <div class="availability-widget" data-availability-widget="cabanon" data-availability-months="3">
+            <h4>Studio The Cabanon</h4>
+            <div class="availability-status" data-availability-status>Loading calendar...</div>
+            <div class="availability-calendars" data-availability-calendars></div>
+            <form accept-charset="UTF-8" method="post" class="reservation-form" id="reservation-cabanon" data-reservation-form="cabanon">
+              <script src="https://nicetou.ch/forms/0zaf.js"></script>
+              <input type="hidden" name="subject" value="Demande de réservation - Studio Le Cabanon" />
+              <input type="hidden" name="body" value="" />
+              <input type="hidden" name="return_url" value="https://giteslescelestins.com/en/contact/?sent=1" />
+              <h5>Direct booking request</h5>
+              <div class="reservation-grid">
+                <div class="form-group">
+                  <label for="cabanon-arrival">Arrival</label>
+                  <input type="date" id="cabanon-arrival" name="arrival_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-departure">Departure</label>
+                  <input type="date" id="cabanon-departure" name="departure_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-adults">Guests</label>
+                  <input type="number" id="cabanon-adults" name="adults" class="form-control" min="1" max="2" value="2" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-name">Name</label>
+                  <input type="text" id="cabanon-name" name="guest_name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-email">Email</label>
+                  <input type="email" id="cabanon-email" name="sender" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="cabanon-phone">Phone</label>
+                  <input type="tel" id="cabanon-phone" name="phone" class="form-control" />
+                </div>
+                <div class="form-group reservation-message">
+                  <label for="cabanon-message">Message</label>
+                  <textarea id="cabanon-message" name="guest_message" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="reservation-result is-muted" data-reservation-result>Select your dates to see the estimate.</div>
+              <input type="submit" name="commit" value="Send request" class="btn_1 reservation-submit" />
+            </form>
+          </div>
+          <div class="availability-widget" data-availability-widget="roseraie" data-availability-months="3">
+            <h4>Studio The Roseraie</h4>
+            <div class="availability-status" data-availability-status>Loading calendar...</div>
+            <div class="availability-calendars" data-availability-calendars></div>
+            <form accept-charset="UTF-8" method="post" class="reservation-form" id="reservation-roseraie" data-reservation-form="roseraie">
+              <script src="https://nicetou.ch/forms/0zaf.js"></script>
+              <input type="hidden" name="subject" value="Demande de réservation - Studio La Roseraie" />
+              <input type="hidden" name="body" value="" />
+              <input type="hidden" name="return_url" value="https://giteslescelestins.com/en/contact/?sent=1" />
+              <h5>Direct booking request</h5>
+              <div class="reservation-grid">
+                <div class="form-group">
+                  <label for="roseraie-arrival">Arrival</label>
+                  <input type="date" id="roseraie-arrival" name="arrival_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-departure">Departure</label>
+                  <input type="date" id="roseraie-departure" name="departure_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-adults">Guests</label>
+                  <input type="number" id="roseraie-adults" name="adults" class="form-control" min="1" max="2" value="2" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-name">Name</label>
+                  <input type="text" id="roseraie-name" name="guest_name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-email">Email</label>
+                  <input type="email" id="roseraie-email" name="sender" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="roseraie-phone">Phone</label>
+                  <input type="tel" id="roseraie-phone" name="phone" class="form-control" />
+                </div>
+                <div class="form-group reservation-message">
+                  <label for="roseraie-message">Message</label>
+                  <textarea id="roseraie-message" name="guest_message" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="reservation-result is-muted" data-reservation-result>Select your dates to see the estimate.</div>
+              <input type="submit" name="commit" value="Send request" class="btn_1 reservation-submit" />
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Testimonials -->
     <section class="promo_full bnbs">
@@ -360,6 +455,7 @@
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
     <script src="/assets/js/common_scripts_min.js" defer></script>
     <script src="/assets/js/functions.js"></script>
+    <script src="/assets/js/availability-calendar.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>

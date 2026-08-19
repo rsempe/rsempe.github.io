@@ -34,7 +34,14 @@
       ],
       "restrictions": [
         {
-          "label": "du 26 juin au 29 août 2027",
+          "labels": {
+            "fr": "du 26 juin au 29 août 2027",
+            "en": "26 June – 29 August 2027",
+            "de": "26. Juni – 29. August 2027",
+            "nl": "26 juni – 29 augustus 2027",
+            "it": "26 giugno – 29 agosto 2027",
+            "es": "26 de junio – 29 de agosto de 2027"
+          },
           "start": "2027-06-26",
           "end": "2027-08-29",
           "arrivalWeekdays": [
@@ -72,13 +79,27 @@
       ],
       "restrictions": [
         {
-          "label": "en juillet et août",
+          "labels": {
+            "fr": "en juillet et août",
+            "en": "in July and August",
+            "de": "im Juli und August",
+            "nl": "in juli en augustus",
+            "it": "in luglio e agosto",
+            "es": "en julio y agosto"
+          },
           "start": "2026-07-01",
           "end": "2026-09-01",
           "minNights": 4
         },
         {
-          "label": "en juillet et août",
+          "labels": {
+            "fr": "en juillet et août",
+            "en": "in July and August",
+            "de": "im Juli und August",
+            "nl": "in juli en augustus",
+            "it": "in luglio e agosto",
+            "es": "en julio y agosto"
+          },
           "start": "2027-07-01",
           "end": "2027-09-01",
           "minNights": 4
@@ -111,13 +132,27 @@
       ],
       "restrictions": [
         {
-          "label": "en juillet et août",
+          "labels": {
+            "fr": "en juillet et août",
+            "en": "in July and August",
+            "de": "im Juli und August",
+            "nl": "in juli en augustus",
+            "it": "in luglio e agosto",
+            "es": "en julio y agosto"
+          },
           "start": "2026-07-01",
           "end": "2026-09-01",
           "minNights": 4
         },
         {
-          "label": "en juillet et août",
+          "labels": {
+            "fr": "en juillet et août",
+            "en": "in July and August",
+            "de": "im Juli und August",
+            "nl": "in juli en augustus",
+            "it": "in luglio e agosto",
+            "es": "en julio y agosto"
+          },
           "start": "2027-07-01",
           "end": "2027-09-01",
           "minNights": 4

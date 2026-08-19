@@ -3,13 +3,329 @@
 
   var AVAILABILITY_URL = "/assets/data/availability.json";
   var RATES_URL = "/assets/data/reservation-rates.json";
-  var MONTHS = [
-    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
-  ];
-  var WEEKDAYS = ["L", "M", "M", "J", "V", "S", "D"];
-  var WEEKDAY_NAMES = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
   var DAY_MS = 24 * 60 * 60 * 1000;
+
+  var LOCALES = {
+    fr: "fr-FR", en: "en-GB", de: "de-DE", nl: "nl-NL", it: "it-IT", es: "es-ES"
+  };
+
+  // Guest-facing strings. Month and weekday names come from Intl instead.
+  // The e-mail built for the owners stays in French whatever the page
+  // language: the request always lands in the same French inbox.
+  var STRINGS = {
+    fr: {
+      nights: ["nuit", "nuits"],
+      weeks: ["semaine", "semaines"],
+      adults: ["adulte", "adultes"],
+      persons: ["personne", "personnes"],
+      extraNights: ["nuit supp.", "nuits supp."],
+      restrictionFallback: "Sur cette période",
+      restrictionArrival: function (label, days) { return label + ", l'arrivée se fait le " + days + "."; },
+      restrictionMinNights: function (label, n) { return label + ", le séjour minimum est de " + n + " nuits."; },
+      restrictionWeekly: function (label, n) {
+        return label + ", les séjours se font à la semaine (" + n + ", " + (n * 2) + " nuits...).";
+      },
+      weekdayJoin: " ou le ",
+      season: "Saison",
+      until: function (date) { return "jusqu'au " + date; },
+      fromTo: function (from, to) { return "du " + from + " au " + to; },
+      seasonsJoin: ", puis ",
+      seasonsPhrase: function (list) { return "Séjours possibles " + list + " (date de départ incluse)."; },
+      dayPast: " passé",
+      dayClosed: " hors période d'ouverture",
+      dayBusy: " indisponible",
+      dayFree: " disponible",
+      prevMonths: "Mois précédents",
+      nextMonths: "Mois suivants",
+      statusStale: "Mise à jour momentanément indisponible. Envoyez-nous vos dates pour confirmation.",
+      statusSyncing: "Calendrier en cours de synchronisation. Envoyez-nous vos dates pour confirmation.",
+      statusUnavailable: "Calendrier indisponible pour le moment. Envoyez-nous vos dates pour confirmation.",
+      availUnknown: "Disponibilité à confirmer : le calendrier n'est pas encore synchronisé.",
+      availBusy: "Déjà réservé pour au moins une nuit sélectionnée. Vous pouvez tout de même envoyer la demande, nous regarderons les alternatives possibles.",
+      availFree: "Disponible selon notre calendrier.",
+      weekendPackage: function (price) { return "Forfait week-end " + price; },
+      noAdultTax: "Aucune taxe estimée si aucun adulte assujetti n'est indiqué.",
+      vSelectDates: "Sélectionnez une date d'arrivée et une date de départ.",
+      vDepartureAfter: "La date de départ doit être après la date d'arrivée.",
+      vArrivalPast: "La date d'arrivée ne peut pas être dans le passé.",
+      vAtLeastAdult: "Indiquez au moins un adulte.",
+      vAtLeastPerson: "Indiquez au moins une personne.",
+      vMaxCapacity: function (guests) { return "La capacité maximale est de " + guests + "."; },
+      vMinStay: function (n) { return "Le séjour minimum est de " + n + " nuits."; },
+      vOutOfSeason: function (phrase) { return "Dates hors période d'ouverture. " + phrase; },
+      qLodging: "Hébergement",
+      qCleaning: "Ménage",
+      qTax: "Taxe de séjour",
+      qTotal: "Total estimatif",
+      ratesUnavailable: "Tarifs momentanément indisponibles. Vous pouvez nous contacter depuis la page contact."
+    },
+    en: {
+      nights: ["night", "nights"],
+      weeks: ["week", "weeks"],
+      adults: ["adult", "adults"],
+      persons: ["person", "people"],
+      extraNights: ["extra night", "extra nights"],
+      restrictionFallback: "During this period",
+      restrictionArrival: function (label, days) { return label + ": arrival on " + days + " only."; },
+      restrictionMinNights: function (label, n) { return label + ": minimum stay is " + n + " nights."; },
+      restrictionWeekly: function (label, n) {
+        return label + ": stays run by the week (" + n + ", " + (n * 2) + " nights...).";
+      },
+      weekdayJoin: " or ",
+      season: "Season",
+      until: function (date) { return "until " + date; },
+      fromTo: function (from, to) { return from + " to " + to; },
+      seasonsJoin: ", then ",
+      seasonsPhrase: function (list) { return "Stays possible " + list + " (departure date included)."; },
+      dayPast: " (past)",
+      dayClosed: " (outside the booking season)",
+      dayBusy: " (unavailable)",
+      dayFree: " (available)",
+      prevMonths: "Previous months",
+      nextMonths: "Next months",
+      statusStale: "Update temporarily unavailable. Send us your dates and we will confirm.",
+      statusSyncing: "Calendar syncing. Send us your dates and we will confirm.",
+      statusUnavailable: "Calendar unavailable right now. Send us your dates and we will confirm.",
+      availUnknown: "Availability to be confirmed: the calendar is not synced yet.",
+      availBusy: "At least one of the selected nights is already booked. You can still send the request and we will look at the alternatives.",
+      availFree: "Available according to our calendar.",
+      weekendPackage: function (price) { return "Weekend package " + price; },
+      noAdultTax: "No tax estimated when no liable adult is given.",
+      vSelectDates: "Select an arrival date and a departure date.",
+      vDepartureAfter: "The departure date must be after the arrival date.",
+      vArrivalPast: "The arrival date cannot be in the past.",
+      vAtLeastAdult: "Enter at least one adult.",
+      vAtLeastPerson: "Enter at least one person.",
+      vMaxCapacity: function (guests) { return "Maximum capacity is " + guests + "."; },
+      vMinStay: function (n) { return "Minimum stay is " + n + " nights."; },
+      vOutOfSeason: function (phrase) { return "Dates outside the booking season. " + phrase; },
+      qLodging: "Accommodation",
+      qCleaning: "Cleaning",
+      qTax: "Tourist tax",
+      qTotal: "Estimated total",
+      ratesUnavailable: "Rates temporarily unavailable. You can reach us from the contact page."
+    },
+    de: {
+      nights: ["Nacht", "Nächte"],
+      weeks: ["Woche", "Wochen"],
+      adults: ["Erwachsener", "Erwachsene"],
+      persons: ["Person", "Personen"],
+      extraNights: ["Zusatznacht", "Zusatznächte"],
+      restrictionFallback: "In diesem Zeitraum",
+      restrictionArrival: function (label, days) { return label + ": Anreise nur " + days + "."; },
+      restrictionMinNights: function (label, n) { return label + ": Mindestaufenthalt " + n + " Nächte."; },
+      restrictionWeekly: function (label, n) {
+        return label + ": Aufenthalte nur wochenweise (" + n + ", " + (n * 2) + " Nächte...).";
+      },
+      weekdayJoin: " oder ",
+      season: "Saison",
+      until: function (date) { return "bis " + date; },
+      fromTo: function (from, to) { return "von " + from + " bis " + to; },
+      seasonsJoin: ", dann ",
+      seasonsPhrase: function (list) { return "Aufenthalte möglich " + list + " (Abreisetag inklusive)."; },
+      dayPast: " (vergangen)",
+      dayClosed: " (außerhalb der Saison)",
+      dayBusy: " (nicht verfügbar)",
+      dayFree: " (verfügbar)",
+      prevMonths: "Vorherige Monate",
+      nextMonths: "Nächste Monate",
+      statusStale: "Aktualisierung momentan nicht möglich. Senden Sie uns Ihre Daten, wir bestätigen sie.",
+      statusSyncing: "Kalender wird synchronisiert. Senden Sie uns Ihre Daten, wir bestätigen sie.",
+      statusUnavailable: "Kalender momentan nicht verfügbar. Senden Sie uns Ihre Daten, wir bestätigen sie.",
+      availUnknown: "Verfügbarkeit noch zu bestätigen: der Kalender ist noch nicht synchronisiert.",
+      availBusy: "Mindestens eine der gewählten Nächte ist bereits belegt. Sie können die Anfrage trotzdem senden, wir prüfen die Alternativen.",
+      availFree: "Laut unserem Kalender verfügbar.",
+      weekendPackage: function (price) { return "Wochenendpauschale " + price; },
+      noAdultTax: "Keine Kurtaxe geschätzt, solange kein pflichtiger Erwachsener angegeben ist.",
+      vSelectDates: "Wählen Sie ein Anreise- und ein Abreisedatum.",
+      vDepartureAfter: "Das Abreisedatum muss nach dem Anreisedatum liegen.",
+      vArrivalPast: "Das Anreisedatum darf nicht in der Vergangenheit liegen.",
+      vAtLeastAdult: "Geben Sie mindestens einen Erwachsenen an.",
+      vAtLeastPerson: "Geben Sie mindestens eine Person an.",
+      vMaxCapacity: function (guests) { return "Maximale Belegung: " + guests + "."; },
+      vMinStay: function (n) { return "Der Mindestaufenthalt beträgt " + n + " Nächte."; },
+      vOutOfSeason: function (phrase) { return "Daten außerhalb der Saison. " + phrase; },
+      qLodging: "Unterkunft",
+      qCleaning: "Endreinigung",
+      qTax: "Kurtaxe",
+      qTotal: "Geschätzte Gesamtsumme",
+      ratesUnavailable: "Preise momentan nicht verfügbar. Sie können uns über die Kontaktseite erreichen."
+    },
+    nl: {
+      nights: ["nacht", "nachten"],
+      weeks: ["week", "weken"],
+      adults: ["volwassene", "volwassenen"],
+      persons: ["persoon", "personen"],
+      extraNights: ["extra nacht", "extra nachten"],
+      restrictionFallback: "In deze periode",
+      restrictionArrival: function (label, days) { return label + ": aankomst alleen op " + days + "."; },
+      restrictionMinNights: function (label, n) { return label + ": minimaal " + n + " nachten."; },
+      restrictionWeekly: function (label, n) {
+        return label + ": verblijf per week (" + n + ", " + (n * 2) + " nachten...).";
+      },
+      weekdayJoin: " of ",
+      season: "Seizoen",
+      until: function (date) { return "tot " + date; },
+      fromTo: function (from, to) { return "van " + from + " tot " + to; },
+      seasonsJoin: ", daarna ",
+      seasonsPhrase: function (list) { return "Verblijf mogelijk " + list + " (vertrekdatum inbegrepen)."; },
+      dayPast: " (verstreken)",
+      dayClosed: " (buiten het seizoen)",
+      dayBusy: " (niet beschikbaar)",
+      dayFree: " (beschikbaar)",
+      prevMonths: "Vorige maanden",
+      nextMonths: "Volgende maanden",
+      statusStale: "Bijwerken tijdelijk niet mogelijk. Stuur ons uw data, wij bevestigen.",
+      statusSyncing: "Kalender wordt gesynchroniseerd. Stuur ons uw data, wij bevestigen.",
+      statusUnavailable: "Kalender momenteel niet beschikbaar. Stuur ons uw data, wij bevestigen.",
+      availUnknown: "Beschikbaarheid nog te bevestigen: de kalender is nog niet gesynchroniseerd.",
+      availBusy: "Minstens één van de gekozen nachten is al geboekt. U kunt de aanvraag toch versturen, wij bekijken de alternatieven.",
+      availFree: "Beschikbaar volgens onze kalender.",
+      weekendPackage: function (price) { return "Weekendpakket " + price; },
+      noAdultTax: "Geen toeristenbelasting geschat zonder opgave van een belastingplichtige volwassene.",
+      vSelectDates: "Kies een aankomst- en een vertrekdatum.",
+      vDepartureAfter: "De vertrekdatum moet na de aankomstdatum liggen.",
+      vArrivalPast: "De aankomstdatum kan niet in het verleden liggen.",
+      vAtLeastAdult: "Geef minstens één volwassene op.",
+      vAtLeastPerson: "Geef minstens één persoon op.",
+      vMaxCapacity: function (guests) { return "De maximale capaciteit is " + guests + "."; },
+      vMinStay: function (n) { return "Het minimale verblijf is " + n + " nachten."; },
+      vOutOfSeason: function (phrase) { return "Data buiten het seizoen. " + phrase; },
+      qLodging: "Verblijf",
+      qCleaning: "Eindschoonmaak",
+      qTax: "Toeristenbelasting",
+      qTotal: "Geschat totaal",
+      ratesUnavailable: "Tarieven tijdelijk niet beschikbaar. U kunt ons bereiken via de contactpagina."
+    },
+    it: {
+      nights: ["notte", "notti"],
+      weeks: ["settimana", "settimane"],
+      adults: ["adulto", "adulti"],
+      persons: ["persona", "persone"],
+      extraNights: ["notte extra", "notti extra"],
+      restrictionFallback: "In questo periodo",
+      restrictionArrival: function (label, days) { return label + ": arrivo solo " + days + "."; },
+      restrictionMinNights: function (label, n) { return label + ": soggiorno minimo di " + n + " notti."; },
+      restrictionWeekly: function (label, n) {
+        return label + ": soggiorni settimanali (" + n + ", " + (n * 2) + " notti...).";
+      },
+      weekdayJoin: " o ",
+      season: "Stagione",
+      until: function (date) { return "fino al " + date; },
+      fromTo: function (from, to) { return "dal " + from + " al " + to; },
+      seasonsJoin: ", poi ",
+      seasonsPhrase: function (list) { return "Soggiorni possibili " + list + " (data di partenza inclusa)."; },
+      dayPast: " (passato)",
+      dayClosed: " (fuori stagione)",
+      dayBusy: " (non disponibile)",
+      dayFree: " (disponibile)",
+      prevMonths: "Mesi precedenti",
+      nextMonths: "Mesi successivi",
+      statusStale: "Aggiornamento momentaneamente non disponibile. Inviaci le tue date, le confermeremo.",
+      statusSyncing: "Calendario in sincronizzazione. Inviaci le tue date, le confermeremo.",
+      statusUnavailable: "Calendario non disponibile in questo momento. Inviaci le tue date, le confermeremo.",
+      availUnknown: "Disponibilità da confermare: il calendario non è ancora sincronizzato.",
+      availBusy: "Almeno una delle notti selezionate è già prenotata. Puoi comunque inviare la richiesta, cercheremo un'alternativa.",
+      availFree: "Disponibile secondo il nostro calendario.",
+      weekendPackage: function (price) { return "Pacchetto weekend " + price; },
+      noAdultTax: "Nessuna tassa stimata se non è indicato alcun adulto soggetto.",
+      vSelectDates: "Seleziona una data di arrivo e una data di partenza.",
+      vDepartureAfter: "La data di partenza deve essere successiva alla data di arrivo.",
+      vArrivalPast: "La data di arrivo non può essere nel passato.",
+      vAtLeastAdult: "Indica almeno un adulto.",
+      vAtLeastPerson: "Indica almeno una persona.",
+      vMaxCapacity: function (guests) { return "La capacità massima è di " + guests + "."; },
+      vMinStay: function (n) { return "Il soggiorno minimo è di " + n + " notti."; },
+      vOutOfSeason: function (phrase) { return "Date fuori dal periodo di apertura. " + phrase; },
+      qLodging: "Alloggio",
+      qCleaning: "Pulizia finale",
+      qTax: "Tassa di soggiorno",
+      qTotal: "Totale stimato",
+      ratesUnavailable: "Prezzi momentaneamente non disponibili. Puoi contattarci dalla pagina contatti."
+    },
+    es: {
+      nights: ["noche", "noches"],
+      weeks: ["semana", "semanas"],
+      adults: ["adulto", "adultos"],
+      persons: ["persona", "personas"],
+      extraNights: ["noche extra", "noches extra"],
+      restrictionFallback: "En este periodo",
+      restrictionArrival: function (label, days) { return label + ": llegada solo el " + days + "."; },
+      restrictionMinNights: function (label, n) { return label + ": estancia mínima de " + n + " noches."; },
+      restrictionWeekly: function (label, n) {
+        return label + ": estancias por semana (" + n + ", " + (n * 2) + " noches...).";
+      },
+      weekdayJoin: " o el ",
+      season: "Temporada",
+      until: function (date) { return "hasta el " + date; },
+      fromTo: function (from, to) { return "del " + from + " al " + to; },
+      seasonsJoin: ", luego ",
+      seasonsPhrase: function (list) { return "Estancias posibles " + list + " (fecha de salida incluida)."; },
+      dayPast: " (pasado)",
+      dayClosed: " (fuera de temporada)",
+      dayBusy: " (no disponible)",
+      dayFree: " (disponible)",
+      prevMonths: "Meses anteriores",
+      nextMonths: "Meses siguientes",
+      statusStale: "Actualización momentáneamente no disponible. Envíanos tus fechas y las confirmamos.",
+      statusSyncing: "Calendario sincronizándose. Envíanos tus fechas y las confirmamos.",
+      statusUnavailable: "Calendario no disponible por ahora. Envíanos tus fechas y las confirmamos.",
+      availUnknown: "Disponibilidad por confirmar: el calendario aún no está sincronizado.",
+      availBusy: "Al menos una de las noches seleccionadas ya está reservada. Puedes enviar la solicitud igualmente y buscaremos alternativas.",
+      availFree: "Disponible según nuestro calendario.",
+      weekendPackage: function (price) { return "Paquete de fin de semana " + price; },
+      noAdultTax: "No se estima tasa si no se indica ningún adulto sujeto.",
+      vSelectDates: "Selecciona una fecha de llegada y una de salida.",
+      vDepartureAfter: "La fecha de salida debe ser posterior a la de llegada.",
+      vArrivalPast: "La fecha de llegada no puede estar en el pasado.",
+      vAtLeastAdult: "Indica al menos un adulto.",
+      vAtLeastPerson: "Indica al menos una persona.",
+      vMaxCapacity: function (guests) { return "La capacidad máxima es de " + guests + "."; },
+      vMinStay: function (n) { return "La estancia mínima es de " + n + " noches."; },
+      vOutOfSeason: function (phrase) { return "Fechas fuera del periodo de apertura. " + phrase; },
+      qLodging: "Alojamiento",
+      qCleaning: "Limpieza final",
+      qTax: "Tasa turística",
+      qTotal: "Total estimado",
+      ratesUnavailable: "Precios momentáneamente no disponibles. Puedes contactarnos desde la página de contacto."
+    }
+  };
+
+  function pageLang() {
+    var lang = String(document.documentElement.getAttribute("lang") || "fr").slice(0, 2).toLowerCase();
+    return STRINGS[lang] ? lang : "fr";
+  }
+
+  var LANG = pageLang();
+  var LOCALE = LOCALES[LANG];
+  var T = STRINGS[LANG];
+
+  function plural(count, forms) {
+    return count + " " + forms[Math.abs(count) === 1 ? 0 : 1];
+  }
+
+  function intlNames(options) {
+    var formatter = new Intl.DateTimeFormat(LOCALE, options);
+    var count = options.month ? 12 : 7;
+    var names = [];
+    for (var index = 0; index < count; index += 1) {
+      // 2021-08-01 was a Sunday, so weekday indexes match Date#getUTCDay().
+      names.push(formatter.format(options.month
+        ? new Date(Date.UTC(2021, index, 1))
+        : new Date(Date.UTC(2021, 7, 1 + index))));
+    }
+    return names;
+  }
+
+  // Month names head the calendars, so they are capitalised; the long weekday
+  // names appear inside sentences and keep the locale's own casing.
+  var MONTHS = intlNames({ month: "long", timeZone: "UTC" }).map(capitalize);
+  var WEEKDAY_NAMES = intlNames({ weekday: "long", timeZone: "UTC" });
+  var WEEKDAY_INITIALS = intlNames({ weekday: "narrow", timeZone: "UTC" }).map(capitalize);
+  // Calendar columns start on Monday.
+  var WEEKDAYS = [1, 2, 3, 4, 5, 6, 0].map(function (index) {
+    return WEEKDAY_INITIALS[index];
+  });
 
   var state = {
     availability: null,
@@ -77,7 +393,7 @@
   }
 
   function formatCurrency(amount) {
-    return new Intl.NumberFormat("fr-FR", {
+    return new Intl.NumberFormat(LOCALE, {
       style: "currency",
       currency: state.rates && state.rates.currency ? state.rates.currency : "EUR"
     }).format(Math.round((amount + Number.EPSILON) * 100) / 100);
@@ -85,18 +401,20 @@
 
   function formatDate(value) {
     var date = new Date(String(value).slice(0, 10) + "T00:00:00Z");
-    return new Intl.DateTimeFormat("fr-FR", {
+    return new Intl.DateTimeFormat(LOCALE, {
       day: "numeric",
       month: "long",
-      year: "numeric"
+      year: "numeric",
+      timeZone: "UTC"
     }).format(date);
   }
 
   function formatDayMonth(value) {
     var date = new Date(String(value).slice(0, 10) + "T00:00:00Z");
-    return new Intl.DateTimeFormat("fr-FR", {
+    return new Intl.DateTimeFormat(LOCALE, {
       day: "numeric",
-      month: "long"
+      month: "long",
+      timeZone: "UTC"
     }).format(date);
   }
 
@@ -149,7 +467,7 @@
   function listWeekdays(weekdays) {
     return weekdays.map(function (index) {
       return WEEKDAY_NAMES[index];
-    }).join(" ou le ");
+    }).join(T.weekdayJoin);
   }
 
   function isAllowedArrival(key, day) {
@@ -172,18 +490,18 @@
     }
 
     var nights = endDay - startDay;
-    var label = restriction.label ? capitalize(restriction.label) : "Sur cette période";
+    var raw = restriction.labels ? restriction.labels[LANG] || restriction.labels.fr : restriction.label;
+    var label = raw ? capitalize(raw) : T.restrictionFallback;
 
     if (Array.isArray(restriction.arrivalWeekdays) &&
         restriction.arrivalWeekdays.indexOf(weekdayOfDay(startDay)) === -1) {
-      return label + ", l'arrivée se fait le " + listWeekdays(restriction.arrivalWeekdays) + ".";
+      return T.restrictionArrival(label, listWeekdays(restriction.arrivalWeekdays));
     }
     if (restriction.minNights && nights < restriction.minNights) {
-      return label + ", le séjour minimum est de " + restriction.minNights + " nuits.";
+      return T.restrictionMinNights(label, restriction.minNights);
     }
     if (restriction.nightsMultiple && nights % restriction.nightsMultiple !== 0) {
-      return label + ", les séjours se font à la semaine (" + restriction.nightsMultiple +
-        ", " + (restriction.nightsMultiple * 2) + " nuits...).";
+      return T.restrictionWeekly(label, restriction.nightsMultiple);
     }
     return "";
   }
@@ -195,11 +513,11 @@
       })
       .map(function (season) {
         if (dateOnlyToDay(season.start) <= currentTodayDay) {
-          return "jusqu'au " + formatDate(season.end);
+          return T.until(formatDate(season.end));
         }
-        return "du " + formatDate(season.start) + " au " + formatDate(season.end);
+        return T.fromTo(formatDate(season.start), formatDate(season.end));
       });
-    return "Séjours possibles " + parts.join(", puis ") + " (date de départ incluse).";
+    return T.seasonsPhrase(parts.join(T.seasonsJoin));
   }
 
   function renderMonth(year, month, busySet, currentTodayDay, openSet) {
@@ -224,20 +542,20 @@
     for (var date = 1; date <= daysInMonth; date += 1) {
       var currentDay = Math.floor(Date.UTC(year, month, date) / DAY_MS);
       var classes = ["availability-day"];
-      var label = date + " " + MONTHS[month] + " " + year;
+      var label = formatDate(dayToIso(currentDay));
 
       if (currentDay < currentTodayDay) {
         classes.push("is-past");
-        label += " passé";
+        label += T.dayPast;
       } else if (openSet && !openSet.has(currentDay)) {
         classes.push("is-closed");
-        label += " hors période d'ouverture";
+        label += T.dayClosed;
       } else if (busySet.has(currentDay)) {
         classes.push("is-busy");
-        label += " indisponible";
+        label += T.dayBusy;
       } else {
         classes.push("is-free");
-        label += " disponible";
+        label += T.dayFree;
       }
 
       html += '<span class="' + classes.join(" ") + '" data-day="' + currentDay + '" aria-label="' + label + '">' + date + "</span>";
@@ -270,10 +588,10 @@
         }
 
         var endDate = new Date(dateOnlyToDay(season.end) * DAY_MS);
-        var title = "Saison " + endDate.getUTCFullYear() + " · " +
+        var title = T.season + " " + endDate.getUTCFullYear() + " · " +
           (seasonStart <= currentTodayDay
-            ? "jusqu'au " + formatDayMonth(season.end)
-            : "du " + formatDayMonth(season.start) + " au " + formatDayMonth(season.end));
+            ? T.until(formatDayMonth(season.end))
+            : T.fromTo(formatDayMonth(season.start), formatDayMonth(season.end)));
 
         var months = [];
         var firstDay = Math.max(seasonStart, currentTodayDay);
@@ -293,8 +611,8 @@
         details.innerHTML =
           '<summary class="availability-season-title">' + escapeHtml(title) + "</summary>" +
           '<div class="availability-pager">' +
-          '<button type="button" class="availability-nav" data-nav="prev" aria-label="Mois précédents">&#8249;</button>' +
-          '<button type="button" class="availability-nav" data-nav="next" aria-label="Mois suivants">&#8250;</button>' +
+          '<button type="button" class="availability-nav" data-nav="prev" aria-label="' + escapeHtml(T.prevMonths) + '">&#8249;</button>' +
+          '<button type="button" class="availability-nav" data-nav="next" aria-label="' + escapeHtml(T.nextMonths) + '">&#8250;</button>' +
           "</div>" +
           '<div class="availability-season-months"></div>';
         calendars.appendChild(details);
@@ -350,13 +668,13 @@
     var status = widget.querySelector("[data-availability-status]");
 
     if (item.error) {
-      status.innerHTML = "Mise à jour momentanément indisponible. Envoyez-nous vos dates pour confirmation.";
+      status.innerHTML = escapeHtml(T.statusStale);
       status.className = "availability-status is-warning";
       return false;
     }
 
     if (!item.sourceConfigured) {
-      status.innerHTML = "Calendrier en cours de synchronisation. Envoyez-nous vos dates pour confirmation.";
+      status.innerHTML = escapeHtml(T.statusSyncing);
       status.className = "availability-status is-warning";
       return false;
     }
@@ -580,7 +898,7 @@
     if (!item || state.availabilityError || item.error || !item.sourceConfigured) {
       return {
         status: "unknown",
-        message: "Disponibilité à confirmer : le calendrier n'est pas encore synchronisé."
+        message: T.availUnknown
       };
     }
 
@@ -589,14 +907,14 @@
       if (busySet.has(day)) {
         return {
           status: "busy",
-          message: "Déjà réservé pour au moins une nuit sélectionnée. Vous pouvez tout de même envoyer la demande, nous regarderons les alternatives possibles."
+          message: T.availBusy
         };
       }
     }
 
     return {
       status: "free",
-      message: "Disponible selon notre calendrier."
+      message: T.availFree
     };
   }
 
@@ -606,21 +924,21 @@
 
     if (pricing.model === "nightly") {
       lodging = nights * pricing.nightlyRate;
-      detail = nights + " nuit" + (nights > 1 ? "s" : "") + " x " + formatCurrency(pricing.nightlyRate);
+      detail = plural(nights, T.nights) + " x " + formatCurrency(pricing.nightlyRate);
     } else if (pricing.model === "villa_bundle") {
       if (nights < pricing.weekNights) {
         lodging = pricing.weekendPrice + Math.max(0, nights - pricing.weekendNights) * pricing.extraNightPrice;
-        detail = "Forfait week-end " + formatCurrency(pricing.weekendPrice);
+        detail = T.weekendPackage(formatCurrency(pricing.weekendPrice));
         if (nights > pricing.weekendNights) {
-          detail += " + " + (nights - pricing.weekendNights) + " nuit" + (nights - pricing.weekendNights > 1 ? "s" : "") + " supp.";
+          detail += " + " + plural(nights - pricing.weekendNights, T.extraNights);
         }
       } else {
         var weeks = Math.floor(nights / pricing.weekNights);
         var extraNights = nights % pricing.weekNights;
         lodging = weeks * pricing.weekPrice + extraNights * pricing.extraNightPrice;
-        detail = weeks + " semaine" + (weeks > 1 ? "s" : "") + " x " + formatCurrency(pricing.weekPrice);
+        detail = plural(weeks, T.weeks) + " x " + formatCurrency(pricing.weekPrice);
         if (extraNights) {
-          detail += " + " + extraNights + " nuit" + (extraNights > 1 ? "s" : "") + " supp.";
+          detail += " + " + plural(extraNights, T.extraNights);
         }
       }
     }
@@ -640,7 +958,7 @@
     if (!taxableGuests || !nights) {
       return {
         amount: 0,
-        detail: "Aucune taxe estimée si aucun adulte assujetti n'est indiqué."
+        detail: T.noAdultTax
       };
     }
 
@@ -654,28 +972,29 @@
 
     return {
       amount: perAdultNight * nights * taxableGuests,
-      detail: taxableGuests + " adulte" + (taxableGuests > 1 ? "s" : "") + " x " + nights + " nuit" + (nights > 1 ? "s" : "") + " x " + formatCurrency(perAdultNight)
+      detail: plural(taxableGuests, T.adults) + " x " + plural(nights, T.nights) +
+        " x " + formatCurrency(perAdultNight)
     };
   }
 
   function validateReservation(rate, values, nights) {
     if (!values.start || !values.end) {
-      return "Sélectionnez une date d'arrivée et une date de départ.";
+      return T.vSelectDates;
     }
     if (!Number.isFinite(nights) || nights <= 0) {
-      return "La date de départ doit être après la date d'arrivée.";
+      return T.vDepartureAfter;
     }
     if (dateOnlyToDay(values.start) < todayDay()) {
-      return "La date d'arrivée ne peut pas être dans le passé.";
+      return T.vArrivalPast;
     }
     if (!values.adults || values.adults < 1) {
-      return values.hasChildrenField ? "Indiquez au moins un adulte." : "Indiquez au moins une personne.";
+      return values.hasChildrenField ? T.vAtLeastAdult : T.vAtLeastPerson;
     }
     if (values.guests > rate.maxGuests) {
-      return "La capacité maximale est de " + rate.maxGuests + " personne" + (rate.maxGuests > 1 ? "s" : "") + ".";
+      return T.vMaxCapacity(plural(rate.maxGuests, T.persons));
     }
     if (nights < rate.minNights) {
-      return "Le séjour minimum est de " + rate.minNights + " nuits.";
+      return T.vMinStay(rate.minNights);
     }
     var restrictionMessage = restrictionIssue(values.accommodationKey,
       dateOnlyToDay(values.start), dateOnlyToDay(values.end));
@@ -689,7 +1008,7 @@
         return arrivalDay >= dateOnlyToDay(season.start) && departureDay <= dateOnlyToDay(season.end);
       });
       if (!withinSeason) {
-        return "Dates hors période d'ouverture. " + formatSeasonsPhrase(rate.seasons, todayDay());
+        return T.vOutOfSeason(formatSeasonsPhrase(rate.seasons, todayDay()));
       }
     }
     return "";
@@ -717,12 +1036,12 @@
         ? null
         : '<strong>' + escapeHtml(result.availability.message) + "</strong>",
       '<dl>',
-      '<dt>Hébergement</dt><dd>' + escapeHtml(formatCurrency(result.lodging.amount)) + " <span>" + escapeHtml(result.lodging.detail) + "</span></dd>",
+      "<dt>" + escapeHtml(T.qLodging) + "</dt><dd>" + escapeHtml(formatCurrency(result.lodging.amount)) + " <span>" + escapeHtml(result.lodging.detail) + "</span></dd>",
       result.lodging.cleaningFee
-        ? '<dt>Ménage</dt><dd>' + escapeHtml(formatCurrency(result.lodging.cleaningFee)) + "</dd>"
+        ? "<dt>" + escapeHtml(T.qCleaning) + "</dt><dd>" + escapeHtml(formatCurrency(result.lodging.cleaningFee)) + "</dd>"
         : null,
-      '<dt>Taxe de séjour</dt><dd>' + escapeHtml(formatCurrency(result.touristTax.amount)) + " <span>" + escapeHtml(result.touristTax.detail) + "</span></dd>",
-      '<dt>Total estimatif</dt><dd><strong>' + escapeHtml(formatCurrency(result.total)) + "</strong></dd>",
+      "<dt>" + escapeHtml(T.qTax) + "</dt><dd>" + escapeHtml(formatCurrency(result.touristTax.amount)) + " <span>" + escapeHtml(result.touristTax.detail) + "</span></dd>",
+      "<dt>" + escapeHtml(T.qTotal) + "</dt><dd><strong>" + escapeHtml(formatCurrency(result.total)) + "</strong></dd>",
       '</dl>'
     ].filter(function (part) {
       return part !== null;
@@ -742,7 +1061,7 @@
       return {
         ready: false,
         canSubmit: false,
-        message: "Tarifs momentanément indisponibles. Vous pouvez nous contacter depuis la page contact."
+        message: T.ratesUnavailable
       };
     }
 
@@ -774,8 +1093,35 @@
     };
   }
 
+  var LANG_NAMES = {
+    fr: "français", en: "anglais", de: "allemand", nl: "néerlandais", it: "italien", es: "espagnol"
+  };
+
+  // Formats and wording follow the page language everywhere except here: the
+  // request lands in a French inbox, so the message is rebuilt in French.
+  function inFrench(build) {
+    var previousT = T;
+    var previousLocale = LOCALE;
+    T = STRINGS.fr;
+    LOCALE = LOCALES.fr;
+    try {
+      return build();
+    } finally {
+      T = previousT;
+      LOCALE = previousLocale;
+    }
+  }
+
   function buildReservationMessage(result) {
+    return inFrench(function () {
+      return frenchReservationMessage(result);
+    });
+  }
+
+  function frenchReservationMessage(result) {
     var values = result.values;
+    var lodging = computeLodging(result.rate.pricing, result.nights);
+    var touristTax = computeTouristTax(result.rate, lodging.amount, result.nights, values.adults, values.guests);
     var lines = [
       "Demande de réservation depuis le site Les Célestins",
       "",
@@ -786,16 +1132,17 @@
       values.hasChildrenField ? "Adultes : " + values.adults : "Personnes : " + values.adults,
       values.hasChildrenField ? "Enfants mineurs : " + values.children : null,
       "",
-      "Disponibilité : " + result.availability.message,
-      "Hébergement estimé : " + formatCurrency(result.lodging.amount) + " (" + result.lodging.detail + ")",
-      "Ménage : " + formatCurrency(result.lodging.cleaningFee),
-      "Taxe de séjour estimée : " + formatCurrency(result.touristTax.amount) + " (" + result.touristTax.detail + ")",
+      "Disponibilité : " + (STRINGS.fr["avail" + capitalize(result.availability.status)] || result.availability.message),
+      "Hébergement estimé : " + formatCurrency(lodging.amount) + " (" + lodging.detail + ")",
+      "Ménage : " + formatCurrency(lodging.cleaningFee),
+      "Taxe de séjour estimée : " + formatCurrency(touristTax.amount) + " (" + touristTax.detail + ")",
       "Total estimatif : " + formatCurrency(result.total),
       "",
       "Contact",
       "Nom : " + values.name,
       "Email : " + values.email,
-      "Téléphone : " + (values.phone || "Non renseigné")
+      "Téléphone : " + (values.phone || "Non renseigné"),
+      "Langue du visiteur : " + (LANG_NAMES[LANG] || LANG)
     ];
 
     if (values.note) {
@@ -846,7 +1193,9 @@
     }
 
     if (subject) {
-      subject.value = "Demande de réservation - " + result.rate.label + " - " + formatDate(result.values.start);
+      subject.value = inFrench(function () {
+        return "Demande de réservation - " + result.rate.label + " - " + formatDate(result.values.start);
+      });
     }
     if (body) {
       body.value = buildReservationMessage(result);
@@ -887,7 +1236,7 @@
       widgets.forEach(function (widget) {
         var status = widget.querySelector("[data-availability-status]");
         if (status) {
-          status.innerHTML = "Calendrier indisponible pour le moment. Envoyez-nous vos dates pour confirmation.";
+          status.innerHTML = escapeHtml(T.statusUnavailable);
           status.className = "availability-status is-warning";
         }
       });

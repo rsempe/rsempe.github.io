@@ -117,6 +117,10 @@
         A soli 5 minuti d'auto dal centro di Carpentras e a 10 km dai parchi Wave Island e Spirou.<br><br>
         Godetevi il mercato provenzale, esplorate i borghi del Vaucluse (Gordes, Roussillon, L'Isle-sur-la-Sorgue...), salite sul Mont Ventoux o rilassatevi a bordo piscina.
       </p>
+      <div class="booking-actions">
+        <a class="btn-booking-primary" href="#reservation-villa">Richiesta di prenotazione</a>
+        <a class="btn-booking-outline" href="/it/contact/">Contattaci</a>
+      </div>
       <div class="row">
         <div class="col-sm-6">
           <div class="mosaic_container">
@@ -233,16 +237,16 @@
       </div>
     </div>
 
-    <!-- Pricing -->
-    <div class="container margin_30">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h3>Prezzi</h3>
+    <!-- Rates & availability -->
+    <section class="availability-section" id="availability-villa" aria-labelledby="villa-availability-title">
+      <div class="container">
+        <div class="availability-intro">
+          <h3 id="villa-availability-title">Prezzi e disponibilità della villa</h3>
           <div class="rate-cards">
             <div class="rate-card is-featured">
               <span class="rate-name">Settimana</span>
               <span class="rate-sub">7 notti</span>
-              <span class="rate-price">1.930&nbsp;€</span>
+              <span class="rate-price">1930&nbsp;€</span>
             </div>
             <div class="rate-card">
               <span class="rate-name">Weekend</span>
@@ -260,9 +264,60 @@
             <li>Pulizia finale (extra): 80&nbsp;&euro;</li>
             <li><a href="https://lacove.taxesejour.fr" target="_blank" rel="noopener">Tassa di soggiorno</a> (extra)</li>
           </ul>
+          <p>Clicca sulla data di arrivo e poi sulla data di partenza.</p>
+        </div>
+        <div class="availability-layout is-single">
+          <div class="availability-widget" data-availability-widget="villa" data-availability-months="4">
+            <h4>Villa Les Célestins</h4>
+            <div class="availability-status" data-availability-status>Caricamento del calendario...</div>
+            <div class="availability-calendars" data-availability-calendars></div>
+            <form accept-charset="UTF-8" method="post" class="reservation-form" id="reservation-villa" data-reservation-form="villa">
+              <script src="https://nicetou.ch/forms/0zaf.js"></script>
+              <input type="hidden" name="subject" value="Demande de réservation - Villa Les Célestins" />
+              <input type="hidden" name="body" value="" />
+              <input type="hidden" name="return_url" value="https://giteslescelestins.com/it/contact/?sent=1" />
+              <h5>Richiesta di prenotazione diretta</h5>
+              <div class="reservation-grid">
+                <div class="form-group">
+                  <label for="villa-arrival">Arrivo</label>
+                  <input type="date" id="villa-arrival" name="arrival_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-departure">Partenza</label>
+                  <input type="date" id="villa-departure" name="departure_date" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-adults">Adulti</label>
+                  <input type="number" id="villa-adults" name="adults" class="form-control" min="1" max="6" value="2" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-children">Bambini</label>
+                  <input type="number" id="villa-children" name="children" class="form-control" min="0" max="5" value="0" />
+                </div>
+                <div class="form-group">
+                  <label for="villa-name">Nome</label>
+                  <input type="text" id="villa-name" name="guest_name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-email">Email</label>
+                  <input type="email" id="villa-email" name="sender" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="villa-phone">Telefono</label>
+                  <input type="tel" id="villa-phone" name="phone" class="form-control" />
+                </div>
+                <div class="form-group reservation-message">
+                  <label for="villa-message">Messaggio</label>
+                  <textarea id="villa-message" name="guest_message" class="form-control" rows="3"></textarea>
+                </div>
+              </div>
+              <div class="reservation-result is-muted" data-reservation-result>Seleziona le date per vedere la stima.</div>
+              <input type="submit" name="commit" value="Invia la richiesta" class="btn_1 reservation-submit" />
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Testimonials -->
     <section class="promo_full villa">
@@ -421,6 +476,7 @@
     <script src="/assets/js/jquery-1.11.2.min.js"></script>
     <script src="/assets/js/common_scripts_min.js" defer></script>
     <script src="/assets/js/functions.js"></script>
+    <script src="/assets/js/availability-calendar.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script>
