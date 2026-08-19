@@ -912,7 +912,8 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 .reservation-form {
 	margin-top: 20px;
 	padding-top: 18px;
-	border-top: 1px solid #eee;
+	/* No rule here: a collapsed season already draws one right above,
+	   which showed as a doubled line. */
 	scroll-margin-top: 86px;
 }
 
