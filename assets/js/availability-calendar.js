@@ -330,6 +330,10 @@
     }
     calendars._selectionBound = true;
 
+    // The form only appears once both dates are picked in the calendar.
+    // (Without an interactive calendar the form stays visible as fallback.)
+    form.classList.add("is-pending-dates");
+
     var selection = { start: null, end: null };
 
     function paint() {
@@ -361,6 +365,7 @@
       }
       updateReservationForm(form);
       if (selection.start !== null && selection.end !== null) {
+        form.classList.remove("is-pending-dates");
         form.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
