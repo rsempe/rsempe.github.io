@@ -635,14 +635,6 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	text-align: center;
 }
 
-.availability-eyebrow {
-	margin-bottom: 8px;
-	color: #ed5434;
-	font-size: 12px;
-	font-weight: 700;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-}
 
 .availability-intro h3 {
 	margin: 0 0 10px;
