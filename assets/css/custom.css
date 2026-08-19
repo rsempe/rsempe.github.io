@@ -1215,6 +1215,7 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	.rate-notes {
 		justify-content: flex-start;
 		gap: 2px 14px;
+		text-align: left;
 	}
 
 	/* One note per line here: bullets would only misalign the text. */
