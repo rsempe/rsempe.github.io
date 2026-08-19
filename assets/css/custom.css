@@ -1081,3 +1081,144 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 		flex: 1 1 auto;
 	}
 }
+
+/* ------------------------------------------------------------------ */
+/* Rates                                                              */
+/* ------------------------------------------------------------------ */
+
+.rate-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 14px;
+	margin: 0 0 16px;
+	text-align: center;
+}
+
+.rate-card {
+	display: grid;
+	/* Fixed rows keep the big prices on the same line across cards, even when
+	   a card has no detail line. */
+	grid-template-rows: auto 20px auto auto;
+	align-content: center;
+	padding: 20px 16px;
+	background: #fff;
+	border: 1px solid #e6e0d9;
+	border-radius: 6px;
+}
+
+.rate-card.is-featured {
+	border-color: #ed5434;
+	box-shadow: 0 2px 10px rgba(237, 84, 52, .12);
+}
+
+.rate-card .rate-name {
+	grid-row: 1;
+	color: #333;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.rate-card .rate-unit {
+	grid-row: 4;
+}
+
+.rate-card .rate-sub,
+.rate-card .rate-unit {
+	color: #8a8a8a;
+	font-size: 13px;
+}
+
+.rate-card .rate-sub {
+	grid-row: 2;
+	margin-top: 2px;
+}
+
+.rate-card .rate-price {
+	grid-row: 3;
+	margin: 7px 0 1px;
+	color: #ed5434;
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 1.1;
+}
+
+.rate-notes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 4px 18px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #6f6f6f;
+	font-size: 13.5px;
+	line-height: 1.5;
+}
+
+.rate-notes li:first-child::before {
+	display: none;
+}
+
+.rate-notes li::before {
+	content: "\2022";
+	margin-right: 7px;
+	color: #c9c2b9;
+}
+
+.rate-notes a {
+	color: #ed5434;
+	text-decoration: underline;
+}
+
+/* Inside the availability section the rates lead into the calendar. */
+.availability-intro .rate-notes {
+	margin-bottom: 18px;
+}
+
+@media (max-width: 575px) {
+	/* Compact rows on phones: name/detail left, price right. */
+	.rate-card {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		grid-template-rows: auto auto;
+		align-items: baseline;
+		row-gap: 2px;
+		padding: 14px 16px;
+		text-align: left;
+	}
+
+	.rate-card .rate-name {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.rate-card .rate-sub {
+		grid-column: 1;
+		grid-row: 2;
+		margin-top: 0;
+	}
+
+	.rate-card .rate-price {
+		grid-column: 2;
+		grid-row: 1;
+		margin: 0;
+		font-size: 24px;
+		text-align: right;
+	}
+
+	.rate-card .rate-unit {
+		grid-column: 2;
+		grid-row: 2;
+		text-align: right;
+	}
+
+	.rate-notes {
+		justify-content: flex-start;
+		gap: 2px 14px;
+	}
+
+	/* One note per line here: bullets would only misalign the text. */
+	.rate-notes li::before {
+		display: none;
+	}
+}
