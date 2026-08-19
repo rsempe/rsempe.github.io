@@ -8,6 +8,7 @@
     "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
   ];
   var WEEKDAYS = ["L", "M", "M", "J", "V", "S", "D"];
+  var WEEKDAY_NAMES = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
   var DAY_MS = 24 * 60 * 60 * 1000;
 
   var state = {
@@ -121,6 +122,66 @@
       }
     });
     return open;
+  }
+
+  // High-season restrictions (e.g. week-long stays, weekend arrivals only).
+  // A restriction applies as soon as one night of the stay falls inside it.
+  function findRestriction(key, startDay, endDay) {
+    var rate = getRate(key);
+    var list = rate && Array.isArray(rate.restrictions) ? rate.restrictions : [];
+    var match = null;
+
+    list.forEach(function (restriction) {
+      var from = dateOnlyToDay(restriction.start);
+      var to = dateOnlyToDay(restriction.end);
+      if (startDay < to && endDay > from) {
+        match = restriction;
+      }
+    });
+
+    return match;
+  }
+
+  function weekdayOfDay(day) {
+    return new Date(day * DAY_MS).getUTCDay();
+  }
+
+  function listWeekdays(weekdays) {
+    return weekdays.map(function (index) {
+      return WEEKDAY_NAMES[index];
+    }).join(" ou le ");
+  }
+
+  function isAllowedArrival(key, day) {
+    var restriction = findRestriction(key, day, day + 1);
+    if (!restriction || !Array.isArray(restriction.arrivalWeekdays)) {
+      return true;
+    }
+    return restriction.arrivalWeekdays.indexOf(weekdayOfDay(day)) !== -1;
+  }
+
+  // Returns "" when the stay complies, otherwise the reason to display.
+  function restrictionIssue(key, startDay, endDay) {
+    var restriction = findRestriction(key, startDay, endDay);
+    if (!restriction) {
+      return "";
+    }
+
+    var nights = endDay - startDay;
+    var label = restriction.label ? "Du " + restriction.label.replace(/^du /i, "") : "Sur cette période";
+
+    if (Array.isArray(restriction.arrivalWeekdays) &&
+        restriction.arrivalWeekdays.indexOf(weekdayOfDay(startDay)) === -1) {
+      return label + ", l'arrivée se fait le " + listWeekdays(restriction.arrivalWeekdays) + ".";
+    }
+    if (restriction.minNights && nights < restriction.minNights) {
+      return label + ", le séjour minimum est de " + restriction.minNights + " nuits.";
+    }
+    if (restriction.nightsMultiple && nights % restriction.nightsMultiple !== 0) {
+      return label + ", les séjours se font à la semaine (" + restriction.nightsMultiple +
+        ", " + (restriction.nightsMultiple * 2) + " nuits...).";
+    }
+    return "";
   }
 
   function formatSeasonsPhrase(seasons, currentTodayDay) {
@@ -341,10 +402,16 @@
       return rate && rate.minNights ? rate.minNights : 1;
     }
 
-    // A departure closer than minNights to the arrival is not selectable.
+    // Departures that break the minimum stay or a high-season restriction
+    // (week-long stays, weekend arrivals) are not selectable.
     function isTooSoon(day) {
-      return selection.start !== null && selection.end === null &&
-        day > selection.start && day - selection.start < minNights();
+      if (selection.start === null || selection.end !== null || day <= selection.start) {
+        return false;
+      }
+      if (day - selection.start < minNights()) {
+        return true;
+      }
+      return Boolean(restrictionIssue(key, selection.start, day));
     }
 
     function paint() {
@@ -366,6 +433,17 @@
     }
 
     calendars._paintSelection = paint;
+
+    // Contextual hint (e.g. "arrival on Saturday or Sunday"), shown in the
+    // status line which is otherwise empty when everything is fine.
+    function showHint(message) {
+      var status = widget.querySelector("[data-availability-status]");
+      if (!status) {
+        return;
+      }
+      status.innerHTML = message ? escapeHtml(message) : "";
+      status.className = message ? "availability-status is-warning" : "availability-status";
+    }
 
     function apply() {
       var arrival = getField(form, "arrival_date");
@@ -401,6 +479,11 @@
         if (!isFree) {
           return;
         }
+        if (!isAllowedArrival(key, day)) {
+          showHint(restrictionIssue(key, day, day + 1));
+          return;
+        }
+        showHint("");
         selection.start = day;
         selection.end = null;
       } else if (day > selection.start) {
@@ -413,6 +496,11 @@
         selection.end = day;
       } else if (isFree) {
         // Clicked on/before the arrival: restart from there.
+        if (!isAllowedArrival(key, day)) {
+          showHint(restrictionIssue(key, day, day + 1));
+          return;
+        }
+        showHint("");
         selection.start = day;
         selection.end = null;
       } else {
@@ -584,6 +672,11 @@
     }
     if (nights < rate.minNights) {
       return "Le séjour minimum est de " + rate.minNights + " nuits.";
+    }
+    var restrictionMessage = restrictionIssue(values.accommodationKey,
+      dateOnlyToDay(values.start), dateOnlyToDay(values.end));
+    if (restrictionMessage) {
+      return restrictionMessage;
     }
     if (rate.seasons && rate.seasons.length) {
       var arrivalDay = dateOnlyToDay(values.start);

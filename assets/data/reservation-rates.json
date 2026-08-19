@@ -31,6 +31,19 @@
           "start": "2027-04-16",
           "end": "2027-10-17"
         }
+      ],
+      "restrictions": [
+        {
+          "label": "du 26 juin au 29 août 2027",
+          "start": "2027-06-26",
+          "end": "2027-08-29",
+          "arrivalWeekdays": [
+            6,
+            0
+          ],
+          "minNights": 7,
+          "nightsMultiple": 7
+        }
       ]
     },
     "cabanon": {
