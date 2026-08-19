@@ -1051,3 +1051,33 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 		grid-column: auto;
 	}
 }
+
+/* Testimonial slides: keep the avatar block and the quote vertically
+   centred whatever the review length (Swiper gives every slide the
+   height of the longest one). Mobile keeps the stacked layout from
+   responsive.css. */
+@media (min-width: 768px) {
+	.testimonials-swiper .swiper-slide {
+		display: flex;
+		align-items: center;
+	}
+
+	.testimonials-swiper .box_overlay {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		width: 100%;
+		padding: 25px;
+	}
+
+	.testimonials-swiper .box_overlay .pic {
+		position: relative;
+		left: auto;
+		top: auto;
+		flex: 0 0 190px;
+	}
+
+	.testimonials-swiper .box_overlay .comment {
+		flex: 1 1 auto;
+	}
+}
