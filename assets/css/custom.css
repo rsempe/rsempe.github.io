@@ -889,16 +889,6 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	color: #fff;
 }
 
-.availability-meta {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-	align-items: center;
-	justify-content: space-between;
-	margin-top: 18px;
-	padding-top: 16px;
-	border-top: 1px solid #eee;
-}
 
 
 
@@ -1043,9 +1033,6 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 		padding: 16px;
 	}
 
-	.availability-meta {
-		display: block;
-	}
 
 	.availability-layout .reservation-grid,
 	.reservation-grid,
