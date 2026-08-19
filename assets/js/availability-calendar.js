@@ -379,6 +379,7 @@
       updateReservationForm(form);
       if (selection.start !== null && selection.end !== null) {
         form.classList.remove("is-pending-dates");
+        ensureHashcash(form);
         form.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
@@ -433,6 +434,26 @@
 
   function getField(form, name) {
     return form.querySelector('[name="' + name + '"]');
+  }
+
+  // NiceTouch keeps a single global Hashcash worker, so on a page with two
+  // request forms the second script cancels the first form's proof-of-work
+  // and its submit button stays on "Waiting for verification ...".
+  // Re-mint on demand for the form the visitor is actually using.
+  function ensureHashcash(form) {
+    var input = getField(form, "hashcash");
+    if (!input || input.value || form._hashcashRetried) {
+      return;
+    }
+    if (typeof Hashcash !== "function") {
+      return;
+    }
+    form._hashcashRetried = true;
+    try {
+      new Hashcash(input);
+    } catch (error) {
+      form._hashcashRetried = false;
+    }
   }
 
   function getFieldValue(form, name) {
@@ -694,6 +715,11 @@
     var submit = form.querySelector('[type="submit"]');
     var hashcash = getField(form, "hashcash");
     var hashcashReady = !hashcash || Boolean(hashcash.value);
+
+    // Covers dates typed straight into the fields, without the calendar.
+    if (result.canSubmit && !hashcashReady) {
+      ensureHashcash(form);
+    }
 
     if (submit) {
       submit.disabled = !result.canSubmit || !hashcashReady;
