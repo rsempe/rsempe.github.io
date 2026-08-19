@@ -655,6 +655,9 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 22px;
+	/* Each studio box keeps its own height: expanding one season must not
+	   stretch the neighbouring box into a tall empty panel. */
+	align-items: start;
 }
 
 .availability-layout.is-single {
