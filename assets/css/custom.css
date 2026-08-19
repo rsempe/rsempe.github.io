@@ -881,6 +881,17 @@ footer figure img { display: block; margin-left: auto; margin-right: auto; }
 	color: #fff;
 }
 
+/* Departure too close to the arrival (below the minimum stay) */
+.availability-day.is-too-soon {
+	background: #f4f4f4;
+	color: #c9c9c9;
+	cursor: not-allowed;
+}
+
+.availability-day.is-too-soon:hover {
+	box-shadow: none;
+}
+
 
 
 

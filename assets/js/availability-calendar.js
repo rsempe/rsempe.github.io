@@ -336,11 +336,22 @@
 
     var selection = { start: null, end: null };
 
+    function minNights() {
+      var rate = getRate(key);
+      return rate && rate.minNights ? rate.minNights : 1;
+    }
+
+    // A departure closer than minNights to the arrival is not selectable.
+    function isTooSoon(day) {
+      return selection.start !== null && selection.end === null &&
+        day > selection.start && day - selection.start < minNights();
+    }
+
     function paint() {
       var cells = calendars.querySelectorAll(".availability-day[data-day]");
       Array.prototype.forEach.call(cells, function (cell) {
         var day = Number(cell.getAttribute("data-day"));
-        cell.classList.remove("is-selected", "is-in-range");
+        cell.classList.remove("is-selected", "is-in-range", "is-too-soon");
         if ((selection.start !== null && day === selection.start) ||
             (selection.end !== null && day === selection.end)) {
           cell.classList.add("is-selected");
@@ -348,6 +359,8 @@
             day > selection.start && day < selection.end &&
             !cell.classList.contains("is-busy")) {
           cell.classList.add("is-in-range");
+        } else if (isTooSoon(day)) {
+          cell.classList.add("is-too-soon");
         }
       });
     }
@@ -390,6 +403,10 @@
         selection.start = day;
         selection.end = null;
       } else if (day > selection.start) {
+        // Enforce the minimum stay before anything else.
+        if (isTooSoon(day)) {
+          return;
+        }
         // Any later date can be the departure (checkout on a busy or
         // season-end day is legitimate; the form validates the details).
         selection.end = day;
