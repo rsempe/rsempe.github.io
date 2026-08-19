@@ -594,15 +594,21 @@
         result.availability.status === "unknown" ? "is-warning" : "is-ready"
     );
     target.innerHTML = [
-      '<strong>' + escapeHtml(result.availability.message) + "</strong>",
+      // Only warnings are worth a heading; "available" is already implied.
+      result.availability.status === "free"
+        ? null
+        : '<strong>' + escapeHtml(result.availability.message) + "</strong>",
       '<dl>',
       '<dt>Hébergement</dt><dd>' + escapeHtml(formatCurrency(result.lodging.amount)) + " <span>" + escapeHtml(result.lodging.detail) + "</span></dd>",
-      '<dt>Ménage</dt><dd>' + escapeHtml(formatCurrency(result.lodging.cleaningFee)) + "</dd>",
-      '<dt>Taxe de séjour estimée</dt><dd>' + escapeHtml(formatCurrency(result.touristTax.amount)) + " <span>" + escapeHtml(result.touristTax.detail) + "</span></dd>",
+      result.lodging.cleaningFee
+        ? '<dt>Ménage</dt><dd>' + escapeHtml(formatCurrency(result.lodging.cleaningFee)) + "</dd>"
+        : null,
+      '<dt>Taxe de séjour</dt><dd>' + escapeHtml(formatCurrency(result.touristTax.amount)) + " <span>" + escapeHtml(result.touristTax.detail) + "</span></dd>",
       '<dt>Total estimatif</dt><dd><strong>' + escapeHtml(formatCurrency(result.total)) + "</strong></dd>",
-      '</dl>',
-      '<p>Prix estimatif, hors options éventuelles, à confirmer lors de notre réponse.</p>'
-    ].join("");
+      '</dl>'
+    ].filter(function (part) {
+      return part !== null;
+    }).join("");
   }
 
   function calculateReservation(form) {
