@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19",
+  "updatedAt": "2026-08-24",
   "currency": "EUR",
   "taxReferenceUrl": "https://lacove.taxesejour.fr/",
   "accommodations": {
@@ -25,7 +25,7 @@
       "seasons": [
         {
           "start": "2026-01-01",
-          "end": "2026-09-30"
+          "end": "2026-08-30"
         },
         {
           "start": "2027-04-16",
