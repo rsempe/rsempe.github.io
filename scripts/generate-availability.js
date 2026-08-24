@@ -13,6 +13,11 @@ const ACCOMMODATIONS = [
 
 const DEFAULT_OUTPUT = path.join("assets", "data", "availability.json");
 const MANUAL_CLOSURES = path.join("assets", "data", "manual-closures.json");
+// Booking exports the months it has not opened for sale as one huge "closed"
+// block (e.g. 493 nights covering all of next season). That is not a booking,
+// and the site's own opening seasons already say when we take requests, so
+// blocks this long are dropped instead of blacking out the calendar.
+const DEFAULT_MAX_BUSY_NIGHTS = 60;
 
 function printUsage() {
   console.log(`Usage: node scripts/generate-availability.js [options]
@@ -22,6 +27,7 @@ Options:
   --villa-file <path>       Local ICS file for Villa
   --cabanon-file <path>     Local ICS file for Cabanon
   --roseraie-file <path>    Local ICS file for Roseraie
+  --max-busy-nights <n>     Ignore closed blocks longer than n nights (default: ${DEFAULT_MAX_BUSY_NIGHTS})
   --villa-url <url>         ICS URL for Villa
   --cabanon-url <url>       ICS URL for Cabanon
   --roseraie-url <url>      ICS URL for Roseraie
@@ -35,7 +41,12 @@ Environment:
 }
 
 function parseArgs(argv) {
-  const args = { files: {}, urls: {}, out: process.env.AVAILABILITY_OUTPUT || DEFAULT_OUTPUT };
+  const args = {
+    files: {},
+    urls: {},
+    out: process.env.AVAILABILITY_OUTPUT || DEFAULT_OUTPUT,
+    maxBusyNights: DEFAULT_MAX_BUSY_NIGHTS,
+  };
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -51,6 +62,16 @@ function parseArgs(argv) {
         throw new Error(`Missing value for ${arg}`);
       }
       args[`${match[2]}s`][match[1]] = value;
+      index += 1;
+      continue;
+    }
+
+    if (arg === "--max-busy-nights") {
+      const value = Number(argv[index + 1]);
+      if (!Number.isInteger(value) || value < 1) {
+        throw new Error("Missing or invalid value for --max-busy-nights");
+      }
+      args.maxBusyNights = value;
       index += 1;
       continue;
     }
@@ -258,6 +279,24 @@ function toPublicAvailability(accommodation, source, events, error, timestamp) {
   };
 }
 
+function busyNights(range) {
+  const day = (value) => Math.floor(Date.parse(`${String(value).slice(0, 10)}T00:00:00Z`) / 86400000);
+  return day(range.end) - day(range.start);
+}
+
+// Returns the ranges to publish; season-wide closures are reported, never
+// published, so the calendar keeps showing next season as open to requests.
+function dropSeasonWideClosures(events, maxNights, label) {
+  return events.filter((event) => {
+    const nights = busyNights(event);
+    if (Number.isFinite(nights) && nights > maxNights) {
+      console.error(`${label}: ignoring ${nights}-night closure ${event.start} -> ${event.end} (over ${maxNights} nights)`);
+      return false;
+    }
+    return true;
+  });
+}
+
 async function readManualClosures(filePath) {
   let raw;
   try {
@@ -349,7 +388,8 @@ async function main() {
 
     try {
       const content = await readSource(source);
-      const events = mergeBusy(parseIcs(content), manualClosures[accommodation.key] || []);
+      const parsed = dropSeasonWideClosures(parseIcs(content), args.maxBusyNights, accommodation.label);
+      const events = mergeBusy(parsed, manualClosures[accommodation.key] || []);
       output.accommodations[accommodation.key] = toPublicAvailability(accommodation, source, events, null, timestamp);
     } catch (error) {
       // Keep the last known busy ranges instead of wiping them, so a

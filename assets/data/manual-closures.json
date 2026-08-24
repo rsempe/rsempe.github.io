@@ -3,8 +3,6 @@
   "closures": {
     "villa": [],
     "cabanon": [],
-    "roseraie": [
-      { "start": "2026-09-02", "end": "2026-09-08", "note": "Fermé sur Booking, absent de l'export iCal" }
-    ]
+    "roseraie": []
   }
 }
