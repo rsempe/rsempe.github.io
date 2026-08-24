@@ -12,6 +12,7 @@ const ACCOMMODATIONS = [
 ];
 
 const DEFAULT_OUTPUT = path.join("assets", "data", "availability.json");
+const MANUAL_CLOSURES = path.join("assets", "data", "manual-closures.json");
 
 function printUsage() {
   console.log(`Usage: node scripts/generate-availability.js [options]
@@ -257,6 +258,40 @@ function toPublicAvailability(accommodation, source, events, error, timestamp) {
   };
 }
 
+async function readManualClosures(filePath) {
+  let raw;
+  try {
+    raw = await fs.promises.readFile(filePath, "utf8");
+  } catch (error) {
+    return {};
+  }
+
+  const parsed = JSON.parse(raw);
+  const closures = parsed && parsed.closures ? parsed.closures : {};
+  const byKey = {};
+
+  Object.keys(closures).forEach((key) => {
+    const ranges = Array.isArray(closures[key]) ? closures[key] : [];
+    byKey[key] = ranges.map((range) => {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(range.start) || !/^\d{4}-\d{2}-\d{2}$/.test(range.end)) {
+        throw new Error(`Invalid manual closure for ${key}: ${JSON.stringify(range)}`);
+      }
+      if (range.end <= range.start) {
+        throw new Error(`Manual closure ends before it starts for ${key}: ${JSON.stringify(range)}`);
+      }
+      return { start: range.start, end: range.end, allDay: true };
+    });
+  });
+
+  return byKey;
+}
+
+function mergeBusy(events, manual) {
+  const seen = new Set(events.map((event) => `${event.start}|${event.end}`));
+  const extra = manual.filter((range) => !seen.has(`${range.start}|${range.end}`));
+  return events.concat(extra).sort((a, b) => (a.start < b.start ? -1 : a.start > b.start ? 1 : 0));
+}
+
 async function readExistingOutput(filePath) {
   try {
     return JSON.parse(await fs.promises.readFile(filePath, "utf8"));
@@ -299,6 +334,7 @@ async function main() {
 
   const timestamp = new Date().toISOString();
   const previous = await readExistingOutput(args.out);
+  const manualClosures = await readManualClosures(MANUAL_CLOSURES);
   const output = {
     generatedAt: timestamp,
     accommodations: {},
@@ -313,7 +349,7 @@ async function main() {
 
     try {
       const content = await readSource(source);
-      const events = parseIcs(content);
+      const events = mergeBusy(parseIcs(content), manualClosures[accommodation.key] || []);
       output.accommodations[accommodation.key] = toPublicAvailability(accommodation, source, events, null, timestamp);
     } catch (error) {
       // Keep the last known busy ranges instead of wiping them, so a
@@ -323,7 +359,7 @@ async function main() {
       // Publish a generic error only: network error messages can contain
       // the private calendar host. Details go to the CI logs instead.
       const item = toPublicAvailability(accommodation, source, [], new Error("Calendar temporarily unavailable"), timestamp);
-      item.busy = keptBusy;
+      item.busy = mergeBusy(keptBusy, manualClosures[accommodation.key] || []);
       item.updatedAt = kept && kept.updatedAt ? kept.updatedAt : null;
       output.accommodations[accommodation.key] = item;
       console.error(`${accommodation.label}: ${error.message}`);

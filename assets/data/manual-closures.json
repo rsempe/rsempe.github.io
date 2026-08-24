@@ -1,0 +1,10 @@
+{
+  "comment": "Dates fermées côté Booking que son export iCal ne transmet pas (l'export peut être réglé sur les seules dates réservées). Retirer une entrée dès que le flux la porte lui-même.",
+  "closures": {
+    "villa": [],
+    "cabanon": [],
+    "roseraie": [
+      { "start": "2026-09-02", "end": "2026-09-08", "note": "Fermé sur Booking, absent de l'export iCal" }
+    ]
+  }
+}
