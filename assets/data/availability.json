@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-09-22T04:59:19.235Z",
+  "generatedAt": "2026-09-23T04:47:04.778Z",
   "accommodations": {
     "villa": {
       "label": "Villa",
       "sourceConfigured": true,
-      "updatedAt": "2026-09-22T04:59:19.235Z",
+      "updatedAt": "2026-09-23T04:47:04.778Z",
       "busy": [],
       "error": null
     },
     "cabanon": {
       "label": "Cabanon",
       "sourceConfigured": true,
-      "updatedAt": "2026-09-22T04:59:19.235Z",
+      "updatedAt": "2026-09-23T04:47:04.778Z",
       "busy": [],
       "error": null
     },
     "roseraie": {
       "label": "Roseraie",
       "sourceConfigured": true,
-      "updatedAt": "2026-09-22T04:59:19.235Z",
+      "updatedAt": "2026-09-23T04:47:04.778Z",
       "busy": [
         {
-          "start": "2026-09-22",
+          "start": "2026-09-23",
           "end": "2026-09-24",
           "allDay": true
         }
